@@ -14,7 +14,8 @@
             <div class="footer-logo-center">
               <img src="{{ asset('assets/METTACITY LOGO WHITE.png') }}" class="footer-logo" alt="">
               <div class="footer-socials">
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/MettaCityPH" target="_blank">
+                <i class="fa-brands fa-facebook-f" alt="Facebook"></i></a>
                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
               </div>

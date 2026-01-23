@@ -66,7 +66,7 @@
 
                                 <!-- Social Icons -->
                                 <div class="social-icons">
-                                    <a href="https://facebook.com" target="_blank">
+                                    <a href="https://www.facebook.com/MettaCityPH" target="_blank">
                                         <img src="{{ asset('./assets/FB.png') }}" alt="Facebook">
                                     </a>
                                     <a href="https://youtube.com" target="_blank">
