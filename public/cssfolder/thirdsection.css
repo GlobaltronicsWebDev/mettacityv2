@@ -9,14 +9,31 @@
             z-index: 2; /* sits above carousel (z:0) and below overlay (z:2/10) */
 }
 .Circularbutton {
-            position: absolute;
-            top: 301%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: clamp(90px, 20vw, 250px);
-            height: auto;
-            display: block;
-            z-index: 2; /* sits above carousel (z:0) and below overlay (z:2/10) */
+  position: absolute;
+  top: 301%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: clamp(90px, 20vw, 250px); /* responsive width */
+  height: auto;
+  
+  display: block;
+  z-index: 2; /* sits above carousel and below overlay */
+  
+  border-radius: 50%; /* make circular */
+  
+  /* Rotation */
+  animation: rotateClockwise 4s linear infinite;
+}
+
+/* Keyframes for clockwise rotation */
+@keyframes rotateClockwise {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
 }
   .title {
     position: relative; /* relative to body */
