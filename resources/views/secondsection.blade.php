@@ -51,7 +51,7 @@
     <div class="banner">
         <h2>The future of amusement-</h2>
         <h1>Where Culture, Play, and Technology Meet</h1>
-        <img src="{{ asset('./assets/ENTER BUTTON.png') }}" alt="Enter Button" class="enter-button">
+        <a href="{{ route('enter.metta.city') }}"><img src="{{ asset('./assets/ENTER BUTTON.png') }}" alt="Enter Button" class="enter-button"></a>
     </div>
 
     <!-- Main Carousel -->

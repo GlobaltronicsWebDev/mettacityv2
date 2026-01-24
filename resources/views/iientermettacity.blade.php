@@ -1,3 +1,6 @@
+  
+  <link rel="stylesheet" href="{{ asset('cssfolder/iientermettacity.css') }}">
+
   <!-- HERO SECTION -->
   <section class="hero-wrapper">
 
