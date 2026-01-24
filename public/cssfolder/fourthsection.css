@@ -3,6 +3,7 @@
    ========================= */
 .fourth-section {
   background-color: #fbf8ff;
+  margin-top: 100px;
 }
 
 /* =========================
@@ -41,7 +42,7 @@
   align-items: center;           /* vertical centering */
   flex-wrap: wrap;
   padding: 180px 130px 0 150px;
-  margin-top: -350px;            /* pull section upward */
+  margin-top: -400px;            /* pull section upward */
   box-sizing: border-box;
   z-index: 1;
 }
@@ -102,7 +103,7 @@
    ========================= */
 .fourth-scrolling-banner-wrapper {
   position: absolute;
-  top: 475%;
+  top: 470%;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -207,7 +208,7 @@
     #f4f4fe 100%
   );
   padding-bottom: 200px;
-  margin-top: -70px;
+  margin-top: -80px;
 }
 
 /* =========================

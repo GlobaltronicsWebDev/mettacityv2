@@ -13,7 +13,7 @@
   position: relative;
   z-index: 10;
   text-align: center;
-  margin: -180px auto 0; /* controls vertical position cleanly */
+  margin: -100px auto 0; /* controls vertical position cleanly */
 }
 
 .thirdtitle h2 {
@@ -48,7 +48,7 @@
 
 .Circularbutton {
   position: absolute;
-  top: 305%;
+  top: 301%;
   left: 50%;
   transform: translateX(-50%);
   
