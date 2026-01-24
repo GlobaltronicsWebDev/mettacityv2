@@ -14,6 +14,8 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('cssfolder/iientermettacity.css') }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
+
 </head>
 
 <body>
@@ -199,9 +201,12 @@
               <h2 class="statement-heading">
                 Where Culture, Play, and Technology Meet
               </h2>
+              <img src="{{ asset('./assets/PLAN YOUR VISIT.png') }}" alt="Enter Button" class="enter-button">
             </div>
           </div>
         </section>
+
+@include('footer')
 
 
   <!-- Bootstrap JS -->

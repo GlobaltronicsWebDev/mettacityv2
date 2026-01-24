@@ -703,8 +703,8 @@
 .statement-section {
   position: relative;
   z-index: 4;
-  padding-top: 120px;
-  padding-bottom: 220px;
+  padding-top: 100px;
+  padding-bottom: 350px;
   background: transparent;
 }
 
@@ -738,6 +738,14 @@
   font-weight: bold;
   /* 🔥 OPTICAL ADJUSTMENT */
   transform: translateX(-1px);
+}
+.enter-button{
+  margin-top: 50px;
+  width: 250px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 

@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('cssfolder/secondsection.css') }}"> 
     <link rel="stylesheet" href="{{ asset('cssfolder/thirdsection.css') }}"> 
     <link rel="stylesheet" href="{{ asset('cssfolder/fourthsection.css') }}">
-    <link rel="stylesheet" href="{{ asset('cssfolder/fifthsection.css') }}">
+    <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
 
     <style>
         * {
@@ -53,7 +53,7 @@
     @include('secondsection')
     @include('thirdsection')
     @include('fourthsection')
-    @include('fifthsection')
+    @include('footer')
 
     <!-- Duplicate scrolling banner content for seamless loops -->
     <script>
