@@ -632,6 +632,13 @@
     padding-left: 12px;
     padding-right: 12px;
   }
+  .feature-text{
+    padding-right: 150px;
+  }
+
+  .feature-row{
+    margin-left: 150px;
+  }
 
   /* ✅ MOBILE: stretch bottom of background */
   @media (max-width: 768px) {

@@ -171,7 +171,7 @@
 
               <!-- ROW 4 -->
               <div class="row align-items-center feature-row">
-                <div class="col-lg-4 col-md-5">
+                <div class="col-lg-4 col-md-9">
                   <div class="pill">
                     <span class="pill-icon">
                         <img src="{{ asset('./assets/II_ENTERMETTACITY/Arrow.png') }}" alt="Arrow" />
