@@ -8,9 +8,47 @@
             object-fit: cover;
             z-index: 2; /* sits above carousel (z:0) and below overlay (z:2/10) */
 }
+
+.thirdtitle {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin: -180px auto 0; /* controls vertical position cleanly */
+}
+
+.thirdtitle h2 {
+  font-size: 50px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.thirdtitle h1 {
+  font-size: 45px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.thirdbottomtitle {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin: 450px auto 0; /* spacing below thirdtitle */
+}
+
+.thirdbottomtitle h1 {
+  font-size: 46px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+
 .Circularbutton {
   position: absolute;
-  top: 301%;
+  top: 305%;
   left: 50%;
   transform: translateX(-50%);
   
@@ -35,39 +73,3 @@
     transform: translateX(-50%) rotate(360deg);
   }
 }
-  .title {
-    position: relative; /* relative to body */
-    z-index: 10;       /* higher than background */
-    text-align: center;
-    margin: 850px auto;
-    top: 20%;           /* push it down a bit */
-
-  }
-
-  .title h2 {
-    font-size: 44px;
-    font-weight: 400;
-    margin-bottom: 10px;
-    color: #ffffff;
-    font: 'Arial', sans-serif;
-  }
-
-  .title h1 {
-    font-size: 56px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: #ffffff;
-  }
-    .buttomtitle {
-    position: relative; /* relative to body */
-    z-index: 10;       /* higher than background */
-    text-align: center;
-    margin: -330px auto;
-    top: 20%;           /* push it down a bit */
-
-  }
-    .buttomtitle h1 {
-    font-size: 46px;
-    font-weight: 700;
-    color: #ffffff;
-  }

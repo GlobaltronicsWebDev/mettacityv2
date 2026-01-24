@@ -1,10 +1,11 @@
 
     <div>
-       <div class="title">
+       <div class="thirdtitle">
          <h2>If you love Fun, Creativity, and Discovery,</h2>
          <h1>Mettacity is for you</h1>
        </div>
-      <div class="buttomtitle">
+       
+      <div class="thirdbottomtitle">
         <h1>Families & Kids</h1>
       </div>
 
