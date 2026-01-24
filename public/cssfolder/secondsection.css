@@ -102,36 +102,37 @@
         /* keep duplicates visible for seamless loop */
 
          /* Banner brought to front */
-  .banner {
-    position: relative; /* relative to body */
-    z-index: 10;       /* higher than background */
+
+.secondbanner {
+    position: relative;      /* relative to normal position */
+    z-index: 10;             /* higher than background */
     text-align: center;
-    margin: 800px auto;
-    top: 20%;           /* push it down a bit */
 
-  }
+    margin: 1000px auto;      /* moved down slightly */
+    top: 85%;                /* small downward nudge */
+}
 
-  .banner h2 {
-    font-size: 34px;
-    font-weight: 400;
-    margin-bottom: 10px;
-    color: #1a1a1a;
-    font: 'Arial', sans-serif;
-  }
+.secondbanner h2 {
+    font-size: 48px;
+    margin-bottom: -5px;
+    color: #040017;
+    font-family: "Times New Roman", Times, serif;
+}
 
-  .banner h1 {
-    font-size: 56px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: #1a0f47;
-  }
-    .enter-button {
+.secondbanner h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #040017;
+    font-family: 'Poppins', sans-serif;
+}
 
-        width: 250px;
-        height: auto;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
+.enter-button {
+    width: 250px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
   .main-carousel {
             position: absolute;
