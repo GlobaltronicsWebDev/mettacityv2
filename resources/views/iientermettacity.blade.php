@@ -1,12 +1,31 @@
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Mettacity</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('cssfolder/iientermettacity.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
+</head>
+
+<body>
+
+@include('navbar')
 
   <!-- HERO SECTION -->
   <section class="hero-wrapper">
 
     <!-- BACKGROUND VIDEO -->
     <video class="hero-video" autoplay muted loop playsinline>
-      <source src="main-video/BG-VIDEO.mp4" type="video/mp4">
+      <source src="{{ asset('./assets/II_ENTERMETTACITY/main-video/BG-VIDEO.mp4') }}" type="video/mp4">
       <!-- fallback text -->
     </video>
 
@@ -37,14 +56,14 @@
 
     <!-- MAIN TITLE -->
     <div class="main-title-box">
-        <img src="activities/TITLE.png" alt="The Mettacity Zones" class="main-title-img">
+        <img src="{{ asset('./assets/II_ENTERMETTACITY/TITLE.png') }}"  alt="The Mettacity Zones" class="main-title-img">
     </div>  
 
     <!-- ZONES LIST (STACKED) -->
     <div class="zones-list">
      <!-- 1) XR INFINITE SPACE -->
         <a href="javascript:void(0)" class="zone-card zone-purple has-overlay">
-          <img src="METTAZONE/XR Infinite Space.png" alt="XR Infinite Space">
+          <img src="{{ asset('./assets/II_ENTERMETTACITY/XR Infinite Space.png') }}" alt="XR Infinite Space">
 
           <div class="zone-full-overlay">
             <h3 class="zone-title">XR INFINITE SPACE</h3>
@@ -54,7 +73,7 @@
 
         <!-- 2) 9D THEATER: FLYING CINEMA -->
         <a href="javascript:void(0)" class="zone-card zone-teal has-overlay">
-          <img src="METTAZONE/9D Theatre_ Flying Cinema.png" alt="9D Theater - Flying Cinema">
+          <img src="{{ asset('./assets/II_ENTERMETTACITY/9D Theatre_ Flying Cinema.png') }}" alt="9D Theater - Flying Cinema">
 
           <div class="zone-full-overlay">
             <h3 class="zone-title">9D THEATER</h3>
@@ -64,7 +83,7 @@
 
         <!-- 3) 9D THEATER: DOOMSDAY HURRICANE -->
         <a href="javascript:void(0)" class="zone-card zone-yellow has-overlay">
-          <img src="METTAZONE/9D Theatre_ Doomsday Hurricane.png" alt="9D Theater - Doomsday Hurricane">
+          <img src="{{ asset('./assets/II_ENTERMETTACITY/9D Theatre_ Doomsday Hurricane.png') }}" alt="9D Theater - Doomsday Hurricane">
 
           <div class="zone-full-overlay">
             <h3 class="zone-title">DOOMSDAY HURRICANE</h3>
@@ -74,7 +93,7 @@
 
       <!-- 4) KIDS WORLD (placeholder image) -->
       <a href="javascript:void(0)" class="zone-card zone-pink has-overlay">
-          <img src="METTAZONE/Kids World.png" alt="9D Theater - Doomsday Hurricane">
+          <img src="{{ asset('./assets/II_ENTERMETTACITY/Kids World.png') }}" alt="9D Theater - Doomsday Hurricane">
 
           <div class="zone-full-overlay">
             <h3 class="zone-title">DOOMSDAY HURRICANE</h3>
@@ -90,7 +109,7 @@
       <div class="bg-wrapper stretch-bg">
 
         <!-- Desktop: exact image (no crop) -->
-        <img src="activities/BG.png" class="bg-exact-img" alt="BG" />
+        <img src="{{ asset('./assets/II_ENTERMETTACITY/BG.png') }}" class="bg-exact-img" alt="BG" />
 
         <!-- Overlay content -->
         <div class="feature-overlay container-fluid">
@@ -102,7 +121,7 @@
                 <div class="col-lg-4 col-md-5">
                   <div class="pill">
                     <span class="pill-icon">
-                      <img src="activities/Arrow.png" alt="Arrow" />
+                      <img src="{{ asset('./assets/II_ENTERMETTACITY/Arrow.png') }}" alt="Arrow" />
                     </span>
                     <span class="pill-text">Play without Limits</span>
                   </div>
@@ -119,7 +138,7 @@
                 <div class="col-lg-4 col-md-5">
                   <div class="pill">
                     <span class="pill-icon">
-                        <img src="activities/Arrow.png" alt="Arrow" />
+                        <img src="{{ asset('./assets/II_ENTERMETTACITY/Arrow.png') }}" alt="Arrow" />
                     </span>
                     <span class="pill-text">Explore Living Worlds</span>
                   </div>
@@ -136,7 +155,7 @@
                 <div class="col-lg-4 col-md-5">
                   <div class="pill">
                     <span class="pill-icon">
-                        <img src="activities/Arrow.png" alt="Arrow" />
+                        <img src="{{ asset('./assets/II_ENTERMETTACITY/Arrow.png') }}" alt="Arrow" />
                     </span>
                     <span class="pill-text">Create &amp; Share</span>
                   </div>
@@ -153,7 +172,7 @@
                 <div class="col-lg-4 col-md-5">
                   <div class="pill">
                     <span class="pill-icon">
-                        <img src="activities/Arrow.png" alt="Arrow" />
+                        <img src="{{ asset('./assets/II_ENTERMETTACITY/Arrow.png') }}" alt="Arrow" />
                     </span>
                     <span class="pill-text">Experience Culture in Motion</span>
                   </div>
@@ -183,3 +202,11 @@
             </div>
           </div>
         </section>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('jsfolder/iientermettacity.js') }}"></script>
+
+</body>
+</html>
