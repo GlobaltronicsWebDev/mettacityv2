@@ -59,3 +59,50 @@
   <img src="{{ asset('./assets/NAVIGATIONBAR.png') }}" alt="Navigation Bar Background" class="header-bg-img">
 
 </header>
+
+<!-- MOBILE OFFCANVAS MENU -->
+<div class="offcanvas offcanvas-start mobile-offcanvas" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+  <div class="offcanvas-header mobile-offcanvas-header">
+    <img src="header-menu-carousel/METTACITY Logo.png" alt="Mettacity" class="mobile-menu-logo">
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+
+  <div class="offcanvas-body mobile-offcanvas-body">
+    <nav class="mobile-nav">
+      <a class="mobile-link active" href="#">Home</a>
+      <a class="mobile-link" href="#">About Us</a>
+      <a class="mobile-link" href="III_TICKETING\ticketing.html">Tickets</a>
+      <a class="mobile-link" href="#">Contact</a>
+
+      <div class="mobile-divider"></div>
+
+      <div class="mobile-section-title">Merch</div>
+      <a class="mobile-link" href="#">Shirts</a>
+      <a class="mobile-link" href="#">Hats</a>
+      <a class="mobile-link" href="#">Accessories</a>
+    </nav>
+  </div>
+</div>
+
+
+
+<!-- MOBILE OFFCANVAS MENU -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="mobile-nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="III_TICKETING/ticketing.html">Tickets</a></li>
+      <li><a href="#">Contact</a></li>
+
+      <li class="mt-3 fw-bold">Merch</li>
+      <li><a href="#">Shirts</a></li>
+      <li><a href="#">Hats</a></li>
+      <li><a href="#">Accessories</a></li>
+    </ul>
+  </div>
+</div>
