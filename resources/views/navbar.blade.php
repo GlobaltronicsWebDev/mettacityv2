@@ -1,8 +1,5 @@
 <!-- HEADER (OVERLAY / RESPONSIVE) -->
-<header
-  class="header-bg"
-  id="siteHeader"
->
+<header class="header-bg" id="siteHeader">
   <div class="header-content">
     <div class="container-fluid">
       <div class="row align-items-center">
