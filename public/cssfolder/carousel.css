@@ -91,6 +91,9 @@
 
 @media (min-width: 375px) and (max-width: 425px) {
 
+    .carouselslide {
+            top: 8%;
+    }
     .carousel-inner {
         top: -13px;
     }

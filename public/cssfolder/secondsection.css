@@ -151,28 +151,29 @@
     display: none;
   }
     .carousel-background-mobile{
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    left: 0;
-    right: 0;
-    top: 51.5%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            z-index: 2; 
   }
  /* Scrolling banner overlay */
         .scrolling-banner-wrapper {
-            top: 55%; /* adjust if you want it higher/lower */
+            top: 53%; /* adjust if you want it higher/lower */
         }
         .scrolling-banner {
             padding: 2px 16px;
         }
         .scrolling-banner.left {
-            width: 35%;
+            width: 40%;
             padding-right: 28px; /* space so text doesn't hit the slanted edge */
             -webkit-clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 100%, 0 100%); /* backslash slant */
             clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 100%, 0 100%); /* backslash slant */
         }
         .scrolling-banner.right {
-            width: 34.5%;
+            width: 40.5%;
             padding-left: 28px; /* space so text doesn't hit the slanted edge */
             -webkit-clip-path: polygon(25px 0, 100% 0, 100% 100%, 0 100%); /* slash slant on left side */
             clip-path: polygon(25px 0, 100% 0, 100% 100%, 0 100%); /* slash slant on left side */
