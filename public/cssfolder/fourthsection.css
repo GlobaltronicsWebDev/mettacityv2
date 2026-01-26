@@ -250,3 +250,9 @@
   transition: transform 0.3s ease;
   margin-bottom: -10px;
 }
+
+@media (min-width: 375px) and (max-width: 425px) {
+  .fourthtitle {
+  top: 150%;
+}
+}
