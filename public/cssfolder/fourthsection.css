@@ -42,7 +42,7 @@
   align-items: center;           /* vertical centering */
   flex-wrap: wrap;
   padding: 180px 130px 0 150px;
-  margin-top: -400px;            /* pull section upward */
+  margin-top: -500px;            /* pull section upward */
   box-sizing: border-box;
   z-index: 1;
 }
