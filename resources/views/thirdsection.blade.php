@@ -11,8 +11,6 @@
 
       <img src="{{ asset('assets/SHAPE.png') }}" alt="Shape" class="shape">
 
-
-
       <img src="{{ asset('assets/MEEKO.png') }}" alt="Circular Button" class="Circularbutton" >
 
     </div>
