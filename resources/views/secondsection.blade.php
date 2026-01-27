@@ -56,3 +56,30 @@
 
     <!-- Main Carousel -->
     <img src="{{ asset('./assets/MAINCAROUSEL.png') }}" alt="Main Carousel" class="main-carousel">
+
+<div class="">
+<div class="firstmaincarousel-overlay"></div>
+
+<!-- ================= IMAGE LIST (Blade Format) ================= -->
+<div class="firstmaincarousel-images">
+  {{-- Blade example --}}
+  {{-- @foreach($images as $image) --}}
+  {{-- <img src="{{ asset($image) }}" data-carousel-image /> --}}
+  {{-- @endforeach --}}
+
+  <!-- Plain HTML version -->
+  <img src="{{ asset('assets/AFRICAN SAVANNAH.png') }}" data-carousel-image>
+  <img src="{{ asset('assets/BIUBIU GUN GOD.png') }}" data-carousel-image>
+  <img src="{{ asset('assets/DOOMSDAY HURRICANE.png') }}" data-carousel-image>
+  <img src="{{ asset('assets/FLYING CINEM.png') }}" data-carousel-image>
+  <img src="{{ asset('assets/METTACITY.png') }}" data-carousel-image>
+  <img src="{{ asset('assets/NORTH AND SOUTH POLES.png') }}" data-carousel-image>
+  <img src="{{ asset('assets/SEAWORLD.png') }}" data-carousel-image>
+  <img src="{{ asset('assets/XR INFINITE SPACE.png') }}" data-carousel-image>
+</div>
+</div>
+
+
+
+<script src="{{ asset('jsfolder/secondsection.js') }}"></script>
+

@@ -143,6 +143,33 @@
             object-fit: cover;
             z-index: 2; /* sits above carousel (z:0) and below overlay (z:2/10) */
 }
+canvas {
+      display: block;
+    }
+
+    .firstmaincarousel-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(124,92,255,0.08),
+        transparent 65%
+      );
+      pointer-events: none;
+      
+    }
+
+    /* Hidden image container (Blade-friendly) */
+    .firstmaincarousel-images {
+      display: none;
+    }
+
+
+
+
+
+
+
 
 /*MOBILE*/
 
