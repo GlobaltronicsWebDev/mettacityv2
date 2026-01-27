@@ -203,12 +203,59 @@
 /* ===================== */
 
 @media (max-width: 425px) {
-  .third-carousel { height: 420px; }
-  .third-card img { max-width: 240px; max-height: 320px; }
+  .third-carousel { 
+   height: 420px;
+   position: relative;
+   top: -210px;     /* 👈 moves it UP */
+   margin-top: 0; /* reset push-down */
+  }
+  .third-card img {
+   max-width: 80px;
+   max-height: 220px;
+  }
   .third-prev { left: 8px; }
   .third-next { right: 8px; }
-  .thirdtitle h2 { font-size: 15px; }
-  .thirdtitle h1 { font-size: 12px; }
+  .third-caption {
+    font-size: 14px;
+    position: relative;
+    top: -420px;     /* 👈 moves it UP */
+    margin-top: 0; /* reset push-down */
+  }
+  .third-indicators {
+    position: relative;
+    top: -430px;     /* 👈 moves it UP */
+    margin-top: 0; /* reset push-down */
+  }
+  .third-dot {
+  width: 5px;
+  height: 5px;
+}
+  .thirdtitle h2 {
+    font-size: 15px;
+    position: relative;
+    top: -60px;     /* 👈 moves it UP */
+    margin-top: 0; /* reset push-down */
+  }
+  .thirdtitle h1 {
+    font-size: 12px;
+    position: relative;
+    top: -70px;     /* 👈 moves it UP */
+    margin-top: 0; /* reset push-down */
+  }
+  .shape { 
+    top: -20%; 
+    left: -5%;
+    width: 110%;
+  }
+  .Circularbutton {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(50px, 14vw, 200px); /* 👈 smaller */
+  animation: rotateClockwise 4s linear infinite;
+  z-index: 2;
+}
 }
 
 @media (max-width: 375px) {
