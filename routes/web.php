@@ -9,3 +9,7 @@ Route::get('/', function () {
 Route::get('/enter-metta-city', function () {
     return view('iientermettacity');
 })->name('enter.metta.city');
+
+Route::get('/ticketing', function () {
+    return view('iiiticketing');
+})->name('ticketing');

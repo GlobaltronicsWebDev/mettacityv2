@@ -25,7 +25,7 @@
           <ul class="header-nav">
             <li><a class="nav-link" href="#">Home</a></li>
             <li><a class="nav-link" href="#">About Us</a></li>
-            <li><a class="nav-link active" href="../II_ENTER METTACITY/III_TICKETING/ticketing.html"">Tickets</a></li>
+            <li><a class="nav-link active" href="{{ route('ticketing') }}">Tickets</a></li>
             <li><a class="nav-link" href="#">Contact</a></li>
 
             <li class="nav-item dropdown">

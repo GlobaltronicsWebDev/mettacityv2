@@ -1,3 +1,11 @@
+/* RESET */
+html, body{
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  width: 100%;
+  font-family: "Poppins"
+}
 /* =========================
    HERO SECTION (NO GAP)
 ========================= */
@@ -710,9 +718,17 @@
 .statement-section {
   position: relative;
   z-index: 4;
-  padding-top: 100px;
-  padding-bottom: 350px;
+  padding-top: 150px;
+  padding-bottom: 220px;
   background: transparent;
+  opacity: 0;
+  transform: translateY(-40px); /* fade DOWN */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+/* WHEN VISIBLE */
+.statement-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* 🔥 REMOVE BOOTSTRAP SIDE OFFSET */

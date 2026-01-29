@@ -191,7 +191,8 @@
         </div>      
     </section>
 
-    <section class="bottom-merge">
+
+ <section class="bottom-merge">
 
         <!-- STATEMENT -->
         <section class="statement-section">
@@ -201,10 +202,11 @@
               <h2 class="statement-heading">
                 Where Culture, Play, and Technology Meet
               </h2>
-              <img src="{{ asset('./assets/PLAN YOUR VISIT.png') }}" alt="Enter Button" class="enter-button">
+            <img src="{{ asset('./assets/PLAN YOUR VISIT.png') }}" alt="Enter Button" class="enter-button">
             </div>
           </div>
         </section>
+ </section>
 
 @include('footer')
 
