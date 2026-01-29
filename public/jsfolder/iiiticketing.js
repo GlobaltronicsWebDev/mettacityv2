@@ -6,7 +6,7 @@
 
     // Remove old clones (keep the first set)
     [...track.children].forEach((child, i) => {
-      if (i > 0) child.remove();
+      if (i > 1) child.remove();
     });
 
     // Measure one set width
@@ -73,3 +73,26 @@
   })();
 
   
+document.addEventListener("DOMContentLoaded", function () {
+  const section = document.querySelector(".statement-section");
+  if (!section) return;
+
+  section.classList.add("animate");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        } else {
+          entry.target.classList.remove("is-visible");
+        }
+      });
+    },
+    {
+      threshold: 0.25
+    }
+  );
+
+  observer.observe(section);
+});

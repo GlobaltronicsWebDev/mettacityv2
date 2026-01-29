@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+:root{
+  --headerBgH: 210px;
+  --logoOffsetY: 25px;
+}
+
 /* =========================
    HEADER (TRUE OVERLAY)
 ========================= */

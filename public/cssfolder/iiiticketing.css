@@ -1,0 +1,238 @@
+
+
+
+/* RESET */
+html, body{
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  width: 100%;
+  font-family: "Poppins"
+}
+
+/* * GRID BACKGROUND IMAGE */ 
+.grid-bg {
+  width: 100%;
+  display: block;
+}
+
+/* TITLE OVERLAY */
+.grid-title {
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* title is decorative */
+  z-index: 10;
+}
+.plan-bg{
+  max-width: 100%;
+}
+/* TITLE IMAGE SIZE */
+.grid-title img {
+  max-width: 150%;
+  height: auto;
+
+}
+
+/* FADE DOWN ANIMATION */
+.fade-down {
+  animation: fadeDown 1.2s ease-out forwards;
+}
+
+/* KEYFRAMES */
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -70%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+/* =========================
+   CONTINUOUS MARQUEE (NO CUT)
+========================= */
+.marquee-strip {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+   height: 25px;              /* 🔥 REQUIRED */
+  font-style: italic;
+  margin-top: 60px;
+}
+
+.marquee-viewport {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background-color: #000000;
+  transform: translateY(80px); /* 👈 ITO ang "top" effect */
+}
+
+/* moving belt */
+.marquee-track{
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeMove var(--marquee-duration, 14s) linear infinite;
+}
+
+/* one set (will be cloned by JS) */
+.marquee-set{
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 14px 28px;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+/* colors like your image */
+.play{ color: #9b7bff; font-weight: 800; letter-spacing: 2px; font-size: 14px; }
+.culture{ color: #5fd3c6; font-weight: 800; letter-spacing: 2px; font-size: 14px; }
+.tech{ color: #ffe600; font-weight: 800; letter-spacing: 2px; font-size: 14px; }
+.dot{ color: #fff; font-weight: 900; font-size: 16px; }
+
+/* JS sets --marquee-distance to exact px width of one set */
+@keyframes marqueeMove{
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-1 * var(--marquee-distance, 500px))); }
+}
+
+.marquee-center{
+  position: absolute;
+  top: -30%;
+}
+
+
+
+
+
+
+
+
+/* CENTER WRAPPER */
+.marquee-center {
+
+  position: absolute;
+  inset: 0;               /* FULL COVER */
+  display: flex;
+  align-items: center;    /* VERTICAL CENTER */
+  justify-content: center;/* HORIZONTAL CENTER */
+  z-index: 10;
+  transform: translateY(60px); /* NEGATIVE = pataas, POSITIVE = pababa */
+}
+
+
+/* IMAGE LINK */
+.buy-ticket-link {
+  display: inline-block;
+}
+
+/* IMAGE */
+.buy-ticket-link img {
+  display: block;
+  width: 520px;
+  height: auto;
+  max-width: 90vw;        /* HINDI LUMIIT */
+    background-color: #ffffff;
+    border-radius: 999px;
+    transition: transform 0.3s ease;
+
+}
+
+.buy-ticket-link:hover img {
+ transform: translateY(-6px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================= */
+/* STATEMENT SECTION – TRUE CENTER */
+/* ============================= */
+
+.statement-section {
+  position: relative;
+  z-index: 4;
+  padding-top: 150px;
+  padding-bottom: 320px;
+  background: transparent;
+  opacity: 0;
+  transform: translateY(-40px); /* fade DOWN */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+/* WHEN VISIBLE */
+.statement-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🔥 REMOVE BOOTSTRAP SIDE OFFSET */
+.statement-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* CENTER WRAPPER */
+.statement-inner {
+  max-width: 1100px;       /* wider = better optical center */
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* EYEBROW */
+.statement-eyebrow {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 30px;
+}
+
+/* 🔑 TRUE OPTICAL CENTER HEADING */
+.statement-heading {
+  display: inline-block;   /* shrink to text width */
+  white-space: nowrap;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  /* 🔥 OPTICAL ADJUSTMENT */
+  transform: translateX(-1px);
+}
+.enter-button{
+  margin-top: 50px;
+  width: 250px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ============================= */
+/* MOBILE FIX */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .statement-heading {
+    white-space: normal;   /* allow wrap sa mobile */
+    transform: none;
+  }
+}
