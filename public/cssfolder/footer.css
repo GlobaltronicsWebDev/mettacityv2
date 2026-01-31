@@ -87,6 +87,9 @@
   color: #0b0620;
 }
 
+.mobilefooter {
+  display: none;
+}
 /* ============================= */
 /* RESPONSIVE (MOBILE)
 /* SAME BEHAVIOR AS DESKTOP */
@@ -146,4 +149,25 @@
   max-width: 80vw;
   height: auto;
   display: block;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 425px) {
+
+  /* Hide everything in footer */
+  .footer-bg-img,
+  .footer-character,
+  .footer-logo-center,
+  .footer-contact {
+    display: none;
+  }
+
+  /* Show mobile footer image only */
+  .mobilefooter {
+    display: block;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    margin-top: -570px;
+  }
 }

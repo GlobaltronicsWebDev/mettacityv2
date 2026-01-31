@@ -99,7 +99,7 @@
       <div class="fifthcontent">
        <h2>The future of amusement-</h2>
        <h1>Where Culture, Play, and Technology Meet</h1>
-       <img src="{{ asset('./assets/PLAN YOUR VISIT.png') }}" alt="Enter Button" class="fifthenter-button">
+       <img src="{{ asset('./assets/PLAN YOUR VISIT.png') }}" alt="Enter Button" class="fifthvisit-button">
       </div> 
 
   </div>
