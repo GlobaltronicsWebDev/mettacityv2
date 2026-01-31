@@ -8,7 +8,12 @@
 
               <!-- Character anchored to footer bg -->
               <img src="{{ asset('assets/MEEKO SITTING.png') }}" class="footer-character" alt="">
+            
+            
+            <img src="{{ asset('assets/Mobilefooter.png') }}" class="mobilefooter" alt="">
             </div>
+
+  
 
             <!-- Logo + socials -->
             <div class="footer-logo-center">

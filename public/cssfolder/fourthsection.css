@@ -243,7 +243,7 @@
 /* =========================
    FIFTH SECTION BUTTON
    ========================= */
-.fifthenter-button {
+.fifthvisit-button {
   width: 250px;
   height: auto;
   cursor: pointer;
@@ -259,7 +259,9 @@
 .stepinsidebgmobile{
   display: none;
 }
-
+.core-messagem {
+  display: none;
+}
 @media (max-width: 425px) {
   .fourthtitle {
   top: 150%;
@@ -295,7 +297,7 @@
   left: 0;
   width: 100%;
   height: auto;
-  z-index: 1; /* background layer */
+  z-index: 2; /* background layer */
 }
 
 /* ================================
@@ -332,11 +334,54 @@
 
 #entermettacitym {
   display: block;
-  width: auto;
-  height: 50px;
+        width: 150px;
+        height: auto;
   margin-top: 15px;
 }
+.core-message {
+  display: none;
+}
+.core-messagem {
+  display: block;
+  position: absolute;
+  top: 301%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0; /* background layer */
+} 
 
+.fourth-scrolling-banner-wrapper {
+  position: absolute; /* or relative, depending on your layout */
+  top: 303%;
+  z-index: 1;
 
+  height: 35px;        /* make banner smaller */
+  overflow: hidden;     /* hide extra content */
+}
+/* Image hover pop effect */
+.col img:hover {
+  transform: none; /* disable hover effect on mobile */
+}
+
+  .fifthcontent h2 {
+    font-size: 18px;
+    position: relative;
+    top: -250px;     /* 👈 moves it UP */
+    margin-top: 0; /* reset push-down */
+  }
+  .fifthcontent h1 {
+    font-size: 16px;
+    position: relative;
+    top: -260px;     /* 👈 moves it UP */
+    margin-top: 0; /* reset push-down */
+  }
+
+.fifthvisit-button {
+    position: relative;
+    margin-top: -560px; /* 👈 moves it UP */
+    width: 150px;
+    height: auto;
+}
 
 }
