@@ -94,7 +94,8 @@
 
   <div class="fifth-banner">
     <img src="{{ asset('./assets/COREMESSAGE.png') }}" alt="Core Message" class="core-message">
-  
+    <img src="{{ asset('./assets/CORE MESSAGE.png') }}" alt="Core Message" class="core-messagem">
+
       <div class="fifthcontent">
        <h2>The future of amusement-</h2>
        <h1>Where Culture, Play, and Technology Meet</h1>
