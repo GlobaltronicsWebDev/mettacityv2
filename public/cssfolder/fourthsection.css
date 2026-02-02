@@ -363,7 +363,12 @@
 .col img:hover {
   transform: none; /* disable hover effect on mobile */
 }
-
+.fifthcontent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin: 100px auto;
+}
   .fifthcontent h2 {
     font-size: 18px;
     position: relative;
@@ -383,5 +388,9 @@
     width: 150px;
     height: auto;
 }
-
+.fifth-banner {
+  background: none;
+  padding-bottom: 0;
+  margin-top: 0;
+}
 }

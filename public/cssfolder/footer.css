@@ -102,14 +102,6 @@
     padding: 0;
   }
 
-
-  .footer-exact {
-    position: relative;
-    min-height: 100vh;      /* 🔥 KEY: fills viewport */
-    width: 100%;
-    overflow: visible;
-  }
-
   .footer-character {
     margin-top: 50%;
   }
@@ -168,6 +160,6 @@
     width: 100%;
     height: auto;
     z-index: 1;
-    margin-top: -570px;
+    margin-top: -80%;
   }
 }

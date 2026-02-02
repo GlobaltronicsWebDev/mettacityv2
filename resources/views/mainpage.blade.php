@@ -40,7 +40,6 @@
         html, body {
             touch-action: manipulation;
               overflow-x: hidden !important;
-
         }           
         }
     </style>
