@@ -23,8 +23,8 @@
         <!-- DESKTOP: LEFT NAV -->
         <div class="col-4 d-none d-md-flex align-items-center">
           <ul class="header-nav">
-            <li><a class="nav-link" href="#">Home</a></li>
-            <li><a class="nav-link" href="#">About Us</a></li>
+            <li><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+            <li><a class="nav-link" href="{{ route('aboutus') }}">About Us</a></li>
             <li><a class="nav-link active" href="{{ route('ticketing') }}">Tickets</a></li>
             <li><a class="nav-link" href="#">Contact</a></li>
 

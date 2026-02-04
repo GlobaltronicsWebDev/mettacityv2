@@ -17,3 +17,7 @@ Route::get('/ticketing', function () {
 Route::get('/plan-your-visit', function () {
     return view('ivplanvisit');
 })->name('visit');
+
+Route::get('/about-us', function () {
+    return view('aboutus');
+})->name('aboutus');
