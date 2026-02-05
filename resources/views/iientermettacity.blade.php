@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body class="main-bg-section" style="background-image: url('{{ asset('./assets/II_ENTERMETTACITY/ENTER_METTACITY.png') }}');">
 
 @include('navbar')
 
@@ -53,7 +53,7 @@
 </section>
 
 <!-- MAIN BACKGROUND SECTION -->
-<section class="main-bg-section" style="background-image: url('{{ asset('./assets/II_ENTERMETTACITY/ENTER_METTACITY.png') }}');">
+<section>
   <div class="zones-wrap">
 
     <!-- MAIN TITLE -->
@@ -112,6 +112,9 @@
 
         <!-- Desktop: exact image (no crop) -->
         <img src="{{ asset('./assets/II_ENTERMETTACITY/BG.png') }}" class="bg-exact-img" alt="BG" />
+
+        <!-- Mobile: exact image (no crop) -->
+        <img src="{{ asset('./assets/II_ENTERMETTACITY/FEATUREBG.png') }}" class="bgm-exact-img" alt="BG" />
 
         <!-- Overlay content -->
         <div class="feature-overlay container-fluid">

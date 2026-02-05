@@ -190,7 +190,7 @@ html, body{
   width: 100%;
   max-width: 1200px;          /* adjust if you want smaller/bigger */
   padding: 0 16px;            /* safe padding on both sides */
-  margin: 0 auto;             /* center */
+  margin: 50px auto;             /* center */
 }
 
 /* title image always fits inside wrapper */
@@ -555,6 +555,9 @@ html, body{
     height: auto;
     display: block;
   }
+  .bgm-exact-img {
+    display: none !important;
+  }
 
   /* ✅ overlay sits inside image area */
   .feature-overlay {
@@ -781,4 +784,89 @@ html, body{
     white-space: normal;   /* allow wrap sa mobile */
     transform: none;
   }
+}
+
+@media (max-width: 425px) {
+.hero-video{
+  width: 100%;
+  height: 50%;
+}
+  .marquee-strip {
+    transform: translateY(-430px); /* adjust value as needed */
+  }
+  .main-title-box{
+    margin: 0 auto;
+    transform: translateY(-370px); /* adjust value as needed */
+}
+  .zones-list{
+    transform: translateY(-300px); /* adjust value as needed */
+    margin-top: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+    /* ✅ desktop: exact image (no crop) */
+  .bg-exact-img {
+    width: 100%;
+    height: auto;
+    display: none !important;
+  }
+  .bgm-exact-img {
+    width: 100%;
+    height: auto;
+    display: block !important;
+    transform: translateY(70px); /* adjust value as needed */
+  }
+    .feature-overlay {          /* vertical center */
+    transform: translateY(-290px); /* adjust value as needed */
+  }
+    .feature-exact {
+    transform: translateY(-300px); /* adjust value as needed */
+  }
+  .feature-row{
+    margin-left: 0;
+    margin-right: 0;
+  }
+    .pill {
+  align-items: center;
+  gap: 20px;
+
+  color: #fff;
+  /* big height + big left/right space */
+  padding: clamp(15px, 2.2vw, 10px) clamp(15px, 2vw, 45px);
+  border-radius: 999px;
+  font-weight: 800;
+  font-style: italic;
+  /* big text */
+  font-size: clamp(13px, 3vw, 10px);
+  }
+    .feature-text {
+    font-size: clamp(10px, 1.8vw, 15px);
+    line-height: 1.35;
+    padding-right: 0;
+  }
+
+  /* ============================= */
+/* STATEMENT SECTION – TRUE CENTER */
+/* ============================= */
+
+.statement-section{
+  margin-top: -900px;
+  margin-bottom: 120px;
+}
+/* EYEBROW */
+.statement-eyebrow {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* 🔑 TRUE OPTICAL CENTER HEADING */
+.statement-heading {
+  font-size: 18px;
+}
+.enter-button{
+  margin-top: 50px;
+  width: 150px;
+  height: auto;
+}
 }

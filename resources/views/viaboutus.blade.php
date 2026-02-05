@@ -92,7 +92,7 @@
           </div>
         </div>
         <div class="mettacity-tagline">
-          <img src="{{ asset('./assets/VI_ABOUTUS/tagline.png') }}" alt="Come play. Share. Capture. Repeat.">
+          <img src="{{ asset('./assets/VI_ABOUTUS/tagline.png') }}" alt="Come play. Share. Capture. Repeat." class="tagline-image">
         </div>
 </section>
 
