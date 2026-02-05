@@ -164,8 +164,27 @@ canvas {
       display: none;
     }
 
+    canvas {
+      display: block;
+      position: absolute;
+      transform: translateY(-5300px);
+      z-index: 999;
+    }
 
+    .firstmaincarousel-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(124, 92, 255, 0.08),
+        transparent 65%
+      );
+      pointer-events: none;
+    }
 
+    .firstmaincarousel-images {
+      display: none;
+    }
 
 
 
