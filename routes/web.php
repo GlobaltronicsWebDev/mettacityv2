@@ -18,6 +18,10 @@ Route::get('/plan-your-visit', function () {
     return view('ivplanvisit');
 })->name('visit');
 
+Route::get('/faqs', function () {
+    return view('vfaqs');
+})->name('faqs');
+
 Route::get('/about-us', function () {
-    return view('vaboutus');
+    return view('viaboutus');
 })->name('aboutus');

@@ -35,7 +35,7 @@
 
       <div class="faq-tab" id="faqToggle">
         <div class="faq-img-wrapper">
-          <img src="{{ asset('assets/IV_PLANVISIT/FAQs Shape.png') }}" />
+          <a href="{{ route('faqs') }}" ><img src="{{ asset('assets/IV_PLANVISIT/FAQs Shape.png') }}"></a>
           <span class="faq-text">FAQs</span>
           <i class="fa-solid fa-chevron-right faq-arrow"></i>
         </div>
