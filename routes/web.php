@@ -19,5 +19,5 @@ Route::get('/plan-your-visit', function () {
 })->name('visit');
 
 Route::get('/about-us', function () {
-    return view('aboutus');
+    return view('vaboutus');
 })->name('aboutus');
