@@ -1,294 +1,427 @@
-      /* Responsive image sizing for site assets */
-.carousel-background {
-            position: absolute;
-            top: 84%;
-            left: 0;
-            width: 100%;
-            display: block;
-            object-fit: cover;
-            z-index: 2; /* sits above carousel (z:0) and below overlay (z:2/10) */
+/* =========================
+   GLOBAL / DESKTOP
+   These styles apply to the whole page unless overridden by media queries.
+========================= */
+
+body {
+  margin: 0;              /* Removes default browser spacing */
+  overflow: hidden;       /* Prevents scrolling (important since you're positioning with absolute values) */
+  background: transparent;/* Makes body background transparent (useful if parent has background) */
 }
-.carousel-background-mobile{
-    display: none;
+
+/* =========================
+   STATIC BACKGROUND IMAGE (DESKTOP)
+   This is the desktop background image behind the carousel.
+========================= */
+
+.carousel-background {
+  position: absolute;     /* Lets you place it anywhere on the page */
+  top: 84%;               /* Pushes it down the page (relative to viewport height) */
+  left: 0;                /* Align left edge */
+  width: 100%;            /* Full width */
+  display: block;         /* Makes sure it behaves like a block element */
+  object-fit: cover;      /* Ensures image fills container without distortion */
+  z-index: 2;             /* Layer order: above carousel but below overlay */
+}
+
+/* Desktop hides the mobile background image */
+.carousel-background-mobile {
+  display: none;
+}
+
+/* =========================
+   SCROLLING BANNER WRAPPER
+   This holds the left + right banner strips.
+========================= */
+
+.scrolling-banner-wrapper {
+  position: absolute;            /* Floats above the page */
+  top: 94%;                      /* Pushes the wrapper near the bottom */
+  left: 0;
+  width: 100%;
+  display: flex;                 /* Makes children (left + right) sit side-by-side */
+  justify-content: space-between;/* Pushes left to left edge, right to right edge */
+  z-index: 4;                    /* Above background images */
+  pointer-events: auto;          /* Allows clicks if needed */
+  padding: 0;
+}
+
+/* =========================
+   BASE BANNER STYLE
+   Shared styling for both left and right banners.
+========================= */
+
+.scrolling-banner {
+  max-width: 50%;                /* Each banner can’t exceed half the screen */
+  background: rgb(0, 0, 0);      /* Black background */
+  color: #fff;                   /* White text */
+  padding: 8px 16px;             /* Space inside the banner */
+  overflow: hidden;              /* Prevents text from spilling outside */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); /* Adds depth */
+  position: static;              /* Default flow (but left/right override this) */
+}
+
+/* =========================
+   LEFT SCROLLING BANNER
+   Styled with a diagonal cut on the right edge.
+========================= */
+
+.scrolling-banner.left {
+  left: 0;
+  width: 39%;                    /* Banner width */
+  text-align: left;              /* Text aligns left */
+  position: relative;            /* Allows clip-path and inner positioning */
+  padding-right: 28px;           /* Extra padding on right to match the angled cut */
+
+  /* Clip-path creates the diagonal cut */
+  -webkit-clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 100%, 0 100%);
+
+  overflow: hidden;              /* Ensures clipped text doesn’t overflow */
+}
+
+/* =========================
+   RIGHT SCROLLING BANNER
+   Styled with a diagonal cut on the left edge.
+========================= */
+
+.scrolling-banner.right {
+  right: 0;
+  width: 38.5%;
+  text-align: right;             /* Text aligns right */
+  position: relative;
+  padding-left: 28px;            /* Extra padding on left to match angled cut */
+
+  /* Clip-path creates the diagonal cut */
+  -webkit-clip-path: polygon(36px 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(36px 0, 100% 0, 100% 100%, 0 100%);
+
+  overflow: hidden;
+}
+
+/* =========================
+   TRACK (MOVING TEXT)
+   This is the container that scrolls horizontally.
+========================= */
+
+.scrolling-banner .track {
+  display: flex;                 /* Makes <p> elements sit in a row */
+  gap: 32px;                     /* Space between the repeated paragraphs */
+  align-items: center;           /* Vertically centers text */
+  white-space: nowrap;           /* Prevents text wrapping */
+  will-change: transform;        /* Performance hint for smooth animation */
+}
+
+/* =========================
+   KEYFRAMES ANIMATION
+   Moves track from left to right.
+========================= */
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); } /* Start shifted left */
+  100% { transform: translateX(0%); } /* End aligned normally */
+}
+
+/* =========================
+   CSS VARIABLES
+   This allows you to easily control animation speed.
+========================= */
+
+:root {
+  --scroll-duration: 18s; /* How long one full scroll takes */
+}
+
+/* =========================
+   INITIAL TRACK POSITION
+   Makes both tracks start aligned before animation begins.
+========================= */
+
+.scrolling-banner .track {
+  transform: translateX(-50%);
+}
+
+/* =========================
+   MOTION SAFETY
+   Only animate if the user has NOT enabled reduced motion.
+========================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  .scrolling-banner.left .track.animate,
+  .scrolling-banner.right .track.animate {
+    animation: scrollRight var(--scroll-duration) linear infinite;
+    animation-delay: 0s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-play-state: running;
   }
-        /* Scrolling banner overlay */
-        .scrolling-banner-wrapper {
-            position: absolute;
-            top: 94%; /* adjust if you want it higher/lower */
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between; /* left and right flush */
-            z-index: 4; /* above carousel slides and background */
-            pointer-events: auto;
-            padding: 0; /* no space at edges */
-        }
-        /* Base banner styles (individual banners positioned left/right) */
-        .scrolling-banner {
-            max-width: 50%;
+}
 
-            background: rgb(0, 0, 0);
-            color: #fff;
-            padding: 8px 16px;
-            overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-            position: static; /* use flex layout from wrapper */
-            top: auto;
-        }
-        .scrolling-banner.left {
-            left: 0;
-            width: 39%;
-            text-align: left;
-            position: relative;
-            padding-right: 28px; /* space so text doesn't hit the slanted edge */
-            -webkit-clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 100%, 0 100%); /* backslash slant */
-            clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 100%, 0 100%); /* backslash slant */
-            overflow: hidden;
-        }
-        .scrolling-banner.right {
-            right: 0;
-            width: 38.5%;
-            text-align: right;
-            position: relative;
-            padding-left: 28px; /* space so text doesn't hit the slanted edge */
-            -webkit-clip-path: polygon(36px 0, 100% 0, 100% 100%, 0 100%); /* slash slant on left side */
-            clip-path: polygon(36px 0, 100% 0, 100% 100%, 0 100%); /* slash slant on left side */
-            overflow: hidden;
-        }
+/* =========================
+   TEXT BASE STYLE
+========================= */
 
+.scrolling-banner p {
+  margin: 0;               /* Removes default paragraph spacing */
+  font-weight: 600;        /* Makes text bold-ish */
+  letter-spacing: 1.5px;   /* Spreads letters for a futuristic look */
+}
 
-        /* Track that scrolls horizontally */
-        .scrolling-banner .track {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-            white-space: nowrap;
-            will-change: transform;
-        }
+/* These classes are there if you want special styling */
+.scrolling-banner .leftbanner,
+.scrolling-banner .rightbanner {
+  font-weight: 800;
+}
 
-        @keyframes scrollRight {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0%); }
-        }
+/* =========================
+   COLOR HIGHLIGHTS FOR WORDS
+========================= */
 
-        :root { --scroll-duration: 18s; }
+.scrolling-banner .play {
+  color: #6f4cb2;
+  font-weight: 700;
+  font-style: italic;
+}
 
-        /* set initial track position so both start in the same place */
-        .scrolling-banner .track { transform: translateX(-50%); }
+.scrolling-banner .culture {
+  color: #63c5b4;
+  font-weight: 700;
+  font-style: italic;
+}
 
-        /* Apply animation unless user prefers reduced motion */
-        @media (prefers-reduced-motion: no-preference) {
-            .scrolling-banner.left .track.animate,
-            .scrolling-banner.right .track.animate {
-                animation: scrollRight var(--scroll-duration) linear infinite;
-                animation-delay: 0s;
-                animation-timing-function: linear;
-                animation-fill-mode: both;
-                animation-play-state: running;
-            }
-        }
+.scrolling-banner .technology {
+  color: #fcc810;
+  font-weight: 700;
+  font-style: italic;
+}
 
-        .scrolling-banner p { margin: 0; font-weight: 600; letter-spacing: 1.5px; }
-
-        /* Make left and right banner text bolder for emphasis */
-        .scrolling-banner .leftbanner,
-        .scrolling-banner .rightbanner { font-weight: 800; }
-
-        /* Highlight specific words in banners */
-        .scrolling-banner .play { color: #6f4cb2; font-weight: 700; font-style: italic; }
-        .scrolling-banner .culture { color: #63c5b4; font-weight: 700; font-style: italic; }
-        .scrolling-banner .technology { color: #fcc810; font-weight: 700; font-style: italic; }
-
-        /* keep duplicates visible for seamless loop */
-
-         /* Banner brought to front */
+/* =========================
+   SECOND BANNER
+   This is your main text + enter button.
+========================= */
 
 .secondbanner {
-    position: relative;      /* relative to normal position */
-    z-index: 10;             /* higher than background */
-    text-align: center;
-
-    margin: 1000px auto;      /* moved down slightly */
-    top: 85%;                /* small downward nudge */
+  position: relative;      /* Keeps it inside normal document flow but allows top adjustment */
+  text-align: center;
+  margin: 1000px auto;     /* Pushes it far down (this is why your page looks like it starts lower) */
+  top: 85%;                /* Extra vertical offset */
+  z-index: 999;            /* Extremely high so it sits above everything */
 }
 
+/* Subtitle text */
 .secondbanner h2 {
-    font-size: 48px;
-    margin-bottom: -5px;
-    color: #040017;
-    font-family: "Times New Roman", Times, serif;
+  font-size: 48px;
+  margin-bottom: -5px;     /* Pulls h2 closer to h1 */
+  color: #040017;
+  font-family: "Times New Roman", Times, serif;
 }
 
+/* Main heading text */
 .secondbanner h1 {
-    font-size: 42px;
-    font-weight: bold;
-    margin-bottom: 40px;
-    color: #040017;
-    font-family: 'Poppins', sans-serif;
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #040017;
+  font-family: 'Poppins', sans-serif;
 }
+
+/* =========================
+   ENTER BUTTON
+========================= */
 
 .enter-button {
-    width: 250px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+  width: 250px;
+  height: auto;
+  cursor: pointer;                 /* Shows clickable hand */
+  transition: transform 0.3s ease; /* Smooth hover animation */
 }
 
-  .main-carousel {
-            position: absolute;
-            top: 120%;
-            left: 0;
-            width: 100%;
-            display: block;
-            object-fit: cover;
-            z-index: 2; /* sits above carousel (z:0) and below overlay (z:2/10) */
+/* =========================
+   MAIN CAROUSEL IMAGE
+   (Looks unused in your current HTML, but leaving it in)
+========================= */
+
+.main-carousel {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  z-index: 2;
 }
+
+/* =========================
+   THREE.JS CANVAS (IMPORTANT)
+   This styles the WebGL canvas created by Three.js.
+========================= */
+
 canvas {
-      display: block;
-    }
+  position: absolute;      /* Lets you manually place the WebGL canvas */
+  top: 1100px;             /* Moves the whole Three.js carousel down */
+  left: 0;
+  width: 100%;             /* Full width */
+  height: 100%;            /* Full height (careful: depends on body height) */
+  z-index: 500;            /* Layer above backgrounds */
+  pointer-events: none;    /* Allows clicks to pass through canvas */
+}
 
-    .firstmaincarousel-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        ellipse at center,
-        rgba(124,92,255,0.08),
-        transparent 65%
-      );
-      pointer-events: none;
-      
-    }
+/* =========================
+   OVERLAY ABOVE CANVAS
+   Used for a soft glow / gradient effect on top of the carousel.
+========================= */
 
-    /* Hidden image container (Blade-friendly) */
-    .firstmaincarousel-images {
-      display: none;
-    }
+.firstmaincarousel-overlay {
+  position: absolute;
+  inset: 0;                /* Covers entire viewport */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(124, 92, 255, 0.08),
+    transparent 65%
+  );
+  pointer-events: none;    /* Makes overlay not block clicks */
+  z-index: 600;            /* Above the canvas */
+}
 
-    canvas {
-      display: block;
-      position: absolute;
-      transform: translateY(-5300px);
-      z-index: 999;
-    }
+/* =========================
+   HIDDEN IMAGE CONTAINER
+   These images are used ONLY for Three.js texture building.
+========================= */
 
-    .firstmaincarousel-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        ellipse at center,
-        rgba(124, 92, 255, 0.08),
-        transparent 65%
-      );
-      pointer-events: none;
-    }
+.firstmaincarousel-images {
+  display: none;
+}
 
-    .firstmaincarousel-images {
-      display: none;
-    }
-
-
-
-
-
-/*MOBILE*/
+/* =========================
+   MOBILE STYLES
+   These override desktop styles for phones.
+========================= */
 
 @media (min-width: 375px) and (max-width: 425px) {
+
+  /* Hide desktop background */
   .carousel-background {
     display: none;
   }
-    .carousel-background-mobile{
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            display: block;
-            object-fit: cover;
-            z-index: 2; 
+
+  /* Show mobile background */
+  .carousel-background-mobile {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    z-index: 2;
   }
- /* Scrolling banner overlay */
-        .scrolling-banner-wrapper {
-            top: 53%; /* adjust if you want it higher/lower */
-        }
-        .scrolling-banner {
-            padding: 2px 16px;
-        }
-        .scrolling-banner.left {
-            width: 40%;
-            padding-right: 28px; /* space so text doesn't hit the slanted edge */
-            -webkit-clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 100%, 0 100%); /* backslash slant */
-            clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 100%, 0 100%); /* backslash slant */
-        }
-        .scrolling-banner.right {
-            width: 40.5%;
-            padding-left: 28px; /* space so text doesn't hit the slanted edge */
-            -webkit-clip-path: polygon(25px 0, 100% 0, 100% 100%, 0 100%); /* slash slant on left side */
-            clip-path: polygon(25px 0, 100% 0, 100% 100%, 0 100%); /* slash slant on left side */
-        }
-        .scrolling-banner p { margin: 0; font-weight: 400; letter-spacing: 1.5px; }
 
-        /* Make left and right banner text bolder for emphasis */
-        .scrolling-banner .leftbanner,
-        .scrolling-banner .rightbanner { font-weight: 200; }
-
-        /* Highlight specific words in banners */
-        .scrolling-banner .play { color: #6f4cb2; font-weight: 700; font-style: italic; }
-        .scrolling-banner .culture { color: #63c5b4; font-weight: 700; font-style: italic; }
-        .scrolling-banner .technology { color: #fcc810; font-weight: 700; font-style: italic; }
-
-          .banner {
-           margin: 380px auto;
-        }
-          .banner h2 {
-          font-size: 16px;
-          font-weight: 600;
-        }
-          .banner h1 {
-          font-size: 19px;
-          font-weight: 700;
-          margin-bottom: 10px;
-
+  /* Move banners up for mobile layout */
+  .scrolling-banner-wrapper {
+    top: 53%;
   }
-      .enter-button {
-        width: 150px;
-        height: auto;
-    }
 
-    .secondbanner {
-    z-index: 10;             /* higher than background */
+  /* Reduce padding so banners are smaller */
+  .scrolling-banner {
+    padding: 2px 16px;
+  }
+
+  /* Adjust diagonal cut + width for left banner */
+  .scrolling-banner.left {
+    width: 40%;
+    padding-right: 28px;
+    -webkit-clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 100%, 0 100%);
+  }
+
+  /* Adjust diagonal cut + width for right banner */
+  .scrolling-banner.right {
+    width: 40.5%;
+    padding-left: 28px;
+    -webkit-clip-path: polygon(25px 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(25px 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* Make banner text lighter */
+  .scrolling-banner p {
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+  }
+
+  /* These look unused but remain */
+  .scrolling-banner .leftbanner,
+  .scrolling-banner .rightbanner {
+    font-weight: 200;
+  }
+
+  /* =========================
+     NOTE:
+     These .banner styles look like an older class name.
+     Your HTML uses .secondbanner, not .banner.
+     So these may do nothing unless another section uses them.
+  ========================= */
+
+  .banner {
+    margin: 380px auto;
+  }
+
+  .banner h2 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .banner h1 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  /* Smaller enter button on mobile */
+  .enter-button {
+    width: 150px;
+  }
+
+  /* Mobile positioning for the main text block */
+  .secondbanner {
     text-align: center;
+    margin: 530px auto;
+    z-index: 999;
+  }
 
-    margin: 530px auto;      /* moved down slightly */
-}
-
-.secondbanner h2 {
+  .secondbanner h2 {
     font-size: 18px;
     margin-bottom: -5px;
-    color: #040017;
-    font-family: "Times New Roman", Times, serif;
-}
+  }
 
-.secondbanner h1 {
+  .secondbanner h1 {
     font-size: 17px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #040017;
-    font-family: 'Poppins', sans-serif;
-}
+  }
 
-.enter-button {
-    width: 150px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
+  /* =========================
+     MAIN CAROUSEL IMAGE (MOBILE)
+     Again, may be unused depending on your HTML.
+  ========================= */
 
   .main-carousel {
-            position: absolute;
-            top: 65%;
-            left: -70%;
-            width: 250%;
-            display: block;
-            object-fit: cover;
-            z-index: 2; /* sits above carousel (z:0) and below overlay (z:2/10) */
-}
+    position: absolute;
+    top: 65%;
+    left: -70%;
+    width: 250%;
+    object-fit: cover;
+    z-index: 2;
+  }
+
+  /* =========================
+     CANVAS (MOBILE)
+     This overrides the desktop canvas position and size.
+  ========================= */
+
+  canvas {
+    top: 450px !important;        /* Moves canvas upward for mobile */
+    width: 100% !important;
+    height: 700px !important;     /* Forces a fixed height */
+    z-index: 500 !important;
+    pointer-events: none !important;
+  }
 }
