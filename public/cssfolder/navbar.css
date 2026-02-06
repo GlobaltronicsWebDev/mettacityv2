@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
 :root{
   --headerBgH: 210px;
   --logoOffsetY: 25px;
@@ -10,28 +11,24 @@
 .header-bg{
   width: 100%;
   height: var(--headerBgH);
-  background-size: cover;
-  background-position: center;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
-  pointer-events: none;
+
+  /* ✅ IMPORTANT: allow clicks */
+  pointer-events: auto;
 }
+
+/* Only the image should ignore clicks */
 .header-bg-img{
   width: 100%;
   height: var(--headerBgH);
-  background-size: cover;
-  background-position: center;
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
-}
-
-.header-bg a,
-.header-bg button{
-  pointer-events: auto;
+  z-index: 1;
 }
 
 /* Header inner content */
@@ -40,6 +37,9 @@
   top: 10px;
   width: 100%;
   z-index: 10;
+
+  /* ✅ allow clicks */
+  pointer-events: auto;
 }
 
 /* =========================
@@ -125,21 +125,31 @@
 .social-icon:hover{
   transform: scale(1.15);
 }
-/* MOBILE MENU BUTTON */
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
 .menu-btn{
-  pointer-events: auto;
   border: 0;
-  background: #000;
-  color: #fff;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  color: #fff;
+  background: rgb(0, 0, 0);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  pointer-events: auto;
 }
 
-/* OFFCANVAS LINKS */
+/* =========================
+   OFFCANVAS LINKS
+========================= */
 .mobile-nav{
   list-style: none;
   padding: 0;
@@ -156,20 +166,22 @@
   font-weight: 600;
 }
 
-/* RESPONSIVE HEADER TWEAKS */
+/* =========================
+   RESPONSIVE HEADER TWEAKS
+========================= */
 @media (max-width: 768px){
 
   :root{
-    --headerBgH: 120px;       /* make header shorter on mobile */
-    --logoOffsetY: 10px;      /* less offset */
+    --headerBgH: 120px;
+    --logoOffsetY: 10px;
   }
 
   .header-content{
-    top: 10px;                /* bring content up */
+    top: 10px;
   }
 
   .logo-img{
-    max-height: 46px;         /* smaller logo */
+    max-height: 46px;
   }
 
   .social-icon{
@@ -181,29 +193,9 @@
     height: 42px;
   }
 }
-/* MOBILE MENU BUTTON */
-.menu-btn{
-  pointer-events: auto;
-  border: 0;
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #fff;
-  background: rgb(0, 0, 0);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-
-}
 
 /* =========================
    MOBILE OFFCANVAS DESIGN
-   (Gradient + optional grid)
 ========================= */
 .mobile-offcanvas{
   color: #111;
@@ -214,7 +206,6 @@
   position: relative;
   overflow: hidden;
 
-  /* Gradient inspired by your main background */
   background: linear-gradient(180deg,
     rgba(245, 210, 255, 0.95) 0%,
     rgba(215, 225, 255, 0.92) 45%,
@@ -222,7 +213,6 @@
   );
 }
 
-/* Optional subtle grid overlay (looks like your BG) */
 .mobile-offcanvas-body::before{
   content: "";
   position: absolute;
@@ -293,6 +283,7 @@
   margin: 4px 6px 2px;
   color: rgba(0,0,0,.75);
 }
+
 /* =========================
    MOBILE HEADER SOCIALS
 ========================= */
@@ -302,6 +293,7 @@
   gap: 12px;
   margin-left: 16px;
 }
+
 .mobile-header-social{
   width: 36px;
   height: 36px;
@@ -318,43 +310,30 @@
   font-size: 14px;
 
   transition: transform .2s ease;
+  pointer-events: auto;
 }
 
-.mobile-header-social:hover{
-  transform: scale(1.1);
-}
-/* Facebook */
-.mobile-header-social:hover .fa-facebook-f{
-  
-  color: #1877f2;
+/* IMPORTANT: make sure the icon doesn't steal click */
+.mobile-header-social i{
+  pointer-events: none;
 }
 
-/* Instagram */
-.mobile-header-social:hover .fa-instagram{
-  color: #e1306c;
-}
-
-/* X / Twitter */
-.mobile-header-social:hover .fa-x-twitter{
-  color: #000;
-}
-
-/* optional lift */
 .mobile-header-social:hover{
   background: #fff;
   transform: translateY(-3px) scale(1.08);
 }
-/* =========================
-   MOBILE: HIDE LOGO + SOCIALS
-   (We already used d-none d-md-flex in HTML,
-    but this is extra safety.)
-========================= */
-@media (max-width: 768px){
-  :root{
-    --headerBgH: 120px;     /* shorter header bg on mobile */
-    --logoOffsetY: 0px;
-  }
-  .header-content{
-    top: 10px;
-  }
+
+/* Facebook hover */
+.mobile-header-social:hover .fa-facebook-f{
+  color: #1877f2;
+}
+
+/* Instagram hover */
+.mobile-header-social:hover .fa-instagram{
+  color: #e1306c;
+}
+
+/* X hover */
+.mobile-header-social:hover .fa-x-twitter{
+  color: #000;
 }
