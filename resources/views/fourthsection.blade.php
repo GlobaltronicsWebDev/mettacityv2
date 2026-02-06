@@ -96,12 +96,24 @@
     <img src="{{ asset('./assets/COREMESSAGE.png') }}" alt="Core Message" class="core-message">
     <img src="{{ asset('./assets/CORE MESSAGE.png') }}" alt="Core Message" class="core-messagem">
 
-      <div class="fifthcontent">
-       <h2>The future of amusement-</h2>
-       <h1>Where Culture, Play, and Technology Meet</h1>
-       <img src="{{ asset('./assets/PLAN YOUR VISIT.png') }}" alt="Enter Button" class="fifthvisit-button">
-      </div> 
+ <section class="bottom-merge">
+
+        <!-- STATEMENT -->
+        <section class="statement-section">
+          <div class="container-fluid">
+            <div class="statement-inner">
+              <p class="statement-eyebrow">The future of amusement-</p>
+              <h2 class="statement-heading">
+                Where Culture, Play, and Technology Meet
+              </h2>
+            <img src="{{ asset('./assets/PLAN YOUR VISIT.png') }}" alt="Enter Button" class="enter-button">
+            </div>
+          </div>
+        </section>
+ </section>
 
   </div>
-</body>
-</html>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('jsfolder/fourthsection.js') }}"></script>

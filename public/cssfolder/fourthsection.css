@@ -262,6 +262,66 @@
 .core-messagem {
   display: none;
 }
+
+/* ============================= */
+/* STATEMENT SECTION – TRUE CENTER */
+/* ============================= */
+
+.statement-section {
+  position: relative;
+  z-index: 10;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: transparent;
+  opacity: 0;
+  transform: translateY(-40px); /* fade DOWN */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+/* WHEN VISIBLE */
+.statement-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🔥 REMOVE BOOTSTRAP SIDE OFFSET */
+.statement-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* CENTER WRAPPER */
+.statement-inner {
+  max-width: 1100px;       /* wider = better optical center */
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* EYEBROW */
+.statement-eyebrow {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 30px;
+}
+
+/* 🔑 TRUE OPTICAL CENTER HEADING */
+.statement-heading {
+  display: inline-block;   /* shrink to text width */
+  white-space: nowrap;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  /* 🔥 OPTICAL ADJUSTMENT */
+  transform: translateX(-1px);
+}
+.enter-button{
+  margin-top: 50px;
+  width: 250px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 @media (max-width: 425px) {
   .fourthtitle {
   top: 150%;
