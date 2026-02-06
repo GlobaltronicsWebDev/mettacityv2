@@ -794,15 +794,27 @@ html, body{
   .marquee-strip {
     transform: translateY(-430px); /* adjust value as needed */
   }
-  .main-title-box{
-    margin: 0 auto;
+  .main-title-box {
+    margin: 0;              /* remove auto centering */
+    padding: 0;             /* remove side spacing */
+    left: 0;
+    right: 0;
     transform: translateY(-370px); /* adjust value as needed */
-}
+  }
+
+  .main-title-img {
+    width: 125vw;           /* slightly bigger than screen */
+    max-width: none;        /* allow overflow */
+    margin-left: -10vw;      /* force edge-to-edge */
+    height: auto;
+    display: block;
+  }
   .zones-list{
     transform: translateY(-300px); /* adjust value as needed */
     margin-top: 0;
     padding-left: 10px;
     padding-right: 10px;
+    gap: 30px;
   }
     /* ✅ desktop: exact image (no crop) */
   .bg-exact-img {
@@ -816,42 +828,67 @@ html, body{
     display: block !important;
     transform: translateY(70px); /* adjust value as needed */
   }
-    .feature-overlay {          /* vertical center */
-    transform: translateY(-290px); /* adjust value as needed */
+  .feature-overlay {
+    transform: translateY(-345px);
+    padding: 0 16px;
   }
-    .feature-exact {
-    transform: translateY(-300px); /* adjust value as needed */
+
+  .feature-exact {
+    transform: translateY(-300px);
   }
-  .feature-row{
+
+  /* keep row horizontal */
+  .feature-row {
     margin-left: 0;
     margin-right: 0;
+    padding: 14px 0;
+    flex-direction: row;
+    align-items: center;
   }
-    .pill {
-  align-items: center;
-  gap: 20px;
 
-  color: #fff;
-  /* big height + big left/right space */
-  padding: clamp(15px, 2.2vw, 10px) clamp(15px, 2vw, 45px);
-  border-radius: 999px;
-  font-weight: 800;
-  font-style: italic;
-  /* big text */
-  font-size: clamp(13px, 3vw, 10px);
+  /* force two columns side-by-side */
+  .feature-row > [class*="col-"] {
+    flex: 0 0 auto;
+    padding-left: 0;
+    padding-right: 0;
   }
-    .feature-text {
+
+  /* left side: pill */
+  .feature-row > :first-child {
+    width: 48%;
+  }
+
+  /* right side: text */
+  .feature-row > :last-child {
+    width: 52%;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: clamp(12px, 2.2vw, 10px) clamp(12px, 2vw, 45px);
+    font-size: clamp(10px, 3vw, 10px);
+    border-radius: 999px;
+    width: 100%;
+    justify-content: flex-start;
+    white-space: normal;
+  }
+
+  .feature-text {
     font-size: clamp(10px, 1.8vw, 15px);
     line-height: 1.35;
     padding-right: 0;
   }
+
 
   /* ============================= */
 /* STATEMENT SECTION – TRUE CENTER */
 /* ============================= */
 
 .statement-section{
-  margin-top: -900px;
-  margin-bottom: 120px;
+  margin-top: -1000px;
+  margin-bottom: 130px;
 }
 /* EYEBROW */
 .statement-eyebrow {
@@ -869,4 +906,11 @@ html, body{
   width: 150px;
   height: auto;
 }
+
+}
+@media (max-width: 375px) {
+  .feature-overlay {
+    transform: translateY(-375px);
+    padding: 0 12px;
+  }
 }
