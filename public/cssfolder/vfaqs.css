@@ -273,3 +273,45 @@ body {
   /* 🔥 OPTICAL ADJUSTMENT */
   transform: translateX(-1px);
 }
+
+@media (max-width: 425px) {
+  .plan-bg {
+    height: 30vh;
+}
+.title-bg{
+  margin-top: 50px;
+}
+.faq-accordion {
+transform: translateY(50px);
+}
+
+  /* ============================= */
+/* STATEMENT SECTION – TRUE CENTER */
+/* ============================= */
+
+.statement-section{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+/* EYEBROW */
+.statement-eyebrow {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* 🔑 TRUE OPTICAL CENTER HEADING */
+.statement-heading {
+  font-size: 18px;
+}
+}
+@media (max-width: 375px) {
+  .statement-section{
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+.statement-heading {
+  font-size: 15px;
+  font-weight: 800;
+}
+}

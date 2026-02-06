@@ -24,10 +24,10 @@
 
 <!-- ================= STICKY GRID IMAGE ================= -->
 <div class="sticky-grid">
-  <img
-    src="{{ asset('./assets/V_FAQS/FAQS_BG.png') }}" alt="Grid background"class="plan-bg"/>
+  <img src="{{ asset('./assets/V_FAQS/FAQS_BG.png') }}" alt="Grid background"class="plan-bg"/>
+
   <div class="grid-title fade-down">
-    <img src="{{ asset('./assets/V_FAQS/FAQS_TITLE.png') }}" alt="Frequently Asked Questions"/>
+    <img src="{{ asset('./assets/V_FAQS/FAQS_TITLE.png') }}" alt="Frequently Asked Questions" class="title-bg"/>
   </div>
 </div>
 
