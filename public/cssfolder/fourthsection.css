@@ -207,7 +207,7 @@
     #f1e8fd 50%,
     #f4f4fe 100%
   );
-  padding-bottom: 200px;
+  padding-bottom: 650px;
   margin-top: -80px;
 }
 
@@ -270,8 +270,8 @@
 .statement-section {
   position: relative;
   z-index: 10;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  margin-top: -550px;
+  padding-bottom: 350px;
   background: transparent;
   opacity: 0;
   transform: translateY(-40px); /* fade DOWN */
@@ -458,8 +458,8 @@
 /* ============================= */
 
 .statement-section{
-  margin-top: -300px;
-  margin-bottom: 300px;
+  margin-top: -200px;
+  margin-bottom: 50px;
 }
 /* EYEBROW */
 .statement-eyebrow {
