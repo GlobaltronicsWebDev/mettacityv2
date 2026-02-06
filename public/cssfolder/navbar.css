@@ -1,154 +1,290 @@
+/* Import Google Font (Poppins) with weights 200 and 400 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
+/* =========================
+   GLOBAL CSS VARIABLES
+   These are reusable values you can change easily.
+========================= */
 :root{
+  /* Height of the header background image */
   --headerBgH: 210px;
+
+  /* How much the center logo is pushed down */
   --logoOffsetY: 25px;
 }
 
 /* =========================
    HEADER (TRUE OVERLAY)
+   This makes the header float above the page.
 ========================= */
 .header-bg{
   width: 100%;
+
+  /* Header height is controlled by the CSS variable */
   height: var(--headerBgH);
+
+  /* Fixed means it stays visible when scrolling */
   position: fixed;
   top: 0;
   left: 0;
+
+  /* Very high z-index so it stays on top of everything */
   z-index: 9999;
 
-  /* ✅ IMPORTANT: allow clicks */
-  pointer-events: auto;
+  /* IMPORTANT:
+     This prevents the header container from blocking clicks.
+     (You re-enable clicks inside specific child elements.) */
+  pointer-events: none;
 }
 
-/* Only the image should ignore clicks */
+/* =========================
+   HEADER BACKGROUND IMAGE
+   This is the header background graphic.
+========================= */
 .header-bg-img{
   width: 100%;
   height: var(--headerBgH);
+
+  /* Fixed so it stays at the top */
   position: fixed;
   top: 0;
   left: 0;
+
+  /* Background image should not block clicks */
   pointer-events: none;
+
+  /* Lower than content so content stays above */
   z-index: 1;
 }
 
-/* Header inner content */
+/* =========================
+   HEADER INNER CONTENT
+   Holds navigation, logo, socials, etc.
+========================= */
 .header-content{
+  /* Positioned on top of header background */
   position: absolute;
+
+  /* Distance from top of header */
   top: 10px;
+
   width: 100%;
+
+  /* Above the background image */
   z-index: 10;
 
-  /* ✅ allow clicks */
+  /* Re-enable clicks for the header content */
   pointer-events: auto;
 }
 
 /* =========================
-   NAVIGATION
+   NAVIGATION (DESKTOP)
 ========================= */
 .header-nav{
+  /* Black pill background */
   background: #000;
+
+  /* Padding inside the pill */
   padding: 8px 24px;
+
+  /* Makes it a full rounded pill */
   border-radius: 999px;
+
+  /* Font */
   font-family: "Poppins";
+
+  /* Horizontal layout */
   display: flex;
   align-items: center;
   gap: 16px;
 
+  /* Remove list bullets */
   list-style: none;
+
+  /* Remove default margin */
   margin: 0;
+
+  /* Prevent nav items from wrapping */
   white-space: nowrap;
+
+  /* Ensure nav always clickable */
+  pointer-events: auto;
+
+  /* Needed for z-index to work */
+  position: relative;
+
+  /* Keeps it above other elements */
+  z-index: 20;
 }
 
+/* Desktop nav links */
 .header-nav .nav-link{
+  /* White text */
   color: #fff;
+
+  /* Slightly bold */
   font-weight: 500;
+
+  /* Padding makes clickable area bigger */
   padding: 8px 14px;
+
+  /* Rounded pill link */
   border-radius: 999px;
+
+  /* Remove underline */
   text-decoration: none;
+
+  /* Smooth hover animations */
   transition: background .2s ease, color .2s ease, transform .2s ease;
+
+  /* Ensure links clickable */
+  pointer-events: auto;
 }
 
+/* Hover effect for desktop links */
 .header-nav .nav-link:hover{
+  /* Switch to white background */
   background: #fff;
+
+  /* Switch text to black */
   color: #000;
+
+  /* Small lift animation */
   transform: translateY(-2px);
 }
 
+/* Active page highlight */
 .header-nav .nav-link.active{
   background: #5fd3c6;
   color: #000;
 }
 
 /* =========================
-   LOGO
+   LOGO (DESKTOP CENTER)
 ========================= */
 .logo-img{
+  /* Pushes logo down */
   margin-top: 50px;
+
+  /* Max height controls logo size */
   max-height: 60px;
+
+  /* Allow clicking if you wrap it in a link later */
+  pointer-events: auto;
 }
 
+/* Center column styling */
 .col-mid{
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* Moves logo down using variable */
   transform: translateY(var(--logoOffsetY));
 }
 
 /* =========================
-   CTA + SOCIAL
+   CTA + SOCIAL ICONS (DESKTOP RIGHT)
 ========================= */
 .plan-visit-img{
+  /* Size of the CTA image */
   height: 50px;
+
+  /* Cursor shows it is clickable */
   cursor: pointer;
+
+  /* Smooth hover animation */
   transition: transform .25s ease;
+
+  /* Allow clicking */
+  pointer-events: auto;
 }
 
+/* Hover animation for CTA */
 .plan-visit-img:hover{
   transform: translateY(-3px) scale(1.05);
 }
 
+/* Social icons style */
 .social-icon{
   width: 36px;
   height: 36px;
+
+  /* Circle shape */
   border-radius: 50%;
+
+  /* White background */
   background: #fff;
+
+  /* Black border */
   border: 2px solid #000;
+
+  /* Icon color */
   color: #000;
 
+  /* Center icon */
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Remove underline */
   text-decoration: none;
+
+  /* Smooth hover */
   transition: transform .25s ease;
+
+  /* Allow clicking */
+  pointer-events: auto;
 }
 
+/* Social hover effect */
 .social-icon:hover{
   transform: scale(1.15);
 }
 
 /* =========================
-   MOBILE MENU BUTTON
+   MOBILE MENU BUTTON (HAMBURGER)
 ========================= */
 .menu-btn{
+  /* Remove default button border */
   border: 0;
+
+  /* Button size */
   width: 46px;
   height: 46px;
+
+  /* Rounded corners */
   border-radius: 14px;
 
+  /* Center the icon */
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
+  /* Icon color */
   color: #fff;
+
+  /* Background black */
   background: rgb(0, 0, 0);
+
+  /* Blur effect behind (if supported) */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
+  /* Allow clicking */
   pointer-events: auto;
+
+  /* Needed so z-index works */
+  position: relative;
+
+  /* Very high so it stays above */
+  z-index: 30;
 }
 
 /* =========================
-   OFFCANVAS LINKS
+   OFFCANVAS LINKS (OLD STYLE)
+   NOTE: You later redefine .mobile-nav below,
+   so this block becomes mostly overridden.
 ========================= */
 .mobile-nav{
   list-style: none;
@@ -168,27 +304,36 @@
 
 /* =========================
    RESPONSIVE HEADER TWEAKS
+   Applies only on screens <= 768px
 ========================= */
 @media (max-width: 768px){
 
+  /* Override CSS variables for mobile */
   :root{
+    /* Smaller header height */
     --headerBgH: 120px;
+
+    /* Less logo offset */
     --logoOffsetY: 10px;
   }
 
+  /* Adjust header content position */
   .header-content{
     top: 10px;
   }
 
+  /* Smaller logo on mobile */
   .logo-img{
     max-height: 46px;
   }
 
+  /* Smaller social icons on mobile */
   .social-icon{
     width: 32px;
     height: 32px;
   }
 
+  /* Smaller CTA image on mobile */
   .plan-visit-img{
     height: 42px;
   }
@@ -198,14 +343,21 @@
    MOBILE OFFCANVAS DESIGN
 ========================= */
 .mobile-offcanvas{
+  /* Text color inside menu */
   color: #111;
+
+  /* Remove default offcanvas border */
   border-right: 0;
 }
 
+/* Offcanvas background + gradient design */
 .mobile-offcanvas-body{
   position: relative;
+
+  /* Prevent scrollbars from background layers */
   overflow: hidden;
 
+  /* Gradient background */
   background: linear-gradient(180deg,
     rgba(245, 210, 255, 0.95) 0%,
     rgba(215, 225, 255, 0.92) 45%,
@@ -213,69 +365,110 @@
   );
 }
 
+/* Decorative grid overlay behind content */
 .mobile-offcanvas-body::before{
   content: "";
   position: absolute;
   inset: 0;
+
+  /* Creates grid lines */
   background-image:
     linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px);
+
+  /* Grid size */
   background-size: 34px 34px;
+
+  /* Light opacity */
   opacity: .18;
+
+  /* Ensure it doesn't block clicks */
   pointer-events: none;
 }
 
+/* Offcanvas header gradient */
 .mobile-offcanvas-header{
   background: linear-gradient(90deg, #5fd3c6, #9b7bff, #ffe600);
+
+  /* Text color */
   color: #000000;
 }
 
-/* Nav layout */
+/* =========================
+   MOBILE NAV LAYOUT (NEW STYLE)
+   This overrides your earlier .mobile-nav definition.
+========================= */
 .mobile-nav{
   position: relative;
   z-index: 1;
 
+  /* Vertical layout */
   display: flex;
   flex-direction: column;
+
+  /* Space between links */
   gap: 12px;
 
   padding: 8px 4px;
 }
 
-/* Links styled like modern pills */
+/* =========================
+   MOBILE NAV LINKS (PILL STYLE)
+========================= */
 .mobile-link{
+  /* Remove underline */
   text-decoration: none;
+
+  /* Bold look */
   font-weight: 800;
+
+  /* Slight spacing between letters */
   letter-spacing: .5px;
 
+  /* Text color */
   color: #0b0b0b;
+
+  /* Semi transparent background */
   background: rgba(255,255,255,.65);
 
+  /* Light border */
   border: 1px solid rgba(0,0,0,.08);
+
+  /* Rounded corners */
   border-radius: 16px;
 
+  /* Padding for large tap area */
   padding: 14px 14px;
+
+  /* Smooth hover effects */
   transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+
+  /* Ensure clickable */
+  pointer-events: auto;
 }
 
+/* Hover effect for mobile links */
 .mobile-link:hover{
   transform: translateY(-2px);
   background: rgba(255,255,255,.85);
   box-shadow: 0 14px 26px rgba(0,0,0,.12);
 }
 
+/* Active link for current page */
 .mobile-link.active{
   background: rgba(0,0,0,.86);
   color: #fff;
   border-color: rgba(0,0,0,.86);
 }
 
+/* Divider line in mobile menu */
 .mobile-divider{
   height: 1px;
   background: rgba(0,0,0,.15);
   margin: 10px 4px;
 }
 
+/* Merch section title */
 .mobile-section-title{
   font-weight: 900;
   letter-spacing: 1px;
@@ -286,14 +479,23 @@
 
 /* =========================
    MOBILE HEADER SOCIALS
+   (icons shown on the top-right in mobile header)
 ========================= */
 .mobile-header-socials{
   display: flex;
   align-items: center;
+
+  /* Spacing between icons */
   gap: 12px;
+
+  /* Push away from hamburger */
   margin-left: 16px;
+
+  /* Ensure clickable */
+  pointer-events: auto;
 }
 
+/* Social icon button on mobile */
 .mobile-header-social{
   width: 36px;
   height: 36px;
@@ -305,35 +507,42 @@
 
   background: #fff;
   border: 2px solid #000;
+
   color: #000;
   text-decoration: none;
+
+  /* Icon size */
   font-size: 14px;
 
   transition: transform .2s ease;
+
   pointer-events: auto;
 }
 
-/* IMPORTANT: make sure the icon doesn't steal click */
+/* IMPORTANT:
+   Prevent the <i> icon from stealing the click/tap.
+   So the <a> is always the clickable target. */
 .mobile-header-social i{
   pointer-events: none;
 }
 
+/* Hover animation */
 .mobile-header-social:hover{
   background: #fff;
   transform: translateY(-3px) scale(1.08);
 }
 
-/* Facebook hover */
+/* Facebook hover color */
 .mobile-header-social:hover .fa-facebook-f{
   color: #1877f2;
 }
 
-/* Instagram hover */
+/* Instagram hover color */
 .mobile-header-social:hover .fa-instagram{
   color: #e1306c;
 }
 
-/* X hover */
+/* X hover color */
 .mobile-header-social:hover .fa-x-twitter{
   color: #000;
 }
