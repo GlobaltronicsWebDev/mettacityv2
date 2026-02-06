@@ -25,7 +25,7 @@ html, body{
   pointer-events: none; /* title is decorative */
   z-index: 10;
 }
-.plan-bg{
+.ticket-bg{
   max-width: 100%;
 }
 /* TITLE IMAGE SIZE */
@@ -235,4 +235,65 @@ html, body{
     white-space: normal;   /* allow wrap sa mobile */
     transform: none;
   }
+}
+
+@media (max-width: 425px) {
+  .ticket-bg {
+    height: 30vh;
+}
+.title-bg{
+  margin-top: -300px;
+}
+.page-content{
+margin-top: -50px;
+}
+.marquee-center{
+  top: 15%;
+}
+.marquee-strip {
+  margin-top: 0;
+}
+
+.buy-ticket-button{
+  width: 300px !important;
+  height: auto;
+  border: #ffffff solid 3px;
+}
+  /* ============================= */
+/* STATEMENT SECTION – TRUE CENTER */
+/* ============================= */
+
+.statement-section{
+  margin-top: 0;
+  margin-bottom: 100px;
+}
+/* EYEBROW */
+.statement-eyebrow {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* 🔑 TRUE OPTICAL CENTER HEADING */
+.statement-heading {
+  font-size: 18px;
+}
+.enter-button{
+  margin-top: 50px;
+  width: 150px;
+  height: auto;
+}
+}
+@media (max-width: 375px) {
+.buy-ticket-button{
+  width: 290px !important;
+}
+.statement-section{
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+.statement-heading {
+  font-size: 15px;
+  font-weight: 800;
+}
 }
