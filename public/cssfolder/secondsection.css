@@ -377,7 +377,7 @@ canvas {
 
   /* Smaller enter button on mobile */
   .enter-button {
-    width: 150px;
+    width: 150px !important;
   }
 
   /* Mobile positioning for the main text block */

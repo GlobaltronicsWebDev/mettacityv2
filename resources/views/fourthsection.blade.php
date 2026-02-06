@@ -29,7 +29,7 @@
           <img src="{{ asset('assets/3. CULTURE.png') }}" alt="CULTURE" class="culturem">
         </div>
         <div class="col">
-          <img src="{{ asset('assets/ENTER BUTTON.png') }}" alt="ENTER METTACITY" id="entermettacitym">
+          <a href="{{ route('enter.metta.city') }}"><img src="{{ asset('assets/ENTER BUTTON.png') }}" alt="ENTER METTACITY" id="entermettacitym"></a>
         </div>
       </div>
 
@@ -96,6 +96,9 @@
     <img src="{{ asset('./assets/COREMESSAGE.png') }}" alt="Core Message" class="core-message">
     <img src="{{ asset('./assets/CORE MESSAGE.png') }}" alt="Core Message" class="core-messagem">
 
+
+
+  </div>
  <section class="bottom-merge">
 
         <!-- STATEMENT -->
@@ -111,9 +114,6 @@
           </div>
         </section>
  </section>
-
-  </div>
-
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{{ asset('jsfolder/fourthsection.js') }}"></script>

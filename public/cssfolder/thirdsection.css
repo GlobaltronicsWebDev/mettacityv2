@@ -203,6 +203,9 @@
 /* ===================== */
 
 @media (max-width: 425px) {
+  .third-section{
+    transform: translateY(-35px);
+  }
   .third-carousel { 
    height: 420px;
    position: relative;

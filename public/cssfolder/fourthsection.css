@@ -453,4 +453,28 @@
   padding-bottom: 0;
   margin-top: 0;
 }
+/* ============================= */
+/* STATEMENT SECTION – TRUE CENTER */
+/* ============================= */
+
+.statement-section{
+  margin-top: -300px;
+  margin-bottom: 300px;
+}
+/* EYEBROW */
+.statement-eyebrow {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* 🔑 TRUE OPTICAL CENTER HEADING */
+.statement-heading {
+  font-size: 18px;
+}
+.enter-button{
+  margin-top: 50px;
+  width: 150px;
+  height: auto;
+}
 }
