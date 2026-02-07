@@ -1,132 +1,234 @@
-  const faqWrapper = document.getElementById("faqWrapper");
-  const faqToggle = document.getElementById("faqToggle");
+// ==================== FAQ SIDEBAR TOGGLE ====================
+const faqSidebar = document.getElementById('faqSidebar');
+const faqTab = document.getElementById('faqTab');
 
-  faqToggle.addEventListener("click", () => {
-    faqWrapper.classList.toggle("active");
+if (faqTab) {
+  faqTab.addEventListener('click', (e) => {
+    e.stopPropagation();
+    faqSidebar.classList.toggle('active');
   });
-document.addEventListener("DOMContentLoaded", () => {
+}
 
-  const calendar = document.getElementById("calendar");
-  const toggle = document.getElementById("toggleCalendar");
-  const daysGrid = document.getElementById("daysGrid");
-  const monthLabel = document.getElementById("monthLabel");
-  const selectedDateText = document.getElementById("selectedDate");
-  const prevBtn = document.getElementById("prevMonth");
-  const nextBtn = document.getElementById("nextMonth");
-
-  const MIN_DATE = new Date(2026, 0, 1);
-  const MAX_DATE = new Date(2030, 0, 31);
-
-  let currentDate = new Date(2026, 0, 1);
-
-  const monthNames = [
-    "JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE",
-    "JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"
-  ];
-
-  toggle.addEventListener("click", () => {
-    calendar.classList.toggle("open");
-  });
-
-  document.addEventListener("click", e => {
-    if (!e.target.closest(".date-picker-wrapper")) {
-      calendar.classList.remove("open");
-    }
-  });
-
-  function renderCalendar() {
-    daysGrid.innerHTML = "";
-    monthLabel.textContent =
-      `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
-
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-    const firstDay = new Date(year, month, 1).getDay() || 7;
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-    for (let i = 1; i < firstDay; i++) {
-      daysGrid.appendChild(document.createElement("div"));
-    }
-
-    for (let d = 1; d <= daysInMonth; d++) {
-      const cellDate = new Date(year, month, d);
-      const cell = document.createElement("div");
-      cell.className = "day";
-      cell.textContent = d;
-
-      if (cellDate >= MIN_DATE && cellDate <= MAX_DATE) {
-        cell.classList.add("available");
-        cell.addEventListener("click", () => {
-          document.querySelectorAll(".day")
-            .forEach(el => el.classList.remove("selected"));
-          cell.classList.add("selected");
-          selectedDateText.value =
-            `${monthNames[month]} ${d}, ${year}`;
-          calendar.classList.remove("open");
-        });
-      }
-
-      daysGrid.appendChild(cell);
-    }
+// Close FAQ when clicking outside
+document.addEventListener('click', (e) => {
+  if (faqSidebar && !faqSidebar.contains(e.target)) {
+    faqSidebar.classList.remove('active');
   }
+});
 
-  prevBtn.onclick = () => {
-    const prev = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
-    if (prev >= MIN_DATE) {
-      currentDate = prev;
+// ==================== CALENDAR FUNCTIONALITY ====================
+const calendarDropdown = document.getElementById('calendarDropdown');
+const dateToggle = document.getElementById('dateToggle');
+const dateInputGroup = document.querySelector('.date-input-group');
+const calendarGrid = document.getElementById('calendarGrid');
+const monthYear = document.getElementById('monthYear');
+const dateInput = document.getElementById('dateInput');
+const prevMonthBtn = document.getElementById('prevMonth');
+const nextMonthBtn = document.getElementById('nextMonth');
+
+const MIN_DATE = new Date(2026, 0, 1); // Jan 1, 2026
+const MAX_DATE = new Date(2030, 0, 31); // Jan 31, 2030
+
+let currentDate = new Date(2026, 0, 1);
+let selectedDate = null;
+
+const monthNames = [
+  'JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE',
+  'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'
+];
+
+// Toggle calendar
+if (dateToggle && dateInputGroup) {
+  dateInputGroup.addEventListener('click', (e) => {
+    e.stopPropagation();
+    calendarDropdown.classList.toggle('open');
+  });
+}
+
+// Close calendar when clicking outside
+document.addEventListener('click', (e) => {
+  if (calendarDropdown && !calendarDropdown.contains(e.target) && !dateInputGroup.contains(e.target)) {
+    calendarDropdown.classList.remove('open');
+  }
+});
+
+// Render calendar
+function renderCalendar() {
+  if (!calendarGrid || !monthYear) return;
+  
+  calendarGrid.innerHTML = '';
+  
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+  
+  monthYear.textContent = `${monthNames[month]} ${year}`;
+  
+  // Get first day of month (1 = Monday, 7 = Sunday)
+  const firstDay = new Date(year, month, 1).getDay() || 7;
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  
+  // Add empty cells for days before month starts
+  for (let i = 1; i < firstDay; i++) {
+    const emptyCell = document.createElement('div');
+    calendarGrid.appendChild(emptyCell);
+  }
+  
+  // Add day cells
+  for (let day = 1; day <= daysInMonth; day++) {
+    const cellDate = new Date(year, month, day);
+    const dayCell = document.createElement('div');
+    dayCell.className = 'calendar-day';
+    dayCell.textContent = day;
+    
+    // Check if date is available
+    if (cellDate >= MIN_DATE && cellDate <= MAX_DATE) {
+      dayCell.classList.add('available');
+      
+      // Check if this is the selected date
+      if (selectedDate && 
+          cellDate.getDate() === selectedDate.getDate() &&
+          cellDate.getMonth() === selectedDate.getMonth() &&
+          cellDate.getFullYear() === selectedDate.getFullYear()) {
+        dayCell.classList.add('selected');
+      }
+      
+      dayCell.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        // Remove previous selection
+        document.querySelectorAll('.calendar-day').forEach(cell => {
+          cell.classList.remove('selected');
+        });
+        
+        // Add selection to clicked day
+        dayCell.classList.add('selected');
+        selectedDate = cellDate;
+        
+        // Update input
+        dateInput.value = `${monthNames[month]} ${day}, ${year}`;
+        
+        // Close calendar
+        calendarDropdown.classList.remove('open');
+      });
+    }
+    
+    calendarGrid.appendChild(dayCell);
+  }
+}
+
+// Previous month
+if (prevMonthBtn) {
+  prevMonthBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
+    if (prevMonth >= MIN_DATE) {
+      currentDate = prevMonth;
       renderCalendar();
     }
-  };
+  });
+}
 
-  nextBtn.onclick = () => {
-    const next = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
-    if (next <= MAX_DATE) {
-      currentDate = next;
+// Next month
+if (nextMonthBtn) {
+  nextMonthBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+    if (nextMonth <= MAX_DATE) {
+      currentDate = nextMonth;
       renderCalendar();
     }
-  };
+  });
+}
 
-  renderCalendar();
+// Initial render
+renderCalendar();
+
+// ==================== MARQUEE ANIMATION ====================
+function setupMarquee() {
+  const marqueeTrack = document.getElementById('marqueeTrack');
+  if (!marqueeTrack) return;
+  
+  const marqueeContent = marqueeTrack.querySelector('.marquee-content');
+  if (!marqueeContent) return;
+  
+  // Clone content multiple times for seamless loop
+  for (let i = 0; i < 5; i++) {
+    const clone = marqueeContent.cloneNode(true);
+    marqueeTrack.appendChild(clone);
+  }
+}
+
+// Initialize on load
+window.addEventListener('load', setupMarquee);
+
+// ==================== FORM SUBMISSION ====================
+const bookingForm = document.getElementById('bookingForm');
+
+if (bookingForm) {
+  bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const phone = bookingForm.querySelector('input[type="tel"]').value;
+    const email = bookingForm.querySelector('input[type="email"]').value;
+    const date = dateInput.value;
+    const termsChecked = bookingForm.querySelector('input[type="checkbox"]').checked;
+    
+    if (!date) {
+      alert('Please select a date for your event');
+      return;
+    }
+    
+    if (!termsChecked) {
+      alert('Please accept the Terms of Services and Privacy Policy');
+      return;
+    }
+    
+    // Success message
+    alert(`🎉 Booking Request Submitted!\n\nPhone: ${phone}\nEmail: ${email}\nDate: ${date}\n\nWe'll contact you within 24 hours to confirm your booking.`);
+    
+    // Reset form
+    bookingForm.reset();
+    dateInput.value = '';
+    selectedDate = null;
+    renderCalendar();
+  });
+}
+
+// ==================== SMOOTH SCROLL ====================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// ==================== HEADER SCROLL EFFECT ====================
+let lastScroll = 0;
+const header = document.querySelector('.main-header');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll > 100) {
+    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+  } else {
+    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+  }
+  
+  lastScroll = currentScroll;
 });
 
 
-  function setupMarquee() {
-    const track = document.getElementById("marqueeTrack");
-    const set = document.getElementById("marqueeSet");
-    if (!track || !set) return;
-
-    // Remove old clones (keep the first set)
-    [...track.children].forEach((child, i) => {
-      if (i > 1) child.remove();
-    });
-
-    // Measure one set width
-    const setWidth = set.getBoundingClientRect().width;
-
-    // Clone until track is at least 2x viewport width (prevents blanks)
-    const viewportWidth = window.innerWidth;
-    const needed = Math.ceil((viewportWidth * 2) / setWidth);
-
-    for (let i = 0; i < needed; i++) {
-      const clone = set.cloneNode(true);
-      clone.removeAttribute("id");
-      clone.setAttribute("aria-hidden", "true");
-      track.appendChild(clone);
-    }
-
-    // Set exact distance for seamless looping (one-set width)
-    track.style.setProperty("--marquee-distance", `${setWidth}px`);
-
-    // Optional: auto adjust speed based on width (feels consistent)
-    // bigger setWidth = longer duration
-    const duration = Math.max(10, Math.min(22, setWidth / 60));
-    track.style.setProperty("--marquee-duration", `${duration}s`);
-  }
-
-  window.addEventListener("load", setupMarquee);
-  window.addEventListener("resize", setupMarquee);
-
-  // IntersectionObserver for statement-section visibility
+    // IntersectionObserver for statement-section visibility
   document.addEventListener("DOMContentLoaded", function () {
     const section = document.querySelector(".statement-section");
     if (!section) return;

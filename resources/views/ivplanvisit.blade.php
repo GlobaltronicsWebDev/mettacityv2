@@ -24,101 +24,108 @@
 
 <!-- ================= STICKY GRID IMAGE ================= -->
 <div class="sticky-grid">
-  <img src="{{ asset('assets/IV_PLANVISIT/PLAN_BG.png') }}" alt="Grid background" class="plan-bg">
+  <img
+    src="{{ asset('./assets/IV_PLANVISIT/PLAN_BG.png') }}" alt="Grid background" class="plan-bg"/>
   <div class="grid-title fade-down">
-    <img src="{{ asset('assets/IV_PLANVISIT/PLAN_TITLE.png') }}" alt="The Mettacity Zones">
+    <img src="{{ asset('./assets/IV_PLANVISIT/PLAN_TITLE.png') }}" alt="Frequently Asked Questions"/>
   </div>
 </div>
-<section class="booking-section">
-<!-- FAQ SIDE TAB -->
-   <div class="faq-wrapper" id="faqWrapper">
 
-      <div class="faq-tab" id="faqToggle">
-        <div class="faq-img-wrapper">
-          <a href="{{ route('faqs') }}" ><img src="{{ asset('assets/IV_PLANVISIT/FAQs Shape.png') }}"></a>
-          <span class="faq-text">FAQs</span>
-          <i class="fa-solid fa-chevron-right faq-arrow"></i>
+<!-- MAIN CONTENT -->
+<section class="main-section">
+  
+  
+  <!-- FAQ SIDEBAR -->
+  <aside class="faq-sidebar" id="faqSidebar">
+    <button class="faq-tab" id="faqTab">
+      <img src="{{ asset('./assets/IV_PLANVISIT/FAQs Shape.png') }}" alt="FAQs" class="faq-shape-img">
+      <div class="faq-tab-content">
+        <span class="faq-text">FAQs</span>
+        <i class="fa-solid fa-chevron-right faq-arrow"></i>
+      </div>
+    </button>
+    <div class="faq-panel">
+      <img src="{{ asset('./assets/IV_PLANVISIT/FAQS-SECTION/TEXT.png') }}" alt="FAQ Content" class="faq-content-img">
+    </div>
+  </aside>
+
+  <div class="content-grid">
+    
+    <!-- EVENT CARD -->
+    <div class="event-card">
+        <div class="event-character">
+          <img src="{{ asset('./assets/IV_PLANVISIT/EVENT (Full).png') }}" alt="Meeko Character">
         </div>
-      </div>
-
-      <div class="faq-panel">
-        <h2>Frequently Asked Questions</h2>
-        <p>This now slides out correctly.</p>
-      </div>
     </div>
 
+    <!-- BOOKING FORM -->
+    <div class="booking-card">
+      <div class="booking-header">
+        <h3>Book Mettacity for immersive, interactive events—</h3>
+        <p>from birthday parties and private events to school tours and team building.</p>
+      </div>
 
-  <div class="booking-grid">
-      <!-- LEFT CARD -->
-        <div class="promo-card image-card">
-          <img src="{{ asset('assets/IV_PLANVISIT/EVENT (Full).png') }}" alt="Got an event in mind">
+      <form class="booking-form" id="bookingForm">
+        <div class="form-input-group">
+          <span class="input-prefix">+63</span>
+          <input type="tel" placeholder="Please enter your phone number" required>
         </div>
-        <!-- RIGHT FORM -->
-<div class="form-card">
-  <div class="form-header">
-  <h3>
-    Book Mettacity for immersive, interactive events—
-  </h3>
-  <p>
-    from birthday parties and private events to school tours and team building.
-  </p>
-</div>
 
-  <div class="input-row">
-    <span class="prefix">+63</span>
-    <input type="tel" placeholder="Please enter your phone number">
-  </div>
+        <div class="form-input-group">
+          <input type="email" placeholder="Please enter your email address" required>
+        </div>
 
-  <div class="input-row">
-    <input type="email" placeholder="Please enter your email address">
-  </div>
+        <div class="form-input-group date-input-group">
+          <input type="text" id="dateInput" placeholder="See available dates" readonly>
+          <button type="button" class="date-toggle-btn" id="dateToggle">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
 
+        <!-- Calendar Dropdown -->
+        <div class="calendar-dropdown" id="calendarDropdown">
+          <div class="calendar-header">
+            <button type="button" class="cal-nav-btn" id="prevMonth">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <h4 id="monthYear"></h4>
+            <button type="button" class="cal-nav-btn" id="nextMonth">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="calendar-weekdays">
+            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+          </div>
+          <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
 
-  <!-- DATE PICKER -->
-  <div class="date-picker-wrapper">
+        <button type="submit" class="submit-btn">Book METTACITY Now</button>
 
-    <div class="input-row has-action" id="toggleCalendar">
-      <input
-        type="text"
-        id="selectedDate"
-        placeholder="See available dates"
-        readonly
-      >
-      <button class="action-btn" type="button">✓</button>
-    </div>
-
-    <!-- OVERLAY CALENDAR -->
-    <div class="calendar" id="calendar">
-      <div class="calendar-header">
-        <button class="nav-btn" id="prevMonth">‹</button>
-        <h3 id="monthLabel"></h3>
-        <button class="nav-btn" id="nextMonth">›</button>
-      </div>
-
-      <div class="weekdays">
-        <div>Mon</div><div>Tue</div><div>Wed</div>
-        <div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
-      </div>
-
-      <div class="days" id="daysGrid"></div>
+        <div class="form-terms">
+          <label class="checkbox-label">
+            <input type="checkbox" required>
+            <span>I have read and hereby accepted <a href="#">Terms of Services</a> and <a href="#">Privacy Policy</a>. This website uses <a href="#">Terms of Services</a> and <a href="#">Privacy Policy</a>.</span>
+          </label>
+        </div>
+      </form>
     </div>
 
   </div>
-
-  <button class="cta-btn">Book METTACITY Now</button>
-</div>
-  <!-- MARQUEE -->
-  <div class="marquee-viewport">
-    <div class="marquee-track" id="marqueeTrack">
-      <div class="marquee-set" id="marqueeSet">
-        <span class="dot">•</span><span class="play">PLAY</span>
-        <span class="dot">•</span><span class="culture">CULTURE</span>
-        <span class="dot">•</span><span class="tech">TECHNOLOGY</span>
-      </div>
-    </div>
-  </div>
-
 </section>
+
+<!-- MARQUEE -->
+<div class="marquee-container">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-content">
+      <span class="marquee-item play">PLAY</span>
+      <span class="marquee-dot">•</span>
+      <span class="marquee-item culture">CULTURE</span>
+      <span class="marquee-dot">•</span>
+      <span class="marquee-item tech">TECHNOLOGY</span>
+      <span class="marquee-dot">•</span>
+    </div>
+  </div>
+</div>
 
  <section class="bottom-merge">
 
@@ -137,7 +144,6 @@
  </section>
 
 @include('footer')
-
 
 
   <!-- Bootstrap JS -->
