@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('mainpage');
 })->name('home');
 
+Route::get('/test', function () {
+    return 'Laravel is working!';
+});
+
 Route::get('/enter-metta-city', function () {
     return view('iientermettacity');
 })->name('enter.metta.city');
