@@ -128,7 +128,7 @@ body {
 ========================= */
 
 :root {
-  --scroll-duration: 18s; /* How long one full scroll takes */
+  --scroll-duration: 8s; /* How long one full scroll takes - faster movement */
 }
 
 /* =========================
@@ -145,14 +145,21 @@ body {
    Only animate if the user has NOT enabled reduced motion.
 ========================= */
 
-@media (prefers-reduced-motion: no-preference) {
+.scrolling-banner.left .track.animate,
+.scrolling-banner.right .track.animate {
+  animation: scrollRight var(--scroll-duration) linear infinite;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-play-state: running;
+}
+
+/* Force animation on mobile */
+@media (max-width: 425px) {
   .scrolling-banner.left .track.animate,
   .scrolling-banner.right .track.animate {
-    animation: scrollRight var(--scroll-duration) linear infinite;
-    animation-delay: 0s;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
-    animation-play-state: running;
+    animation: scrollRight var(--scroll-duration) linear infinite !important;
+    animation-play-state: running !important;
   }
 }
 
@@ -306,7 +313,7 @@ canvas {
   /* Show mobile background */
   .carousel-background-mobile {
     position: absolute;
-    top: 50%;
+    top: 47%;
     left: 0;
     width: 100%;
     display: block;
@@ -316,12 +323,17 @@ canvas {
 
   /* Move banners up for mobile layout */
   .scrolling-banner-wrapper {
-    top: 53%;
+    top: 49%;
   }
 
   /* Reduce padding so banners are smaller */
   .scrolling-banner {
     padding: 2px 16px;
+  }
+
+  /* Ensure animation works on mobile */
+  .scrolling-banner .track {
+    animation: scrollRight var(--scroll-duration) linear infinite !important;
   }
 
   /* Adjust diagonal cut + width for left banner */
@@ -423,5 +435,17 @@ canvas {
     height: 700px !important;     /* Forces a fixed height */
     z-index: 500 !important;
     pointer-events: none !important;
+  }
+}
+
+/* ============================= */
+/* IPHONE SPECIFIC (375px - 425px) */
+/* ============================= */
+@media (min-width: 375px) and (max-width: 425px) {
+  .secondbanner {
+    top: -50px;
+    text-align: center;
+    margin: 530px auto;
+    z-index: 999;
   }
 }

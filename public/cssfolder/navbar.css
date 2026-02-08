@@ -412,3 +412,94 @@
     justify-content: center;
   }
 }
+
+
+/* ============================= */
+@media (min-width: 375px) and (max-width: 428px) {
+  :root {
+    --headerBgH: 110px;
+    --logoOffsetY: 8px;
+  }
+
+  .header-content {
+    top: 8px;
+  }
+
+  .logo-img {
+    max-height: 42px;
+  }
+
+  .social-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .plan-visit-img {
+    height: 38px;
+  }
+
+  .mobile-logo-img {
+    height: 23px;
+  }
+
+  .menu-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+
+  .mobile-offcanvas-body {
+    padding-top: 45px !important;
+  }
+
+  .mobile-offcanvas-top {
+    padding: 10px 5px 12px;
+    margin-bottom: 6px;
+  }
+
+  .mobile-plan-visit img {
+    height: 40px;
+  }
+
+  .mobile-offcanvas-social {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .mobile-nav {
+    gap: 10px;
+    padding: 6px 3px;
+  }
+
+  .mobile-link {
+    padding: 12px 12px;
+    border-radius: 14px;
+    font-size: 15px;
+  }
+
+  .mobile-section-title {
+    font-size: 11px;
+    margin: 3px 5px 1px;
+  }
+
+  .mobile-divider {
+    margin: 8px 3px;
+  }
+}
+
+/* iPhone 12 Pro Max, 13 Pro Max, 14 Plus (428px) */
+@media (min-width: 426px) and (max-width: 428px) {
+  .logo-img {
+    max-height: 44px;
+  }
+
+  .mobile-logo-img {
+    height: 24px;
+  }
+
+  .mobile-link {
+    font-size: 16px;
+  }
+}

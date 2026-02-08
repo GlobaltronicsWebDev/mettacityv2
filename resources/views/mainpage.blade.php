@@ -8,6 +8,12 @@
 
     <title>Mettacity</title>
 
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -18,7 +24,7 @@
     <!-- Custom CSS Files -->
     <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfolder/carousel.css') }}"> 
-    <link rel="stylesheet" href="{{ asset('cssfolder/secondsection.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('cssfolder/secondsection.css?v=3') }}"> 
     <link rel="stylesheet" href="{{ asset('cssfolder/thirdsection.css') }}"> 
     <link rel="stylesheet" href="{{ asset('cssfolder/fourthsection.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
@@ -33,14 +39,19 @@
         /* ❌ Prevent double-tap zoom on mobile */
         html, body {
             touch-action: manipulation;
-              overflow-x: hidden;
-
+            overflow-x: hidden;
         }
+        
         @media (max-width: 425px) {
-        html, body {
-            touch-action: manipulation;
-              overflow-x: hidden !important;
-        }           
+            html, body {
+                touch-action: manipulation;
+                overflow-x: hidden !important;
+            }           
+        }
+
+        /* Loading optimization */
+        img {
+            content-visibility: auto;
         }
     </style>
 </head>
@@ -107,8 +118,8 @@
         });
     </script>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS - Deferred for faster page load -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 
 </body>
 </html>

@@ -163,3 +163,33 @@
     margin-top: -80%;
   }
 }
+
+
+/* ============================= */
+@media (min-width: 375px) and (max-width: 428px) {
+  .footer-exact {
+    margin-top: -200px;
+  }
+
+  .footer-bg-img,
+  .footer-character,
+  .footer-logo-center,
+  .footer-contact {
+    display: none;
+  }
+
+  .mobilefooter {
+    display: block;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    margin-top: -75%;
+  }
+}
+
+/* iPhone 12 Pro Max, 13 Pro Max, 14 Plus (428px) */
+@media (min-width: 426px) and (max-width: 428px) {
+  .mobilefooter {
+    margin-top: -70%;
+  }
+}

@@ -26,8 +26,7 @@ body {
 /* ================= CONTAINER ================= */
 .sticky-grid {
   position: relative;
-  width: 100%;
-  overflow: hidden;
+  width: 120%;
     height: min(90vh, 900px);
   pointer-events: none;
 }
@@ -42,15 +41,15 @@ body {
 /* ================= TITLE OVERLAY ================= */
 .grid-title {
   position: absolute;
-  top: 36%;
-  left: 25%;
+  top: 45%;
+  left: 30%;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 10;
 }
 
 .grid-title img {
-  max-width: 150%;
+  max-width: 140%;
   height: auto;
 }
 
@@ -127,7 +126,7 @@ body {
   margin: 0 auto;
   padding: 1.25rem;
 
-  margin-top: clamp(-80px, -6vw, -24px); /* desktop overlap */
+  margin-top: clamp(-10px, -6vw, -24px); /* desktop overlap */
   position: relative;
   z-index: 20;
 
@@ -314,4 +313,93 @@ transform: translateY(50px);
   font-size: 15px;
   font-weight: 800;
 }
+}
+
+
+/* ============================= */
+@media (min-width: 375px) and (max-width: 428px) {
+  .sticky-grid {
+    height: 42vh;
+  }
+
+  .plan-bg {
+    height: 32vh;
+  }
+
+  .grid-title {
+    top: 100%;
+    left: 50%;
+    transform: translate(-55%, -50%);
+  }
+
+  .grid-title img {
+    max-width: 145%;
+  }
+
+  .title-bg {
+    margin-top: 50px;
+  }
+
+  .faq-accordion {
+    transform: translateY(50px);
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .faq-item {
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+
+  .faq-question {
+    padding: 15px 18px;
+    font-size: 14px;
+  }
+
+  .faq-question .icon {
+    font-size: 22px;
+  }
+
+  .faq-answer {
+    padding: 0 18px;
+  }
+
+  .faq-answer p {
+    font-size: 12px;
+    margin: 12px 0;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 180px;
+  }
+
+  .statement-section {
+    margin-top: 100px;
+    margin-bottom: 80px;
+    padding-bottom: 250px;
+  }
+
+  .statement-eyebrow {
+    font-size: 14px;
+  }
+
+  .statement-heading {
+    font-size: 17px;
+    white-space: normal;
+  }
+}
+
+/* iPhone 12 Pro Max, 13 Pro Max, 14 Plus (428px) */
+@media (min-width: 426px) and (max-width: 428px) {
+  .faq-question {
+    font-size: 15px;
+  }
+
+  .faq-answer p {
+    font-size: 13px;
+  }
+
+  .statement-heading {
+    font-size: 18px;
+  }
 }

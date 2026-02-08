@@ -270,3 +270,110 @@
   .third-carousel { height: 340px; }
   .third-card img { max-width: 200px; max-height: 260px; }
 }
+
+
+/* ============================= */
+@media (min-width: 375px) and (max-width: 428px) {
+  .third-section {
+    transform: translateY(-35px);
+  }
+
+  .thirdtitle {
+    margin: -80px auto 0;
+  }
+
+  .thirdtitle h2 {
+    font-size: 14px;
+    position: relative;
+    top: -60px;
+    margin-top: 0;
+  }
+
+  .thirdtitle h1 {
+    font-size: 11px;
+    position: relative;
+    top: -70px;
+    margin-top: 0;
+  }
+
+  .third-carousel {
+    height: 400px;
+    position: relative;
+    top: -210px;
+    margin-top: 0;
+  }
+
+  .third-card img {
+    max-width: 80px;
+    max-height: 210px;
+  }
+
+  .third-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  .third-prev {
+    left: 6px;
+  }
+
+  .third-next {
+    right: 6px;
+  }
+
+  .third-caption {
+    font-size: 13px;
+    position: relative;
+    top: -420px;
+    margin-top: 0;
+  }
+
+  .third-indicators {
+    position: relative;
+    top: -430px;
+    margin-top: 0;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .third-dot {
+    width: 4px;
+    height: 4px;
+  }
+
+  .shape {
+    top: -20%;
+    left: -5%;
+    width: 110%;
+  }
+
+  .Circularbutton {
+    top: 22%;
+    width: clamp(48px, 13vw, 180px);
+  }
+}
+
+/* iPhone 12 Pro Max, 13 Pro Max, 14 Plus (428px) */
+@media (min-width: 426px) and (max-width: 428px) {
+  .third-carousel {
+    height: 420px;
+  }
+
+  .third-card img {
+    max-width: 80px;
+    max-height: 220px;
+  }
+
+  .thirdtitle h2 {
+    font-size: 15px;
+  }
+
+  .thirdtitle h1 {
+    font-size: 12px;
+  }
+
+  .third-caption {
+    font-size: 14px;
+  }
+}

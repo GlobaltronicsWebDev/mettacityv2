@@ -82,7 +82,7 @@
   position: relative;
   z-index: 2;
   padding: 20px 0 100px 160px;   /* left-aligned spacing */
-  margin-top: 60px;
+  margin-top: -680px;
 }
 
 /* =========================
@@ -102,12 +102,12 @@
    SCROLLING BANNER WRAPPER
    ========================= */
 .fourth-scrolling-banner-wrapper {
-  position: absolute;
-  top: 470%;
+  position: relative;
+  top: 500%;
   left: 0;
-  width: 100%;
+  width: 120%;
   overflow: hidden;
-  z-index: 0;
+  z-index: 3;
   pointer-events: auto;
 }
 
@@ -136,7 +136,7 @@
 .fourth-scrolling-track {
   display: inline-flex;
   width: max-content;
-  animation: fourth-scroll-left-to-right 18s linear infinite;
+  animation: fourth-scroll-left-to-right 8s linear infinite;
 }
 
 /* =========================
@@ -193,8 +193,8 @@
   height: 98%;
   object-fit: cover;
   display: block;
-  margin: -30px auto;
-  z-index: -3;
+  margin: 620px auto;
+  z-index: 2;
 }
 
 /* =========================
@@ -324,11 +324,12 @@
 }
 @media (max-width: 425px) {
   .fourthtitle {
-  top: 150%;
+    top: 155%;
   }
+  
   .row-title{
     padding: 20px 0 100px 20px;
-    top: -1550px;
+    top: -1400px;
   }
   .mobile-break {
     display: inline;
@@ -353,11 +354,24 @@
 .stepinsidebgmobile {
   display: block;
   position: absolute;
-  top: 158%;
+  top: 165%;
   left: 0;
   width: 100%;
   height: auto;
   z-index: 2; /* background layer */
+}
+
+/* Desktop display */
+@media (min-width: 426px) {
+  .stepinsidebgmobile {
+    display: block;
+    position: absolute;
+    top: 400%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+  }
 }
 
 /* ================================
@@ -386,7 +400,7 @@
 .row-fourth-mobile img {
   display: block;
   width: 100%;
-  max-width: 360px;
+  max-width: 300px;
   height: auto;
   margin: 0;
   padding: 0;

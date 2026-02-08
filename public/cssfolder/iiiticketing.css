@@ -80,7 +80,7 @@ html, body{
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: marqueeMove var(--marquee-duration, 14s) linear infinite;
+  animation: marqueeMove var(--marquee-duration, 8s) linear infinite;
 }
 
 /* one set (will be cloned by JS) */
@@ -297,3 +297,4 @@ margin-top: -50px;
   font-weight: 800;
 }
 }
+

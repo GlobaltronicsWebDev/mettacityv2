@@ -37,13 +37,13 @@
   
   <!-- FAQ SIDEBAR -->
   <aside class="faq-sidebar" id="faqSidebar">
-    <button class="faq-tab" id="faqTab">
+    <a href="{{ route('faqs') }}" class="faq-tab" id="faqTab">
       <img src="{{ asset('./assets/IV_PLANVISIT/FAQs Shape.png') }}" alt="FAQs" class="faq-shape-img">
       <div class="faq-tab-content">
         <span class="faq-text">FAQs</span>
         <i class="fa-solid fa-chevron-right faq-arrow"></i>
       </div>
-    </button>
+    </a>
     <div class="faq-panel">
       <img src="{{ asset('./assets/IV_PLANVISIT/FAQS-SECTION/TEXT.png') }}" alt="FAQ Content" class="faq-content-img">
     </div>
