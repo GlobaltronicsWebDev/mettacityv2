@@ -123,6 +123,7 @@
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
   position: relative;
   white-space: nowrap;
+  top: 650%;
 }
 
 /* Right-aligned banner (optional) */
@@ -351,13 +352,13 @@
    STEP INSIDE BACKGROUND (MOBILE)
    ================================ */
 .stepinsidebgmobile {
-  display: block;
-  position: absolute;
-  top: 158%;
-  left: 0;
-  width: 100%;
-  height: auto;
-  z-index: 2; /* background layer */
+    display: block;
+    position: absolute;
+    top: 168%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2;
 }
 
 /* ================================
@@ -412,11 +413,13 @@
 } 
 
 .fourth-scrolling-banner-wrapper {
-  position: absolute; /* or relative, depending on your layout */
-  top: 303%;
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%;
   z-index: 1;
-  height: 35px;        /* make banner smaller */
-  overflow: hidden;     /* hide extra content */
+  height: 35px;
+  overflow: hidden;
 }
 /* Image hover pop effect */
 .col img:hover {
