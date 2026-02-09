@@ -27,7 +27,7 @@
 
     <!-- BACKGROUND VIDEO -->
     <video class="hero-video" autoplay muted loop playsinline>
-      <source src="{{ asset('./assets/II_ENTERMETTACITY/main-video/BG-VIDEO.mp4') }}" type="video/mp4">
+      <source src="{{ asset('./assets/II_ENTERMETTACITY/main-video/teaser3.mp4') }}" type="video/mp4">
       <!-- fallback text -->
     </video>
 
