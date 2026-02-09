@@ -82,7 +82,7 @@
   position: relative;
   z-index: 2;
   padding: 20px 0 100px 160px;   /* left-aligned spacing */
-  margin-top: -680px;
+  margin-top: 60px;
 }
 
 /* =========================
@@ -102,12 +102,12 @@
    SCROLLING BANNER WRAPPER
    ========================= */
 .fourth-scrolling-banner-wrapper {
-  position: relative;
-  top: 500%;
+  position: absolute;
+  top: 470%;
   left: 0;
-  width: 120%;
+  width: 100%;
   overflow: hidden;
-  z-index: 3;
+  z-index: 0;
   pointer-events: auto;
 }
 
@@ -136,7 +136,7 @@
 .fourth-scrolling-track {
   display: inline-flex;
   width: max-content;
-  animation: fourth-scroll-left-to-right 8s linear infinite;
+  animation: fourth-scroll-left-to-right 18s linear infinite;
 }
 
 /* =========================
@@ -193,8 +193,8 @@
   height: 98%;
   object-fit: cover;
   display: block;
-  margin: 620px auto;
-  z-index: 2;
+  margin: -30px auto;
+  z-index: -3;
 }
 
 /* =========================
@@ -324,12 +324,11 @@
 }
 @media (max-width: 425px) {
   .fourthtitle {
-    top: 155%;
+  top: 200%;
   }
-  
   .row-title{
     padding: 20px 0 100px 20px;
-    top: -1400px;
+    top: 1550px;
   }
   .mobile-break {
     display: inline;
@@ -354,24 +353,11 @@
 .stepinsidebgmobile {
   display: block;
   position: absolute;
-  top: 165%;
+  top: 158%;
   left: 0;
   width: 100%;
   height: auto;
   z-index: 2; /* background layer */
-}
-
-/* Desktop display */
-@media (min-width: 426px) {
-  .stepinsidebgmobile {
-    display: block;
-    position: absolute;
-    top: 400%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    z-index: 1;
-  }
 }
 
 /* ================================
@@ -400,7 +386,7 @@
 .row-fourth-mobile img {
   display: block;
   width: 100%;
-  max-width: 300px;
+  max-width: 360px;
   height: auto;
   margin: 0;
   padding: 0;
@@ -415,7 +401,7 @@
 .core-message {
   display: none;
 }
-.core-message {
+.core-messagem {
   display: block;
   position: absolute;
   top: 301%;
@@ -429,7 +415,6 @@
   position: absolute; /* or relative, depending on your layout */
   top: 303%;
   z-index: 1;
-
   height: 35px;        /* make banner smaller */
   overflow: hidden;     /* hide extra content */
 }
