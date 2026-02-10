@@ -34,7 +34,7 @@
   </div>
 
   <div class="footer-contact">
-    <img src="{{ asset('assets/CONTACT DEETS.png') }}" class="footer-contact-img" alt="">
+    <img src="{{ asset('assets/mettacity_contacts.png') }}" class="footer-contact-img" alt="">
   </div>
 
 </footer>
