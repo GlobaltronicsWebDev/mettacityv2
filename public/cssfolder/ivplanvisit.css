@@ -45,15 +45,15 @@ body {
 /* ================= TITLE OVERLAY ================= */
 .grid-title {
   position: absolute;
-  left: 30%;
-  top:40%;
+  top: 35%;
+  left: 25%;
   transform: translate(-50%, -50%);
-  pointer-events: none;
+  pointer-events: none; /* title is decorative */
   z-index: 10;
 }
 
 .grid-title img {
-  max-width: 170%;
+  max-width: 150%;
   height: auto;
 }
 
