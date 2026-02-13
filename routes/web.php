@@ -6,9 +6,6 @@ Route::get('/', function () {
     return view('mainpage');
 })->name('home');
 
-Route::get('/test', function () {
-    return 'Laravel is working!';
-});
 
 Route::get('/enter-metta-city', function () {
     return view('iientermettacity');
@@ -29,3 +26,7 @@ Route::get('/faqs', function () {
 Route::get('/about-us', function () {
     return view('viaboutus');
 })->name('aboutus');
+
+Route::get('/news', function () {
+    return view('news');
+})->name('news');

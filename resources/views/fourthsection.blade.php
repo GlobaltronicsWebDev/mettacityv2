@@ -5,7 +5,7 @@
 
     <div class="row-fourth">
       <div class="col">
-        <img src="{{ asset('assets/TECHNOLOGY.png') }}" alt="TECHNOLOGY" class="techology">
+        <img src="{{ asset('assets/TECHNOLOGY.png') }}" alt="TECHNOLOGY" class="technology">
       </div>
       <div class="col">
         <img src="{{ asset('assets/PLAY.png') }}" alt="PLAY" class="play"> 

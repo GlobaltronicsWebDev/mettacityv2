@@ -63,6 +63,10 @@
               <a class="nav-link" href="#">Contact</a>
             </li>
 
+            <li>
+              <a class="nav-link" href="{{ route('news') }}">News</a>
+            </li>
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
                 Merch
@@ -216,6 +220,11 @@
       </a>
 
       <a class="mobile-link" href="">Contact</a>
+
+      <a class="mobile-link {{ request()->routeIs('news') ? 'active' : '' }}"
+         href="{{ route('news') }}">
+        News
+      </a>
 
       <div class="mobile-divider"></div>
 
