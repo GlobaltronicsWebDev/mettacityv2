@@ -208,8 +208,44 @@
         });
     </script>
 
-    <!-- Bootstrap JS - Deferred for faster page load -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Simple dropdown toggle for News and Merch menus
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.header-nav .dropdown-toggle');
+            
+            dropdowns.forEach(function(dropdown) {
+                dropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Close all other dropdowns
+                    document.querySelectorAll('.header-nav .dropdown-menu').forEach(function(menu) {
+                        if (menu !== dropdown.nextElementSibling) {
+                            menu.classList.remove('show');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    const menu = dropdown.nextElementSibling;
+                    if (menu && menu.classList.contains('dropdown-menu')) {
+                        menu.classList.toggle('show');
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.header-nav .dropdown-menu').forEach(function(menu) {
+                        menu.classList.remove('show');
+                    });
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
