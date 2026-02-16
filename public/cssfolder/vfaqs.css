@@ -79,7 +79,7 @@ body {
   }
 
   .grid-title {
-    top: 100%;              /* 🔥 move title UP */
+    top: 50px;              /* 🔥 move title UP */
     left: 50%;
     width: 100%;
     transform: translate(-55%, -50%);
@@ -91,6 +91,12 @@ body {
   }
   .plan-bg{
     height: 25vh;
+  }
+  .title-bg{
+    position:relative;
+    top:-220px;
+    width: 98%;
+    left: -5%;
   }
 }
 @media (max-width: 480px) {
@@ -342,7 +348,7 @@ transform: translateY(50px);
 
   .faq-accordion {
     transform: translateY(50px);
-    padding: 1rem;
+    padding: 3rem;
     max-width: 100%;
   }
 

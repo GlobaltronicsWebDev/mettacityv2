@@ -28,41 +28,41 @@
 
         <div class="news-grid">
             <!-- Sample News Card 1 -->
-            <div class="news-card" onclick="window.open('https://www.facebook.com/reel/25975720675357285', '_blank')">
-                <img src="{{ asset('assets/BANNER 2.png') }}" alt="News" class="news-card-img">
+            <div class="news-card" onclick="window.open('https://www.facebook.com/photo/?fbid=1427733736031843&set=a.711623520976205', '_blank')">
+                <img src="{{ asset('assets/NEWSPAGE/OPENINGWELCOME.png') }}" alt="News" class="news-card-img">
                 <div class="news-card-body">
                     <div class="news-date">February 13, 2026</div>
-                    <h3 class="news-title">Don’t miss your chance to visit METTACITY  🚀</h3>
+                      <h3 class="news-title">Step beyond reality and immerse yourself in a one-of-a-kind adventure like no other</h3>
                     <p class="news-excerpt">
                         Don't miss our special weekend promotions! Get exclusive discounts on tickets and merchandise this weekend only.
                     </p>
-                    <a href="https://www.facebook.com/reel/25975720675357285" target="_blank" class="read-more" onclick="event.stopPropagation()">Read More →</a>
+                    <a href="https://www.facebook.com/photo/?fbid=1427733736031843&set=a.711623520976205" target="_blank" class="read-more" onclick="event.stopPropagation()">Read More →</a>
                 </div>
             </div>
 
             <!-- Sample News Card 2 -->
             <div class="news-card" onclick="window.open('https://www.facebook.com/reel/721206764259309', '_blank')">
-                <img src="{{ asset('assets/CAROUSEL.png') }}" alt="News" class="news-card-img">
+                <img src="{{ asset('assets/NEWSPAGE/METTACITYGRAND.png') }}" alt="News" class="news-card-img">
                 <div class="news-card-body">
                     <div class="news-date">February 11, 2026</div>
-                    <h3 class="news-title">New Attractions Coming Soon</h3>
+                   <h3 class="news-title">METTACITY AT GLORIETTA: EXPERIENCE THE NEW IMMERSIVE ENTERTAINMENT HUB</h3>
                     <p class="news-excerpt">
-                        Get ready for brand new attractions! We're bringing more thrilling experiences to Mettacity that will blow your mind.
+                       Mettacity, the next-generation immersive destination.
                     </p>
                     <a href="https://www.facebook.com/reel/721206764259309" target="_blank" class="read-more" onclick="event.stopPropagation()">Read More →</a>
                 </div>
             </div>
 
             <!-- Sample News Card 3 -->
-            <div class="news-card" onclick="window.open('https://www.facebook.com/reel/25975720675357285', '_blank')">
-                <img src="{{ asset('assets/BANNER 2.png') }}" alt="News" class="news-card-img">
+            <div class="news-card" onclick="window.open('https://www.facebook.com/photo?fbid=122112735561209501&set=pcb.122112735783209501', '_blank')">
+                <img src="{{ asset('assets/NEWSPAGE/FLOWER.jpg') }}" alt="News" class="news-card-img">
                 <div class="news-card-body">
                     <div class="news-date">February 5, 2026</div>
                     <h3 class="news-title">Special Weekend Promotions</h3>
                     <p class="news-excerpt">
                         Don't miss our special weekend promotions! Get exclusive discounts on tickets and merchandise this weekend only.
                     </p>
-                    <a href="https://www.facebook.com/reel/25975720675357285" target="_blank" class="read-more" onclick="event.stopPropagation()">Read More →</a>
+                    <a href="https://www.facebook.com/photo?fbid=122112735561209501&set=pcb.122112735783209501" target="_blank" class="read-more" onclick="event.stopPropagation()">Read More →</a>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
               <h2 class="statement-heading">
                 Where Culture, Play, and Technology Meet
               </h2>
-            <a href="{{ route('visit') }}"><img src="{{ asset('./assets/PLAN YOUR VISIT.png') }}" alt="Enter Button" class="enter-button"></a>
+           
             </div>
           </div>
         </section>
