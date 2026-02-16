@@ -331,7 +331,7 @@
 @media (max-width: 425px) {
   .fourthtitle {
     position: relative;
-    top: -425px;
+    top: -450px;
     display: block;
     width: 120%;
     z-index: 10;
@@ -358,6 +358,7 @@
   .fourthbody {
     display: none;
   }
+
 /* ================================
    STEP INSIDE BACKGROUND (MOBILE)
    ================================ */
@@ -387,6 +388,8 @@
 }
 
 .row-fourth-mobile .col {
+  position: relative;
+  top: -160px;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -396,11 +399,13 @@
 
 .row-fourth-mobile img {
   display: block;
-  width: 100%;
+  width: 80%;
   max-width: 360px;
   height: auto;
   margin: 0;
   padding: 0;
+  position: relative;
+  top: 65px;
 }
 
 #entermettacitym {
@@ -475,7 +480,9 @@
 }
 /* EYEBROW */
 .statement-eyebrow {
-  margin-bottom: 16px;
+  position: relative;
+  top: 25px;
+  margin-bottom: 25px;
   text-align: center;
   font-size: 15px;
 }

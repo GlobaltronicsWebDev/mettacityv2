@@ -63,8 +63,15 @@
               <a class="nav-link" href="#">Contact</a>
             </li>
 
-            <li>
-              <a class="nav-link" href="{{ route('news') }}">News</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                News
+              </a>
+
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ route('news') }}">Latest News</a></li>
+                <li><a class="dropdown-item" href="{{ route('careers') }}">Careers</a></li>
+              </ul>
             </li>
 
             <li class="nav-item dropdown">
@@ -95,6 +102,11 @@
              DESKTOP ONLY RIGHT SIDE (CTA + SOCIALS)
         ========================================================== -->
         <div class="col-4 d-none d-md-flex align-items-center justify-content-end gap-3 pe-4">
+
+          <!-- Admin Icon -->
+          <a href="{{ route('admin.login') }}" class="social-icon" aria-label="Admin Panel" title="Admin Panel">
+            <i class="fas fa-user-shield"></i>
+          </a>
 
           <!-- CTA LINK -->
           <a class="nav-link active" href="{{ route('visit') }}">
@@ -174,6 +186,12 @@
 
       <div class="mobile-offcanvas-socials">
 
+        <a href="{{ route('admin.login') }}"
+           class="mobile-offcanvas-social"
+           aria-label="Admin Panel">
+          <i class="fas fa-user-shield"></i>
+        </a>
+
         <a href="https://www.facebook.com/MettaCityPH"
            target="_blank"
            rel="noopener noreferrer"
@@ -221,9 +239,18 @@
 
       <a class="mobile-link" href="">Contact</a>
 
+      <div class="mobile-divider"></div>
+
+      <div class="mobile-section-title">News</div>
+
       <a class="mobile-link {{ request()->routeIs('news') ? 'active' : '' }}"
          href="{{ route('news') }}">
-        News
+        Latest News
+      </a>
+
+      <a class="mobile-link {{ request()->routeIs('careers') ? 'active' : '' }}"
+         href="{{ route('careers') }}">
+        Careers
       </a>
 
       <div class="mobile-divider"></div>

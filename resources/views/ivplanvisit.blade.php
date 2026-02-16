@@ -65,40 +65,41 @@
         <p>from birthday parties and private events to school tours and team building.</p>
       </div>
 
-      <form class="booking-form" id="bookingForm">
+      @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show">
+          {{ session('success') }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      @endif
+
+      @if($errors->any())
+        <div class="alert alert-danger alert-dismissible fade show">
+          <ul class="mb-0">
+            @foreach($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      @endif
+
+      <form class="booking-form" id="bookingForm" method="POST" action="{{ route('bookings.store') }}" onsubmit="console.log('Form submitting...'); return true;">
+        @csrf
+        
+        <div class="form-input-group">
+          <input type="text" name="name" placeholder="Please enter your full name" value="{{ old('name') }}" required>
+        </div>
+
         <div class="form-input-group">
           <span class="input-prefix">+63</span>
-          <input type="tel" placeholder="Please enter your phone number" required>
+          <input type="tel" name="phone" placeholder="Please enter your phone number" value="{{ old('phone') }}" required>
         </div>
 
-        <div class="form-input-group">
-          <input type="email" placeholder="Please enter your email address" required>
-        </div>
-
+    
         <div class="form-input-group date-input-group">
-          <input type="text" id="dateInput" placeholder="See available dates" readonly>
-          <button type="button" class="date-toggle-btn" id="dateToggle">
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
+          <input type="date" name="visit_date" id="dateInput" placeholder="Select visit date" value="{{ old('visit_date') }}" required>
         </div>
-
-        <!-- Calendar Dropdown -->
-        <div class="calendar-dropdown" id="calendarDropdown">
-          <div class="calendar-header">
-            <button type="button" class="cal-nav-btn" id="prevMonth">
-              <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <h4 id="monthYear"></h4>
-            <button type="button" class="cal-nav-btn" id="nextMonth">
-              <i class="fa-solid fa-chevron-right"></i>
-            </button>
-          </div>
-          <div class="calendar-weekdays">
-            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-          </div>
-          <div class="calendar-grid" id="calendarGrid"></div>
-        </div>
-
+   
         <button type="submit" class="submit-btn">Book METTACITY Now</button>
 
         <div class="form-terms">

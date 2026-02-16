@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News - Mettacity</title>
+    <title>Careers - Mettacity</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,7 +14,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
-     <link rel="stylesheet" href="{{ asset('cssfolder/news.css') }}">
+    <link rel="stylesheet" href="{{ asset('cssfolder/news.css') }}">
    
 </head>
 <body>
@@ -23,39 +23,49 @@
 
     <div class="news-container">
         <div class="news-header">
-            <h1>LATEST NEWS</h1>
+            <h1>JOIN OUR TEAM</h1>
+            <p>🚀 Explore Career Opportunities at Mettacity 🚀</p>
         </div>
 
         <div class="news-grid">
-            @forelse($news as $item)
-            <!-- News Card -->
-            <div class="news-card" onclick="window.open('{{ $item->facebook_link ?: 'https://www.facebook.com/MettaCityPH' }}', '_blank')">
-                @if($item->image)
-                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="news-card-img">
+            @forelse($careers as $career)
+            <!-- Career Card -->
+            <div class="news-card">
+                @if($career->image)
+                    <img src="{{ asset('storage/' . $career->image) }}" alt="{{ $career->title }}" class="news-card-img">
                 @else
-                    <img src="{{ asset('assets/BANNER.png') }}" alt="{{ $item->title }}" class="news-card-img">
+                    <img src="{{ asset('assets/BANNER.png') }}" alt="{{ $career->title }}" class="news-card-img">
                 @endif
                 <div class="news-card-body">
-                    <div class="news-date">{{ $item->published_date->format('F d, Y') }}</div>
-                    <h3 class="news-title">{{ $item->title }}</h3>
+                    <div class="news-date">
+                        @if($career->location)
+                            <i class="fas fa-map-marker-alt"></i> {{ $career->location }}
+                        @endif
+                        @if($career->type)
+                            <span class="ms-2"><i class="fas fa-briefcase"></i> {{ $career->type }}</span>
+                        @endif
+                    </div>
+                    <h3 class="news-title">{{ $career->title }}</h3>
                     <p class="news-excerpt">
-                        {{ $item->excerpt }}
+                        {{ Str::limit($career->description, 150) }}
                     </p>
-                    <a href="{{ $item->facebook_link ?: 'https://www.facebook.com/MettaCityPH' }}" target="_blank" class="read-more" onclick="event.stopPropagation()">Read More →</a>
+                    <a href="mailto:careers@mettacity.com?subject=Application for {{ $career->title }}" class="read-more">
+                        Apply Now →
+                    </a>
                 </div>
             </div>
             @empty
-            <!-- No News Available -->
+            <!-- No Careers Available -->
             <div class="col-12 text-center py-5">
-                <i class="fas fa-newspaper fa-3x mb-3" style="opacity: 0.3;"></i>
-                <h3>No News Available</h3>
-                <p>Check back soon for updates!</p>
+                <i class="fas fa-briefcase fa-3x mb-3" style="opacity: 0.3;"></i>
+                <h3>No Open Positions</h3>
+                <p>Check back soon for new opportunities!</p>
             </div>
             @endforelse
         </div>
     </div>
-     <section class="bottom-merge">
-
+    
+    <section class="bottom-merge">
         <!-- STATEMENT -->
         <section class="statement-section">
           <div class="container-fluid">
@@ -64,11 +74,12 @@
               <h2 class="statement-heading">
                 Where Culture, Play, and Technology Meet
               </h2>
-           
+            <a href="{{ route('visit') }}"><img src="{{ asset('./assets/PLAN YOUR VISIT.png') }}" alt="Enter Button" class="enter-button"></a>
             </div>
           </div>
         </section>
- </section>
+    </section>
+    
     @include('footer')
 
     <!-- Scroll to Top Button -->

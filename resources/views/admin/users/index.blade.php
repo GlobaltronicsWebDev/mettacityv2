@@ -1,0 +1,78 @@
+@extends('admin.layout')
+
+@section('title', 'User Management')
+
+@section('content')
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-users"></i> User Management</h2>
+    <a href="{{ route('admin.users.create') }}" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Add New User
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($users as $user)
+                    <tr>
+                        <td>{{ $user->id }}</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.9rem;">
+                                    {{ strtoupper(substr($user->name, 0, 1)) }}
+                                </div>
+                                {{ $user->name }}
+                            </div>
+                        </td>
+                        <td>{{ $user->email }}</td>
+                        <td>
+                            @if($user->is_super_admin)
+                                <span class="badge bg-danger">Super Admin</span>
+                            @elseif($user->is_admin)
+                                <span class="badge bg-primary">Admin</span>
+                            @else
+                                <span class="badge bg-secondary">User</span>
+                            @endif
+                        </td>
+                        <td>{{ $user->created_at->format('M d, Y') }}</td>
+                        <td>
+                            <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-sm btn-info">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            @if($user->id !== auth()->id())
+                            <form action="{{ route('admin.users.destroy', $user) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                            @endif
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="6" class="text-center py-4">
+                            <i class="fas fa-users fa-3x mb-3 text-muted"></i>
+                            <p>No users found.</p>
+                        </td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@endsection

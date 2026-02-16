@@ -162,37 +162,8 @@ function setupMarquee() {
 window.addEventListener('load', setupMarquee);
 
 // ==================== FORM SUBMISSION ====================
-const bookingForm = document.getElementById('bookingForm');
-
-if (bookingForm) {
-  bookingForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const phone = bookingForm.querySelector('input[type="tel"]').value;
-    const email = bookingForm.querySelector('input[type="email"]').value;
-    const date = dateInput.value;
-    const termsChecked = bookingForm.querySelector('input[type="checkbox"]').checked;
-    
-    if (!date) {
-      alert('Please select a date for your event');
-      return;
-    }
-    
-    if (!termsChecked) {
-      alert('Please accept the Terms of Services and Privacy Policy');
-      return;
-    }
-    
-    // Success message
-    alert(`🎉 Booking Request Submitted!\n\nPhone: ${phone}\nEmail: ${email}\nDate: ${date}\n\nWe'll contact you within 24 hours to confirm your booking.`);
-    
-    // Reset form
-    bookingForm.reset();
-    dateInput.value = '';
-    selectedDate = null;
-    renderCalendar();
-  });
-}
+// Remove form validation - let HTML5 and Laravel handle it
+// The form will submit normally to the server
 
 // ==================== SMOOTH SCROLL ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
