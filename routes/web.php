@@ -66,7 +66,6 @@ Route::prefix('admin')->group(function () {
         
         // Careers - View only for all admins
         Route::get('careers', [AdminCareerController::class, 'index'])->name('admin.careers.index');
-        Route::get('careers/{career}', [AdminCareerController::class, 'show'])->name('admin.careers.show');
         
         // Super Admin Only Routes
         Route::middleware(\App\Http\Middleware\IsSuperAdmin::class)->group(function () {

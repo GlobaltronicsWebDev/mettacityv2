@@ -438,7 +438,7 @@
             <div>
                 <div class="greeting">
                     @php
-                        $hour = date('H');
+                        $hour = now()->hour;
                         $greeting = $hour < 12 ? 'Good Morning' : ($hour < 18 ? 'Good Afternoon' : 'Good Evening');
                     @endphp
                     {{ $greeting }}, {{ Auth::user()->name }}! 👋
