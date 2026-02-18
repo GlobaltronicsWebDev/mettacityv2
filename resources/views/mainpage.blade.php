@@ -22,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="{{ asset('cssfolder/preloader.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfolder/carousel.css') }}"> 
     <link rel="stylesheet" href="{{ asset('cssfolder/secondsection.css?v=3') }}"> 
@@ -57,6 +58,17 @@
 </head>
 
 <body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <img src="{{ asset('./assets/MEEKO.png') }}" alt="Loading...">
+            </div>
+            <div class="preloader-spinner"></div>
+            <div class="preloader-text">Loading Mettacity...</div>
+        </div>
+    </div>
 
     @include('navbar')
     @include('carousel')
@@ -212,6 +224,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
+        // Preloader - Hide when page is fully loaded
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(function() {
+                preloader.classList.add('hidden');
+                // Remove from DOM after animation
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 500); // Show for at least 500ms
+        });
+
         // Simple dropdown toggle for News and Merch menus
         document.addEventListener('DOMContentLoaded', function() {
             const dropdowns = document.querySelectorAll('.header-nav .dropdown-toggle');

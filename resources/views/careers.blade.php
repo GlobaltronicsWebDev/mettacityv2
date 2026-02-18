@@ -12,12 +12,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('cssfolder/preloader.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfolder/news.css') }}">
    
 </head>
 <body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <img src="{{ asset('./assets/MEEKO.png') }}" alt="Loading...">
+            </div>
+            <div class="preloader-spinner"></div>
+            <div class="preloader-text">Loading Careers...</div>
+        </div>
+    </div>
 
     @include('navbar')
 
@@ -154,6 +166,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
+        // Preloader - Hide when page is fully loaded
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(function() {
+                preloader.classList.add('hidden');
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 500);
+        });
+
         // Scroll to Top Button
         const scrollToTopBtn = document.getElementById('scrollToTop');
 
