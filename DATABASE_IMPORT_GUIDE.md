@@ -85,18 +85,24 @@ APP_TIMEZONE=Asia/Manila
    php artisan storage:link
    ```
 
-3. **Set permissions (Linux/Mac):**
+3. **Clear visit data (before going live):**
+   ```bash
+   php artisan visits:clear
+   ```
+   This resets all visit counts to 0 for production launch.
+
+4. **Set permissions (Linux/Mac):**
    ```bash
    chmod -R 775 storage bootstrap/cache
    ```
 
-4. **Test the application:**
+5. **Test the application:**
    ```bash
    php artisan serve
    ```
    Visit: http://127.0.0.1:8000
 
-5. **Login to admin:**
+6. **Login to admin:**
    Visit: http://127.0.0.1:8000/admin/login
 
 ## Database Tables Overview

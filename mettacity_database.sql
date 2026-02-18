@@ -103,6 +103,8 @@ CREATE TABLE `visits` (
   KEY `visits_ip_address_index` (`ip_address`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Note: Visits table starts empty - data will be collected when site goes live
+
 -- --------------------------------------------------------
 -- Table structure for table `cache`
 -- --------------------------------------------------------

@@ -448,8 +448,14 @@
                 <a href="{{ route('home') }}" class="btn-back-site">
                     <i class="fas fa-home"></i> Main Site
                 </a>
-                <div class="user-avatar">
-                    {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                <div class="user-avatar" style="cursor: pointer;" onclick="window.location='{{ route('admin.profile.edit') }}'">
+                    @if(Auth::user()->profile_picture)
+                        <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" 
+                             alt="Profile" 
+                             style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+                    @else
+                        {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                    @endif
                 </div>
                 <form action="{{ route('admin.logout') }}" method="POST" style="margin: 0;">
                     @csrf
