@@ -22,6 +22,13 @@
     </div>
 
     <div class="mb-3">
+        <label class="form-label">Content *</label>
+        <textarea name="content" class="form-control @error('content') is-invalid @enderror" rows="8" required>{{ old('content', $news->content) }}</textarea>
+        <small class="text-muted">Full article content</small>
+        @error('content')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+
+    <div class="mb-3">
         <label class="form-label">Image</label>
         @if($news->image)
             <div class="mb-2">

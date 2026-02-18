@@ -21,6 +21,13 @@
     </div>
 
     <div class="mb-3">
+        <label class="form-label">Content *</label>
+        <textarea name="content" class="form-control @error('content') is-invalid @enderror" rows="8" required>{{ old('content') }}</textarea>
+        <small class="text-muted">Full article content</small>
+        @error('content')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+
+    <div class="mb-3">
         <label class="form-label">Image</label>
         <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*">
         @error('image')<div class="invalid-feedback">{{ $message }}</div>@enderror

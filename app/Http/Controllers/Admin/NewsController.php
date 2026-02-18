@@ -25,6 +25,7 @@ class NewsController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'excerpt' => 'required|string',
+            'content' => 'required|string',
             'image' => 'nullable|image|max:2048',
             'facebook_link' => 'nullable|url',
             'published_date' => 'required|date',
@@ -52,6 +53,7 @@ class NewsController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'excerpt' => 'required|string',
+            'content' => 'required|string',
             'image' => 'nullable|image|max:2048',
             'facebook_link' => 'nullable|url',
             'published_date' => 'required|date',

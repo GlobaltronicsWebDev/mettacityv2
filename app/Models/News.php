@@ -9,6 +9,7 @@ class News extends Model
     protected $fillable = [
         'title',
         'excerpt',
+        'content',
         'image',
         'facebook_link',
         'published_date',
