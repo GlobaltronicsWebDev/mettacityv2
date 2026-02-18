@@ -722,7 +722,7 @@ html, body{
   position: relative;
   z-index: 4;
   padding-top: 20px;
-  padding-bottom: 300px;
+  padding-bottom: 100px;
   background: transparent;
   opacity: 0;
   transform: translateY(-40px); /* fade DOWN */
@@ -882,7 +882,8 @@ html, body{
 
 .statement-section{
   margin-top: -1000px;
-  margin-bottom: 130px;
+  margin-bottom: 0;
+  padding-bottom: 50px;
 }
 /* EYEBROW */
 .statement-eyebrow {
@@ -906,5 +907,26 @@ html, body{
   .feature-overlay {
     transform: translateY(-375px);
     padding: 0 12px;
+  }
+}
+
+/* ============================= */
+/* FOOTER ADJUSTMENTS */
+/* ============================= */
+
+/* Reduce footer top margin on desktop */
+.footer-exact {
+  margin-top: -150px;
+}
+
+/* Mobile footer adjustments */
+@media (max-width: 425px) {
+  .footer-exact {
+    margin-top: 0;
+  }
+  
+  /* Ensure mobile footer displays correctly */
+  .mobilefooter {
+    margin-top: 0 !important;
   }
 }

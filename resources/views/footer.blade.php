@@ -31,6 +31,15 @@
         <i class="fa-brands fa-instagram" aria-label="Instagram"></i>
       </a>
     </div>
+
+    <!-- Visit Counter -->
+    @if(isset($totalVisits))
+    <div class="footer-visit-counter">
+      <i class="fa-solid fa-eye"></i>
+      <span class="visit-count">{{ number_format($totalVisits) }}</span>
+      <span class="visit-label">Total Visits</span>
+    </div>
+    @endif
   </div>
 
   <div class="footer-contact">

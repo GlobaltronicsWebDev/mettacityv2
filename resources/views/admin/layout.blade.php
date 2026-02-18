@@ -332,6 +332,26 @@
             color: #cbd5e0;
         }
         
+        body.dark-mode .card h2,
+        body.dark-mode .card h3,
+        body.dark-mode .card h4,
+        body.dark-mode .card h5,
+        body.dark-mode .card h6 {
+            color: #e2e8f0;
+        }
+        
+        body.dark-mode .card .text-muted {
+            color: #a0aec0 !important;
+        }
+        
+        body.dark-mode .card-title {
+            color: #e2e8f0;
+        }
+        
+        body.dark-mode .badge {
+            color: #1a1a2e;
+        }
+        
         body.dark-mode .form-control,
         body.dark-mode .form-select {
             background: rgba(22, 33, 62, 0.8);

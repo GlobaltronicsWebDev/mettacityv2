@@ -4,7 +4,7 @@
 
 ### Regular Admin
 - **Email:** admin@mettacity.com
-- **Password:** admin123
+- **Password:** Globaltronics@2026!
 - **Access:**
   - Dashboard (view all statistics)
   - Bookings Management (view, update status, delete)
@@ -12,7 +12,7 @@
 
 ### Super Admin
 - **Email:** superadmin@mettacity.com
-- **Password:** superadmin123
+- **Password:** Globaltronics@2026!
 - **Access:**
   - Everything Regular Admin can access
   - News Management (create, edit, delete)
@@ -141,7 +141,7 @@ Your Mettacity website now has a complete Content Management System (CMS) with a
 **URL:** `http://your-domain.com/admin/login`
 
 **Email:** `admin@mettacity.com`  
-**Password:** `admin123`
+**Password:** `Globaltronics@2026!`
 
 ⚠️ **IMPORTANT:** Change these credentials after first login!
 

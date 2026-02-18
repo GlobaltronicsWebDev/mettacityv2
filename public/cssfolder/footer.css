@@ -193,3 +193,77 @@
     margin-top: -70%;
   }
 }
+
+/* ============================= */
+/* VISIT COUNTER */
+/* ============================= */
+
+.footer-visit-counter {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer-visit-counter i {
+  font-size: 20px;
+  color: #00d4ff;
+  animation: pulse 2s infinite;
+}
+
+.visit-count {
+  font-size: 22px;
+  font-weight: 700;
+  color: #00d4ff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.visit-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 425px) {
+  .footer-visit-counter {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .footer-visit-counter i {
+    font-size: 18px;
+  }
+
+  .visit-count {
+    font-size: 18px;
+  }
+
+  .visit-label {
+    font-size: 12px;
+  }
+}

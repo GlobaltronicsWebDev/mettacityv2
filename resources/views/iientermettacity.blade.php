@@ -12,6 +12,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ asset('cssfolder/preloader.css') }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/iientermettacity.css') }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
@@ -19,6 +20,17 @@
 </head>
 
 <body class="main-bg-section" style="background-image: url('{{ asset('./assets/II_ENTERMETTACITY/ENTER_METTACITY.png') }}');">
+
+<!-- Preloader -->
+<div id="preloader">
+    <div class="preloader-content">
+        <div class="preloader-logo">
+            <img src="{{ asset('./assets/MEEKO.png') }}" alt="Loading...">
+        </div>
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">Entering Mettacity...</div>
+    </div>
+</div>
 
 @include('navbar')
 
@@ -217,6 +229,20 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{{ asset('jsfolder/iientermettacity.js') }}"></script>
+
+  <script>
+    // Preloader - Hide when page is fully loaded
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        setTimeout(function() {
+            preloader.classList.add('hidden');
+            // Remove from DOM after animation
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 500); // Show for at least 500ms
+    });
+  </script>
 
 </body>
 </html>

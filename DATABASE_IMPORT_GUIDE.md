@@ -48,12 +48,12 @@ After importing, you can login with these credentials:
 
 ### Regular Admin
 - **Email:** admin@mettacity.com
-- **Password:** admin123
+- **Password:** Globaltronics@2026!
 - **Access:** Dashboard, Bookings, View Careers
 
 ### Super Admin
 - **Email:** superadmin@mettacity.com
-- **Password:** superadmin123
+- **Password:** Globaltronics@2026!
 - **Access:** Full access (News, Careers, Users, Bookings)
 
 ## Environment Configuration
@@ -126,6 +126,8 @@ APP_TIMEZONE=Asia/Manila
 ### visits
 - Website visit tracking
 - Fields: id, ip_address, user_agent, page, visited_at
+- Excludes: Admin users, bots/crawlers
+- Only tracks real visitor traffic on public pages
 
 ## Troubleshooting
 
@@ -142,7 +144,7 @@ APP_TIMEZONE=Asia/Manila
 
 ### Password not working
 - Passwords are hashed with bcrypt
-- Default passwords: admin123 / superadmin123
+- Default password: Globaltronics@2026!
 - To reset: Use `php artisan tinker` and run:
   ```php
   $user = User::where('email', 'admin@mettacity.com')->first();

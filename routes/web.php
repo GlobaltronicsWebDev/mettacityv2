@@ -13,41 +13,49 @@ use App\Http\Controllers\BookingController;
 // Public Routes with Visit Tracking
 Route::middleware(\App\Http\Middleware\TrackVisit::class)->group(function () {
     Route::get('/', function () {
-        return view('mainpage');
+        $totalVisits = \App\Models\Visit::count();
+        return view('mainpage', compact('totalVisits'));
     })->name('home');
 
     Route::get('/enter-metta-city', function () {
-        return view('iientermettacity');
+        $totalVisits = \App\Models\Visit::count();
+        return view('iientermettacity', compact('totalVisits'));
     })->name('enter.metta.city');
 
     Route::get('/ticketing', function () {
-        return view('iiiticketing');
+        $totalVisits = \App\Models\Visit::count();
+        return view('iiiticketing', compact('totalVisits'));
     })->name('ticketing');
 
     Route::get('/plan-your-visit', function () {
-        return view('ivplanvisit');
+        $totalVisits = \App\Models\Visit::count();
+        return view('ivplanvisit', compact('totalVisits'));
     })->name('visit');
 
     Route::get('/faqs', function () {
-        return view('vfaqs');
+        $totalVisits = \App\Models\Visit::count();
+        return view('vfaqs', compact('totalVisits'));
     })->name('faqs');
 
     Route::get('/about-us', function () {
-        return view('viaboutus');
+        $totalVisits = \App\Models\Visit::count();
+        return view('viaboutus', compact('totalVisits'));
     })->name('aboutus');
 
     Route::get('/news', function () {
         $news = \App\Models\News::where('is_active', true)
             ->orderBy('published_date', 'desc')
             ->get();
-        return view('news', compact('news'));
+        $totalVisits = \App\Models\Visit::count();
+        return view('news', compact('news', 'totalVisits'));
     })->name('news');
 
     Route::get('/careers', function () {
         $careers = \App\Models\Career::where('is_active', true)
             ->latest()
             ->get();
-        return view('careers', compact('careers'));
+        $totalVisits = \App\Models\Visit::count();
+        return view('careers', compact('careers', 'totalVisits'));
     })->name('careers');
 });
 
