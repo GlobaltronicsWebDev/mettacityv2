@@ -81,12 +81,12 @@
         }
         
         .news-card {
-            background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(45, 45, 45, 0.95));
+            background: #ffffff;
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.4s ease;
-            border: 2px solid transparent;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             cursor: pointer;
         }
         
@@ -124,13 +124,13 @@
             font-size: 1.1rem;
             font-weight: 900;
             margin-bottom: 20px;
-            color: #fff;
+            color: #1a1a1a;
             letter-spacing: 1px;
             align-items: center;
         }
         
         .news-excerpt {
-            color: #ddd;
+            color: #333333;
             line-height: 1.8;
             margin-bottom: 20px;
             font-size: 1.05rem;
