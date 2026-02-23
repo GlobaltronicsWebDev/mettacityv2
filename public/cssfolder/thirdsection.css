@@ -185,17 +185,17 @@
 
 .Circularbutton {
   position: absolute;
-  top: 110%;
+  top: 62%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   width: clamp(90px, 20vw, 250px);
   animation: rotateClockwise 4s linear infinite;
-  z-index: 2;
+  z-index: 3;
 }
 
 @keyframes rotateClockwise {
-  from { transform: translateX(-50%) rotate(0deg); }
-  to   { transform: translateX(-50%) rotate(360deg); }
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* ===================== */
