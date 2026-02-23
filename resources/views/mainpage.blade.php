@@ -22,12 +22,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Custom CSS Files -->
-    <link rel="stylesheet" href="{{ asset('cssfolder/preloader.css') }}">
-    <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('cssfolder/carousel.css') }}"> 
-    <link rel="stylesheet" href="{{ asset('cssfolder/secondsection.css?v=3') }}"> 
-    <link rel="stylesheet" href="{{ asset('cssfolder/thirdsection.css') }}"> 
-    <link rel="stylesheet" href="{{ asset('cssfolder/fourthsection.css') }}">
+    <link rel="stylesheet" href="{{ asset('cssfolder/preloader.css?v=' . time()) }}">
+    <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css?v=' . time()) }}">
+    <link rel="stylesheet" href="{{ asset('cssfolder/carousel.css?v=' . time()) }}"> 
+    <link rel="stylesheet" href="{{ asset('cssfolder/secondsection.css?v=' . time()) }}"> 
+    <link rel="stylesheet" href="{{ asset('cssfolder/thirdsection.css?v=' . time()) }}"> 
+    <link rel="stylesheet" href="{{ asset('cssfolder/fourthsection.css?v=' . time()) }}">
     <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
 
     <style>
