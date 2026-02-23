@@ -79,6 +79,7 @@
    FOURTH SECTION TITLE ROW
    ========================= */
 .row-title {
+  top: -550px;
   position: relative;
   z-index: 2;
   padding: 20px 0 100px 160px;   /* left-aligned spacing */
