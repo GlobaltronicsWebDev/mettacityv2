@@ -9,7 +9,8 @@
  */
 
 // Configuration
-define('SECRET_TOKEN', 'V3%bGumre6FcmdLSyeXtN03ac/m4RToZplhS^tNccZ8= '); // Change this to a random string
+define('SECRET_TOKEN', 'mettacity2026webhook7d9b5163b3cd92044be1ae169dc91534
+'); // Change this to a random string
 define('REPO_PATH', '/home/u123456789/mettacity'); // Your Laravel project path
 define('BRANCH', 'main'); // or 'master'
 define('LOG_FILE', __DIR__ . '/deploy.log');
