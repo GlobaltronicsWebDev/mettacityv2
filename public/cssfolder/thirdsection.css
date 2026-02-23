@@ -176,7 +176,7 @@
 
 .shape {
   position: absolute;
-  top: -35%;
+  top: 100%;
   left: 0;
   width: 100%;
   object-fit: cover;
