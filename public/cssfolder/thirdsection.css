@@ -261,7 +261,7 @@
   }
   .Circularbutton {
   position: absolute;
-  margin-top: 13px;
+  margin-top: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: clamp(50px, 14vw, 200px); /* 👈 smaller */
@@ -318,6 +318,7 @@
   }
 
   .third-nav {
+    margin-top: 135px;
     width: 38px;
     height: 38px;
     font-size: 16px;
@@ -334,13 +335,13 @@
   .third-caption {
     font-size: 13px;
     position: relative;
-    top: -390px;
+    top: -280px;
     margin-top: 0;
   }
 
   .third-indicators {
     position: relative;
-    top: -430px;
+    top: -290px;
     margin-top: 0;
     gap: 8px;
     margin-bottom: 40px;
@@ -358,8 +359,13 @@
   }
 
   .Circularbutton {
-    top: 20%;
-    width: clamp(48px, 13vw, 180px);
+    position: absolute;
+    margin-top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(50px, 14vw, 200px);
+    animation: rotateClockwise 4s linear infinite;
+    z-index: 2;
   }
 }
 
