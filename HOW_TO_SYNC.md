@@ -40,16 +40,37 @@ git push origin main
 
 ### Changes not appearing on website?
 
-1. Check if push was successful (look for "main -> main" in output)
-2. Visit https://mettacity.com.ph/deploy.php to trigger manual deployment
-3. Check deploy.log for errors
-4. Clear Laravel cache via SSH:
+**Method 1: Manual Deployment (Easiest)**
+1. Upload `manual-deploy.php` to your Hostinger `public_html` folder
+2. Visit: https://mettacity.com.ph/manual-deploy.php
+3. This will pull latest changes and clear all caches
+4. Check if your changes appear
+
+**Method 2: Via SSH**
+1. Login to Hostinger SSH
+2. Run these commands:
    ```bash
    cd public_html/mettacityv2
+   git pull origin main
    php artisan config:clear
    php artisan cache:clear
    php artisan view:clear
    ```
+
+**Method 3: Check Webhook**
+1. Verify webhook is configured in GitHub:
+   - Go to: https://github.com/GlobaltronicsWebDev/mettacityv2/settings/hooks
+   - Payload URL: https://mettacity.com.ph/deploy.php
+   - Content type: application/json
+   - Secret: mettacity2026webhook7d9b5163b3cd92044be1ae169dc91534
+   - Events: Just the push event
+2. Check Recent Deliveries tab for errors
+3. Upload the fixed `deploy.php` file to `public_html` folder
+
+**Method 4: Clear Browser Cache**
+- Press Ctrl+Shift+Delete
+- Clear cached images and files
+- Or use Incognito/Private mode to test
 
 ### Webhook not working?
 
