@@ -55,16 +55,11 @@
                     </p>
                     
                     <!-- Social Links -->
-                    @if($item->facebook_link || $item->twitter_link || $item->instagram_link || $item->custom_link)
+                    @if($item->facebook_link || $item->instagram_link || $item->custom_link)
                     <div class="social-links mb-3">
                         @if($item->facebook_link)
                             <a href="{{ $item->facebook_link }}" target="_blank" class="social-link" title="Facebook">
                                 <i class="fab fa-facebook"></i>
-                            </a>
-                        @endif
-                        @if($item->twitter_link)
-                            <a href="{{ $item->twitter_link }}" target="_blank" class="social-link" title="Twitter">
-                                <i class="fab fa-twitter"></i>
                             </a>
                         @endif
                         @if($item->instagram_link)

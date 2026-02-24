@@ -47,12 +47,6 @@
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Twitter Link</label>
-        <input type="url" name="twitter_link" class="form-control @error('twitter_link') is-invalid @enderror" value="{{ old('twitter_link', $news->twitter_link) }}" placeholder="https://twitter.com/...">
-        @error('twitter_link')<div class="invalid-feedback">{{ $message }}</div>@enderror
-    </div>
-
-    <div class="mb-3">
         <label class="form-label">Instagram Link</label>
         <input type="url" name="instagram_link" class="form-control @error('instagram_link') is-invalid @enderror" value="{{ old('instagram_link', $news->instagram_link) }}" placeholder="https://instagram.com/...">
         @error('instagram_link')<div class="invalid-feedback">{{ $message }}</div>@enderror
