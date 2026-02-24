@@ -20,6 +20,12 @@
     RewriteRule ^ index.php [L]
 </IfModule>
 
+# PHP Upload Settings
+php_value upload_max_filesize 100M
+php_value post_max_size 100M
+php_value max_execution_time 300
+php_value max_input_time 300
+
 # Security Headers
 <IfModule mod_headers.c>
     # Prevent clickjacking
@@ -61,10 +67,6 @@ Options -Indexes
 
 # Disable server signature
 ServerSignature Off
-
-# Limit file upload size (adjust as needed)
-php_value upload_max_filesize 2M
-php_value post_max_size 2M
 
 # Browser Caching
 <IfModule mod_expires.c>
