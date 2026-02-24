@@ -46,18 +46,16 @@
             border-bottom: 1px solid #4a5568;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
         
         .sidebar-logo {
-            width: 45px;
-            height: 45px;
-            border-radius: 8px;
-            background: white;
-            padding: 6px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         
         .sidebar-logo img {
@@ -67,17 +65,19 @@
         }
         
         .sidebar-header-text h3 {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             margin: 0;
             letter-spacing: 0.5px;
+            color: #ffffff;
         }
         
         .sidebar-header-text p {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             margin: 2px 0 0 0;
-            opacity: 0.8;
+            opacity: 0.9;
             font-weight: 300;
+            color: #e2e8f0;
         }
         
         .sidebar-menu {

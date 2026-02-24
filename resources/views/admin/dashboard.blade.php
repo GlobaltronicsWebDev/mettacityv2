@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<h2 class="mb-4" style="font-size: 1.25rem; font-weight: 600; color: #2d3748; font-family: 'Poppins', sans-serif;">
+<h2 class="mb-4" style="font-size: 1.25rem; font-weight: 600; color: #ffffffff; font-family: 'Poppins', sans-serif;">
     <i class="fas fa-chart-line"></i> Dashboard Overview
 </h2>
 
