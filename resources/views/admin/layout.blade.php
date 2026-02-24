@@ -32,28 +32,50 @@
             z-index: 1000;
             box-shadow: 2px 0 10px rgba(0,0,0,0.05);
             border-right: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar.collapsed {
+            transform: translateX(-260px);
         }
         
         .sidebar-header {
-            padding: 24px 20px;
+            padding: 20px;
             background: #2d3748;
             color: white;
             border-bottom: 1px solid #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         
-        .sidebar-header h3 {
+        .sidebar-logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background: white;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sidebar-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .sidebar-header-text h3 {
             font-size: 1rem;
             font-weight: 600;
             margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
             letter-spacing: 0.5px;
         }
         
-        .sidebar-header p {
+        .sidebar-header-text p {
             font-size: 0.7rem;
-            margin: 4px 0 0 0;
+            margin: 2px 0 0 0;
             opacity: 0.8;
             font-weight: 300;
         }
@@ -104,6 +126,44 @@
             margin-left: 260px;
             padding: 24px;
             min-height: 100vh;
+            transition: margin-left 0.3s ease;
+        }
+        
+        .main-content.expanded {
+            margin-left: 0;
+        }
+        
+        .sidebar-toggle {
+            position: fixed;
+            left: 270px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar-toggle:hover {
+            background: #f7fafc;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .sidebar-toggle.collapsed {
+            left: 10px;
+        }
+        
+        .sidebar-toggle i {
+            color: #4a5568;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
         }
         
         .top-bar {
@@ -512,11 +572,21 @@
     @yield('styles')
 </head>
 <body>
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <h3><i class="fas fa-city"></i> Mettacity</h3>
-            <p>Admin Control Panel</p>
+            <div class="sidebar-logo">
+                <img src="{{ asset('assets/MEEKO.png') }}" alt="Mettacity Logo">
+            </div>
+            <div class="sidebar-header-text">
+                <h3>Mettacity</h3>
+                <p>Admin Control</p>
+            </div>
         </div>
         <ul class="sidebar-menu">
             <li>
@@ -555,7 +625,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
+    <div class="main-content" id="mainContent">
         <!-- Top Bar -->
         <div class="top-bar">
             <div>
@@ -616,6 +686,31 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        
+        // Check for saved sidebar state
+        const isSidebarCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+        
+        if (isSidebarCollapsed) {
+            sidebar.classList.add('collapsed');
+            mainContent.classList.add('expanded');
+            sidebarToggle.classList.add('collapsed');
+        }
+        
+        // Toggle sidebar
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+            sidebarToggle.classList.toggle('collapsed');
+            
+            // Save state
+            const isCollapsed = sidebar.classList.contains('collapsed');
+            localStorage.setItem('sidebarCollapsed', isCollapsed);
+        });
+        
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
         const darkModeIcon = document.getElementById('darkModeIcon');
