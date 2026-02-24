@@ -43,10 +43,15 @@ Route::middleware(\App\Http\Middleware\TrackVisit::class)->group(function () {
     })->name('aboutus');
 
     Route::get('/news', function () {
-        $news = \App\Models\News::where('is_active', true)
-            ->orderBy('published_date', 'desc')
-            ->get();
-        $totalVisits = \App\Models\Visit::count();
+        try {
+            $news = \App\Models\News::where('is_active', true)
+                ->orderBy('published_date', 'desc')
+                ->get();
+            $totalVisits = \App\Models\Visit::count();
+        } catch (\Exception $e) {
+            $news = collect();
+            $totalVisits = 0;
+        }
         return view('news', compact('news', 'totalVisits'));
     })->name('news');
 
