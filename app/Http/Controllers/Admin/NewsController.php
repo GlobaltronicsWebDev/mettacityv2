@@ -28,6 +28,9 @@ class NewsController extends Controller
             'content' => 'required|string',
             'image' => 'nullable|image|max:2048',
             'facebook_link' => 'nullable|url',
+            'twitter_link' => 'nullable|url',
+            'instagram_link' => 'nullable|url',
+            'custom_link' => 'nullable|url',
             'published_date' => 'required|date',
         ]);
 
@@ -56,6 +59,9 @@ class NewsController extends Controller
             'content' => 'required|string',
             'image' => 'nullable|image|max:2048',
             'facebook_link' => 'nullable|url',
+            'twitter_link' => 'nullable|url',
+            'instagram_link' => 'nullable|url',
+            'custom_link' => 'nullable|url',
             'published_date' => 'required|date',
         ]);
 

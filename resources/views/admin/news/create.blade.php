@@ -35,8 +35,27 @@
 
     <div class="mb-3">
         <label class="form-label">Facebook Link</label>
-        <input type="url" name="facebook_link" class="form-control @error('facebook_link') is-invalid @enderror" value="{{ old('facebook_link') }}">
+        <input type="url" name="facebook_link" class="form-control @error('facebook_link') is-invalid @enderror" value="{{ old('facebook_link') }}" placeholder="https://facebook.com/...">
         @error('facebook_link')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Twitter Link</label>
+        <input type="url" name="twitter_link" class="form-control @error('twitter_link') is-invalid @enderror" value="{{ old('twitter_link') }}" placeholder="https://twitter.com/...">
+        @error('twitter_link')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Instagram Link</label>
+        <input type="url" name="instagram_link" class="form-control @error('instagram_link') is-invalid @enderror" value="{{ old('instagram_link') }}" placeholder="https://instagram.com/...">
+        @error('instagram_link')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Custom Link</label>
+        <input type="url" name="custom_link" class="form-control @error('custom_link') is-invalid @enderror" value="{{ old('custom_link') }}" placeholder="https://...">
+        <small class="text-muted">Any other link (YouTube, TikTok, website, etc.)</small>
+        @error('custom_link')<div class="invalid-feedback">{{ $message }}</div>@enderror
     </div>
 
     <div class="mb-3">

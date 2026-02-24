@@ -41,7 +41,7 @@
         <div class="news-grid">
             @forelse($news as $item)
             <!-- News Card -->
-            <div class="news-card" onclick="window.open('{{ $item->facebook_link ?: 'https://www.facebook.com/MettaCityPH' }}', '_blank')">
+            <div class="news-card">
                 @if($item->image)
                     <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="news-card-img">
                 @else
@@ -53,7 +53,34 @@
                     <p class="news-excerpt">
                         {{ $item->excerpt }}
                     </p>
-                    <a href="{{ $item->facebook_link ?: 'https://www.facebook.com/MettaCityPH' }}" target="_blank" class="read-more" onclick="event.stopPropagation()">Read More →</a>
+                    
+                    <!-- Social Links -->
+                    @if($item->facebook_link || $item->twitter_link || $item->instagram_link || $item->custom_link)
+                    <div class="social-links mb-3">
+                        @if($item->facebook_link)
+                            <a href="{{ $item->facebook_link }}" target="_blank" class="social-link" title="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        @endif
+                        @if($item->twitter_link)
+                            <a href="{{ $item->twitter_link }}" target="_blank" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        @endif
+                        @if($item->instagram_link)
+                            <a href="{{ $item->instagram_link }}" target="_blank" class="social-link" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        @endif
+                        @if($item->custom_link)
+                            <a href="{{ $item->custom_link }}" target="_blank" class="social-link" title="Link">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        @endif
+                    </div>
+                    @endif
+                    
+                    <a href="{{ $item->facebook_link ?: 'https://www.facebook.com/MettaCityPH' }}" target="_blank" class="read-more">Read More →</a>
                 </div>
             </div>
             @empty

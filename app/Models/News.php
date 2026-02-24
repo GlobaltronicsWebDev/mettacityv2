@@ -12,6 +12,9 @@ class News extends Model
         'content',
         'image',
         'facebook_link',
+        'twitter_link',
+        'instagram_link',
+        'custom_link',
         'published_date',
         'is_active',
     ];
