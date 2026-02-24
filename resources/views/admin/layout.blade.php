@@ -659,6 +659,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.carousel.index') }}" class="{{ request()->routeIs('admin.carousel.*') ? 'active' : '' }}">
+                    <i class="fas fa-images"></i> <span>Carousel Slider</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                     <i class="fas fa-users"></i> <span>User Management</span>
                 </a>

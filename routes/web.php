@@ -91,6 +91,7 @@ Route::prefix('admin')->group(function () {
             Route::middleware(\App\Http\Middleware\IsSuperAdmin::class)->group(function () {
                 Route::resource('news', AdminNewsController::class)->names('admin.news');
                 Route::resource('users', AdminUserController::class)->names('admin.users');
+                Route::resource('carousel', \App\Http\Controllers\Admin\CarouselController::class)->names('admin.carousel');
                 
                 // Careers - Create, Edit, Delete (Super Admin only)
                 Route::get('careers/create', [AdminCareerController::class, 'create'])->name('admin.careers.create');
