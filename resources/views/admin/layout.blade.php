@@ -17,7 +17,7 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f8f9fa;
             min-height: 100vh;
         }
         
@@ -26,23 +26,24 @@
             left: 0;
             top: 0;
             height: 100vh;
-            width: 280px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            width: 260px;
+            background: #ffffff;
             padding: 0;
             z-index: 1000;
-            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+            border-right: 1px solid #e2e8f0;
         }
         
         .sidebar-header {
-            padding: 30px 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 24px 20px;
+            background: #2d3748;
             color: white;
+            border-bottom: 1px solid #4a5568;
         }
         
         .sidebar-header h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 1.1rem;
+            font-weight: 700;
             margin: 0;
             display: flex;
             align-items: center;
@@ -50,70 +51,76 @@
         }
         
         .sidebar-header p {
-            font-size: 0.85rem;
-            margin: 5px 0 0 0;
-            opacity: 0.9;
+            font-size: 0.75rem;
+            margin: 4px 0 0 0;
+            opacity: 0.8;
+            font-weight: 400;
         }
         
         .sidebar-menu {
             list-style: none;
-            padding: 20px 0;
+            padding: 12px 0;
         }
         
         .sidebar-menu li a {
             display: flex;
             align-items: center;
-            padding: 15px 25px;
+            padding: 12px 20px;
             color: #4a5568;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.2s;
             font-weight: 500;
+            font-size: 0.875rem;
             position: relative;
         }
         
         .sidebar-menu li a:hover {
-            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
-            color: #667eea;
+            background: #f7fafc;
+            color: #2d3748;
         }
         
         .sidebar-menu li a.active {
-            background: linear-gradient(90deg, rgba(102, 126, 234, 0.15) 0%, transparent 100%);
-            color: #667eea;
-            border-left: 4px solid #667eea;
-            padding-left: 21px;
+            background: #edf2f7;
+            color: #2d3748;
+            border-left: 3px solid #3182ce;
+            padding-left: 17px;
+            font-weight: 600;
         }
         
         .sidebar-menu li a i {
-            margin-right: 15px;
-            width: 20px;
+            margin-right: 12px;
+            width: 18px;
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
+            color: #718096;
+        }
+        
+        .sidebar-menu li a.active i {
+            color: #3182ce;
         }
         
         .main-content {
-            margin-left: 280px;
-            padding: 30px;
+            margin-left: 260px;
+            padding: 24px;
             min-height: 100vh;
         }
         
         .top-bar {
             background: white;
-            padding: 25px 35px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .greeting {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
         }
         
         .user-info {
@@ -123,56 +130,61 @@
         }
         
         .user-avatar {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #3182ce;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
         
         .btn-logout {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: #e53e3e;
             color: white;
             border: none;
-            padding: 10px 25px;
-            border-radius: 12px;
-            transition: all 0.3s;
-            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-weight: 500;
+            font-size: 0.875rem;
         }
         
         .btn-logout:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+            background: #c53030;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(229, 62, 62, 0.3);
         }
         
         .btn-back-site {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #3182ce;
             color: white;
             border: none;
-            padding: 10px 25px;
-            border-radius: 12px;
+            padding: 8px 20px;
+            border-radius: 6px;
             text-decoration: none;
             display: inline-block;
-            transition: all 0.3s;
-            font-weight: 600;
+            transition: all 0.2s;
+            font-weight: 500;
+            font-size: 0.875rem;
         }
         
         .btn-back-site:hover {
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            background: #2c5282;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(49, 130, 206, 0.3);
         }
         
         .content-card {
             background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
         }
         
         .card {
