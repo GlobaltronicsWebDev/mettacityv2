@@ -30,13 +30,18 @@ class TrackVisit
             }
         }
 
-        // Track the visit
-        Visit::create([
-            'ip_address' => $request->ip(),
-            'user_agent' => $userAgent,
-            'page' => $request->path(),
-            'visited_at' => now(),
-        ]);
+        // Track the visit (with error handling for permission issues)
+        try {
+            Visit::create([
+                'ip_address' => $request->ip(),
+                'user_agent' => $userAgent,
+                'page' => $request->path(),
+                'visited_at' => now(),
+            ]);
+        } catch (\Exception $e) {
+            // Silently fail if database permissions don't allow tracking
+            // This prevents the entire site from breaking
+        }
 
         return $next($request);
     }
