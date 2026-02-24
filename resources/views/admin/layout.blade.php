@@ -32,11 +32,12 @@
             z-index: 1000;
             box-shadow: 2px 0 10px rgba(0,0,0,0.05);
             border-right: 1px solid #e2e8f0;
-            transition: transform 0.3s ease;
+            transition: width 0.3s ease;
+            overflow: hidden;
         }
         
         .sidebar.collapsed {
-            transform: translateX(-260px);
+            width: 70px;
         }
         
         .sidebar-header {
@@ -47,6 +48,53 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            position: relative;
+            min-height: 100px;
+        }
+        
+        .sidebar-toggle-btn {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+        
+        .sidebar-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .sidebar-toggle-btn i {
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .sidebar-header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 50px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .sidebar.collapsed .sidebar-header-content {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .sidebar.collapsed .sidebar-toggle-btn {
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         
         .sidebar-logo {
@@ -70,6 +118,7 @@
             margin: 0;
             letter-spacing: 0.5px;
             color: #ffffff;
+            white-space: nowrap;
         }
         
         .sidebar-header-text p {
@@ -78,6 +127,7 @@
             opacity: 0.9;
             font-weight: 300;
             color: #e2e8f0;
+            white-space: nowrap;
         }
         
         .sidebar-menu {
@@ -95,6 +145,12 @@
             font-weight: 500;
             font-size: 0.875rem;
             position: relative;
+            white-space: nowrap;
+        }
+        
+        .sidebar.collapsed .sidebar-menu li a {
+            padding: 12px 0;
+            justify-content: center;
         }
         
         .sidebar-menu li a:hover {
@@ -110,16 +166,37 @@
             font-weight: 600;
         }
         
+        .sidebar.collapsed .sidebar-menu li a.active {
+            border-left: none;
+            border-bottom: 3px solid #3182ce;
+            padding: 12px 0;
+        }
+        
         .sidebar-menu li a i {
             margin-right: 12px;
             width: 18px;
             text-align: center;
             font-size: 0.95rem;
             color: #718096;
+            flex-shrink: 0;
+        }
+        
+        .sidebar.collapsed .sidebar-menu li a i {
+            margin-right: 0;
         }
         
         .sidebar-menu li a.active i {
             color: #3182ce;
+        }
+        
+        .sidebar-menu li a span {
+            transition: opacity 0.3s ease;
+        }
+        
+        .sidebar.collapsed .sidebar-menu li a span {
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
         }
         
         .main-content {
@@ -130,40 +207,11 @@
         }
         
         .main-content.expanded {
-            margin-left: 0;
+            margin-left: 70px;
         }
         
         .sidebar-toggle {
-            position: fixed;
-            left: 270px;
-            top: 20px;
-            width: 40px;
-            height: 40px;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1001;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .sidebar-toggle:hover {
-            background: #f7fafc;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .sidebar-toggle.collapsed {
-            left: 10px;
-        }
-        
-        .sidebar-toggle i {
-            color: #4a5568;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
+            display: none;
         }
         
         .top-bar {
@@ -572,53 +620,53 @@
     @yield('styles')
 </head>
 <body>
-    <!-- Sidebar Toggle Button -->
-    <button class="sidebar-toggle" id="sidebarToggle">
-        <i class="fas fa-bars"></i>
-    </button>
-
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <div class="sidebar-logo">
-                <img src="{{ asset('assets/MEEKO.png') }}" alt="Mettacity Logo">
-            </div>
-            <div class="sidebar-header-text">
-                <h3>Mettacity</h3>
-                <p>Admin Control</p>
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="sidebar-header-content">
+                <div class="sidebar-logo">
+                    <img src="{{ asset('assets/MEEKO.png') }}" alt="Mettacity Logo">
+                </div>
+                <div class="sidebar-header-text">
+                    <h3>Mettacity</h3>
+                    <p>Admin Control</p>
+                </div>
             </div>
         </div>
         <ul class="sidebar-menu">
             <li>
                 <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                    <i class="fas fa-tachometer-alt"></i> <span>Dashboard</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin.bookings.index') }}" class="{{ request()->routeIs('admin.bookings.*') ? 'active' : '' }}">
-                    <i class="fas fa-calendar-check"></i> Bookings
+                    <i class="fas fa-calendar-check"></i> <span>Bookings</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin.careers.index') }}" class="{{ request()->routeIs('admin.careers.*') ? 'active' : '' }}">
-                    <i class="fas fa-briefcase"></i> Careers
+                    <i class="fas fa-briefcase"></i> <span>Careers</span>
                 </a>
             </li>
             @if(Auth::user()->is_super_admin)
             <li>
                 <a href="{{ route('admin.news.index') }}" class="{{ request()->routeIs('admin.news.*') ? 'active' : '' }}">
-                    <i class="fas fa-newspaper"></i> News Management
+                    <i class="fas fa-newspaper"></i> <span>News Management</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
-                    <i class="fas fa-users"></i> User Management
+                    <i class="fas fa-users"></i> <span>User Management</span>
                 </a>
             </li>
             @endif
             <li>
                 <a href="{{ route('home') }}" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> View Main Site
+                    <i class="fas fa-external-link-alt"></i> <span>View Main Site</span>
                 </a>
             </li>
         </ul>
@@ -697,14 +745,12 @@
         if (isSidebarCollapsed) {
             sidebar.classList.add('collapsed');
             mainContent.classList.add('expanded');
-            sidebarToggle.classList.add('collapsed');
         }
         
         // Toggle sidebar
         sidebarToggle.addEventListener('click', () => {
             sidebar.classList.toggle('collapsed');
             mainContent.classList.toggle('expanded');
-            sidebarToggle.classList.toggle('collapsed');
             
             // Save state
             const isCollapsed = sidebar.classList.contains('collapsed');
