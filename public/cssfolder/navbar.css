@@ -2,6 +2,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
 /* =========================
+   GLOBAL STYLES
+========================= */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body, html {
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input, textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* =========================
    GLOBAL CSS VARIABLES
 ========================= */
 :root{
