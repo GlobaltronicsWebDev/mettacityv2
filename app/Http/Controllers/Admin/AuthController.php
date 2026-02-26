@@ -24,7 +24,15 @@ class AuthController extends Controller
             $request->session()->regenerate();
             
             if (Auth::user()->is_admin) {
-                return redirect()->intended('/admin/dashboard');
+                // Secure redirect - only allow admin routes
+                $intended = $request->session()->get('url.intended', '/admin/dashboard');
+                
+                // Validate that the intended URL is within admin area
+                if (str_starts_with($intended, url('/admin'))) {
+                    return redirect($intended);
+                }
+                
+                return redirect('/admin/dashboard');
             }
             
             Auth::logout();
