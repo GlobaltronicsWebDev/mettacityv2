@@ -37,14 +37,22 @@ class CarouselController extends Controller
             $validated = $request->validate([
                 'title' => 'nullable|string|max:255',
                 'description' => 'nullable|string',
-                'image' => 'required|image|max:5120',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120|dimensions:min_width=100,min_height=100',
                 'order' => 'nullable|integer',
             ]);
 
             $validated['is_active'] = $request->has('is_active') ? true : false;
 
             if ($request->hasFile('image')) {
-                $validated['image'] = $request->file('image')->store('carousel', 'public');
+                $file = $request->file('image');
+                
+                // Additional security: Check actual file content
+                $imageInfo = getimagesize($file->getRealPath());
+                if ($imageInfo === false) {
+                    throw new \Exception('Invalid image file');
+                }
+                
+                $validated['image'] = $file->store('carousel', 'public');
             }
 
             Carousel::create($validated);

@@ -53,9 +53,20 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        $userId = auth()->id();
+        
         Auth::logout();
+        
+        // Invalidate the session
         $request->session()->invalidate();
+        
+        // Regenerate CSRF token
         $request->session()->regenerateToken();
+        
+        // Clear all session data
+        $request->session()->flush();
+        
+        \Log::info('User logged out', ['user_id' => $userId]);
         
         return redirect('/');
     }

@@ -13,10 +13,17 @@ class Booking extends Model
         'visit_date',
         'number_of_guests',
         'message',
-        'status',
     ];
+    
+    // Prevent mass assignment of status
+    protected $guarded = ['status'];
 
     protected $casts = [
         'visit_date' => 'date',
+    ];
+    
+    // Set default status
+    protected $attributes = [
+        'status' => 'pending',
     ];
 }

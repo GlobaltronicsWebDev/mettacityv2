@@ -65,7 +65,9 @@ Route::middleware(\App\Http\Middleware\TrackVisit::class)->group(function () {
 });
 
 // Booking Routes
-Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+Route::post('/bookings', [BookingController::class, 'store'])
+    ->middleware('throttle:10,1') // 10 requests per minute
+    ->name('bookings.store');
 
 // Admin Routes
 Route::prefix('admin')->group(function () {
