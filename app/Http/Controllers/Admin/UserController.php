@@ -10,6 +10,17 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        // Ensure only super admins can manage users
+        $this->middleware(function ($request, $next) {
+            if (!auth()->user()->is_super_admin) {
+                abort(403, 'Unauthorized action.');
+            }
+            return $next($request);
+        });
+    }
+
     public function index()
     {
         $users = User::orderBy('created_at', 'desc')->get();

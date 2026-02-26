@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Storage;
 
 class CarouselController extends Controller
 {
+    public function __construct()
+    {
+        // Ensure only super admins can manage carousel
+        $this->middleware(function ($request, $next) {
+            if (!auth()->user()->is_super_admin) {
+                abort(403, 'Unauthorized action.');
+            }
+            return $next($request);
+        });
+    }
+
     public function index()
     {
         $carousels = Carousel::orderBy('order')->paginate(10);

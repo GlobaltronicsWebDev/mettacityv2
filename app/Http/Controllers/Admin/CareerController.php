@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Storage;
 
 class CareerController extends Controller
 {
+    public function __construct()
+    {
+        // Only super admins can create, edit, delete careers
+        $this->middleware(function ($request, $next) {
+            if (!auth()->user()->is_super_admin) {
+                abort(403, 'Unauthorized action.');
+            }
+            return $next($request);
+        })->except(['index']);
+    }
+
     public function index()
     {
         $careers = Career::latest()->paginate(10);

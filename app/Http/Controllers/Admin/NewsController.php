@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        // Ensure only super admins can manage news
+        $this->middleware(function ($request, $next) {
+            if (!auth()->user()->is_super_admin) {
+                abort(403, 'Unauthorized action.');
+            }
+            return $next($request);
+        });
+    }
+
     public function index()
     {
         $news = News::latest()->paginate(10);
