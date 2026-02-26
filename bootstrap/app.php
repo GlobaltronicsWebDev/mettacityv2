@@ -13,6 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         // Add security headers to all requests
         $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
+        
+        // Add session rotation for authenticated users
+        $middleware->appendToGroup('web', \App\Http\Middleware\RotateSession::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         // Log all exceptions with full details

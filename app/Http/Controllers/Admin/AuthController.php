@@ -21,7 +21,12 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
+            // Regenerate session ID to prevent session fixation attacks
             $request->session()->regenerate();
+            
+            // Store login time for session rotation
+            $request->session()->put('last_activity', now());
+            $request->session()->put('login_time', now());
             
             if (Auth::user()->is_admin) {
                 // Secure redirect - only allow admin routes
