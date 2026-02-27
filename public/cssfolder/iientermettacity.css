@@ -665,14 +665,10 @@ html, body{
     height: auto;
   }
 
-  /* Use the image as a stretched background on mobile */
+  /* Ensure wrapper has proper positioning */
   .stretch-bg {
-    background-image: url("II_ENTERMETTACITY/BG.png");
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-
-    min-height: 150vh; /* increase if you want more bottom stretch */
+    position: relative;
+    min-height: 100vh;
   }
 
   /* ✅ Center the whole content block inside the background */
