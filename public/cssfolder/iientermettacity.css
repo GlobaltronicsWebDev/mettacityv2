@@ -907,7 +907,7 @@ html, body{
 
 @media (max-width: 425px) {
   .statement-section {
-    margin-top: -550px;
+    margin-top: -850px;
     margin-bottom: 215px;
     padding-bottom: 210px;
   }
