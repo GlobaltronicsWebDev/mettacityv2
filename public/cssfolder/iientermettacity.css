@@ -653,6 +653,18 @@ html, body{
 
   /* ✅ MOBILE: stretch bottom of background */
   @media (max-width: 768px) {
+  /* Hide desktop image */
+  .bg-exact-img {
+    display: none !important;
+  }
+
+  /* Show mobile image */
+  .bgm-exact-img {
+    display: block !important;
+    width: 100%;
+    height: auto;
+  }
+
   /* Use the image as a stretched background on mobile */
   .stretch-bg {
     background-image: url("II_ENTERMETTACITY/BG.png");
@@ -661,11 +673,6 @@ html, body{
     background-repeat: no-repeat;
 
     min-height: 150vh; /* increase if you want more bottom stretch */
-  }
-
-  /* Hide the <img> on mobile (background replaces it) */
-  .stretch-bg .bg-exact-img {
-    display: none;
   }
 
   /* ✅ Center the whole content block inside the background */
