@@ -555,12 +555,8 @@ html, body{
     height: auto;
     display: block;
   }
-  
-  /* Desktop: hide mobile image */
-  @media (min-width: 769px) {
-    .bgm-exact-img {
-      display: none !important;
-    }
+  .bgm-exact-img {
+    display: none !important;
   }
 
   /* ✅ overlay sits inside image area */
@@ -657,21 +653,19 @@ html, body{
 
   /* ✅ MOBILE: stretch bottom of background */
   @media (max-width: 768px) {
-  /* Hide desktop image */
-  .bg-exact-img {
-    display: none !important;
-  }
-
-  /* Show mobile image */
-  .bgm-exact-img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* Ensure wrapper has proper positioning */
+  /* Use the image as a stretched background on mobile */
   .stretch-bg {
-    position: relative;
-    min-height: 100vh;
+    background-image: url("II_ENTERMETTACITY/BG.png");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    min-height: 150vh; /* increase if you want more bottom stretch */
+  }
+
+  /* Hide the <img> on mobile (background replaces it) */
+  .stretch-bg .bg-exact-img {
+    display: none;
   }
 
   /* ✅ Center the whole content block inside the background */
@@ -731,7 +725,7 @@ html, body{
   padding-bottom: 500px;
   background: transparent;
   opacity: 0;
-  transform: translateY(-40px);
+  transform: translateY(-40px); /* fade DOWN */
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 /* WHEN VISIBLE */
@@ -889,7 +883,7 @@ html, body{
 .statement-section{
   margin-top: -1000px;
   margin-bottom: 200px;
-  padding-bottom: 500px;
+  padding-bottom: 50px;
 }
 /* EYEBROW */
 .statement-eyebrow {
@@ -909,15 +903,6 @@ html, body{
 }
 
 }
-
-@media (max-width: 425px) {
-  .statement-section {
-    margin-top: -550px;
-    margin-bottom: 215px;
-    padding-bottom: 210px;
-  }
-}
-
 @media (max-width: 375px) {
   .feature-overlay {
     transform: translateY(-375px);
