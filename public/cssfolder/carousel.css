@@ -9,14 +9,6 @@
     will-change: top, opacity, transform;
 }
 
-/* Responsive carousel images */
-.carousel-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    max-height: 600px;
-}
-
 /* Static image overlaying the carousel */
 .carousel-background {
     position: absolute;
@@ -184,15 +176,6 @@
         background-color: #ffffff;
     }
 
-}
-
-/* ========================================= */
-/* TABLET (426px to 768px) */
-/* ========================================= */
-@media (min-width: 426px) and (max-width: 768px) {
-    .carousel-img {
-        max-height: 400px;
-    }
 }
 
 /* ========================================= */
