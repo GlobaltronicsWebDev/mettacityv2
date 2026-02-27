@@ -664,7 +664,6 @@ html, body{
 
   /* Show mobile image */
   .bgm-exact-img {
-    display: block !important;
     width: 100%;
     height: auto;
   }
