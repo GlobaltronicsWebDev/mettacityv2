@@ -11,22 +11,6 @@ document.onkeydown = function(e) {
   }
 };
 
-// Detect DevTools
-(function() {
-  const devtools = /./;
-  devtools.toString = function() {
-    this.opened = true;
-  }
-  const checkDevTools = setInterval(function() {
-    console.log('%c', devtools);
-    if(devtools.opened) {
-      alert('Developer tools detected! Please close them.');
-      window.location.reload();
-    }
-    devtools.opened = false;
-  }, 1000);
-})();
-
 // Disable text selection
 document.onselectstart = function() {
   return false;
