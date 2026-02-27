@@ -722,7 +722,7 @@ html, body{
   position: relative;
   z-index: 4;
   padding-top: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 500px;
   background: transparent;
   opacity: 0;
   transform: translateY(-40px); /* fade DOWN */
