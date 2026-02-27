@@ -57,7 +57,7 @@
     </style>
     
     <!-- Disable DevTools -->
-    <script src="{{ asset('js/disable-devtools.js') }}"></script>
+    <script src="{{ asset('js/disable-devtools.js?v=' . time()) }}"></script>
 </head>
 
 <body>

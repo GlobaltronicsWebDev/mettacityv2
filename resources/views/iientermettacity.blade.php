@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
 
   <!-- Disable DevTools -->
-  <script src="{{ asset('js/disable-devtools.js') }}"></script>
+  <script src="{{ asset('js/disable-devtools.js?v=' . time()) }}"></script>
 
 </head>
 
