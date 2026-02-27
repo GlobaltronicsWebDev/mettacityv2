@@ -9,17 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class CareerController extends Controller
 {
-    public function __construct()
-    {
-        // Only super admins can create, edit, delete careers
-        $this->middleware(function ($request, $next) {
-            if (!auth()->user()->is_super_admin) {
-                abort(403, 'Unauthorized action.');
-            }
-            return $next($request);
-        })->except(['index']);
-    }
-
     public function index()
     {
         $careers = Career::latest()->paginate(10);
@@ -28,11 +17,21 @@ class CareerController extends Controller
 
     public function create()
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         return view('admin.careers.create');
     }
 
     public function store(Request $request)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -54,11 +53,21 @@ class CareerController extends Controller
 
     public function edit(Career $career)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         return view('admin.careers.edit', compact('career'));
     }
 
     public function update(Request $request, Career $career)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -83,6 +92,11 @@ class CareerController extends Controller
 
     public function destroy(Career $career)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         if ($career->image) {
             Storage::disk('public')->delete($career->image);
         }

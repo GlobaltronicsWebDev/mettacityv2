@@ -10,30 +10,34 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        // Ensure only super admins can manage users
-        $this->middleware(function ($request, $next) {
-            if (!auth()->user()->is_super_admin) {
-                abort(403, 'Unauthorized action.');
-            }
-            return $next($request);
-        });
-    }
-
     public function index()
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         $users = User::orderBy('created_at', 'desc')->get();
         return view('admin.users.index', compact('users'));
     }
 
     public function create()
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         return view('admin.users.create');
     }
 
     public function store(Request $request)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
@@ -55,11 +59,21 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         return view('admin.users.edit', compact('user'));
     }
 
     public function update(Request $request, User $user)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
@@ -86,6 +100,11 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         // Prevent deleting yourself
         if ($user->id === auth()->id()) {
             return redirect()->route('admin.users.index')->with('error', 'You cannot delete your own account!');

@@ -9,30 +9,34 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
-    public function __construct()
-    {
-        // Ensure only super admins can manage news
-        $this->middleware(function ($request, $next) {
-            if (!auth()->user()->is_super_admin) {
-                abort(403, 'Unauthorized action.');
-            }
-            return $next($request);
-        });
-    }
-
     public function index()
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         $news = News::latest()->paginate(10);
         return view('admin.news.index', compact('news'));
     }
 
     public function create()
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         return view('admin.news.create');
     }
 
     public function store(Request $request)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'excerpt' => 'required|string',
@@ -58,11 +62,21 @@ class NewsController extends Controller
 
     public function edit(News $news)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         return view('admin.news.edit', compact('news'));
     }
 
     public function update(Request $request, News $news)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'excerpt' => 'required|string',
@@ -91,6 +105,11 @@ class NewsController extends Controller
 
     public function destroy(News $news)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         if ($news->image) {
             Storage::disk('public')->delete($news->image);
         }

@@ -9,30 +9,34 @@ use Illuminate\Support\Facades\Storage;
 
 class CarouselController extends Controller
 {
-    public function __construct()
-    {
-        // Ensure only super admins can manage carousel
-        $this->middleware(function ($request, $next) {
-            if (!auth()->user()->is_super_admin) {
-                abort(403, 'Unauthorized action.');
-            }
-            return $next($request);
-        });
-    }
-
     public function index()
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         $carousels = Carousel::orderBy('order')->paginate(10);
         return view('admin.carousel.index', compact('carousels'));
     }
 
     public function create()
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         return view('admin.carousel.create');
     }
 
     public function store(Request $request)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         try {
             $validated = $request->validate([
                 'title' => 'nullable|string|max:255',
@@ -71,11 +75,21 @@ class CarouselController extends Controller
 
     public function edit(Carousel $carousel)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         return view('admin.carousel.edit', compact('carousel'));
     }
 
     public function update(Request $request, Carousel $carousel)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         try {
             $validated = $request->validate([
                 'title' => 'nullable|string|max:255',
@@ -110,6 +124,11 @@ class CarouselController extends Controller
 
     public function destroy(Carousel $carousel)
     {
+        // Check authorization
+        if (!auth()->user()->is_super_admin) {
+            abort(403, 'Unauthorized action.');
+        }
+        
         try {
             if ($carousel->image) {
                 Storage::disk('public')->delete($carousel->image);
