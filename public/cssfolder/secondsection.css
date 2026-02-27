@@ -208,7 +208,7 @@ body {
 
 .secondbanner {
   position: relative;  
-  top: 110px;    /* Keeps it inside normal document flow but allows top adjustment */
+  top: -50px;    /* Keeps it inside normal document flow but allows top adjustment */
   text-align: center;
   margin: 1000px auto;     /* Pushes it far down (this is why your page looks like it starts lower) */             /* Extra vertical offset */
   z-index: 999;            /* Extremely high so it sits above everything */
