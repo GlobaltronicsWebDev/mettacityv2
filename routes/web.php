@@ -14,7 +14,10 @@ use App\Http\Controllers\BookingController;
 Route::middleware(\App\Http\Middleware\TrackVisit::class)->group(function () {
     Route::get('/', function () {
         $totalVisits = \App\Models\Visit::count();
-        return view('mainpage', compact('totalVisits'));
+        $carousels = \App\Models\Carousel::where('is_active', true)
+            ->orderBy('order')
+            ->get();
+        return view('mainpage', compact('totalVisits', 'carousels'));
     })->name('home');
 
     Route::get('/enter-metta-city', function () {
