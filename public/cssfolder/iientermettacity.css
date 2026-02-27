@@ -722,11 +722,13 @@ html, body{
 .statement-section {
   position: relative;
   z-index: 4;
+  margin-top: -1000px;
+  margin-bottom: 200px;
   padding-top: 20px;
   padding-bottom: 500px;
   background: transparent;
   opacity: 0;
-  transform: translateY(-40px); /* fade DOWN */
+  transform: translateY(-40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 /* WHEN VISIBLE */
@@ -878,14 +880,9 @@ html, body{
 
 
   /* ============================= */
-/* STATEMENT SECTION – TRUE CENTER */
+/* STATEMENT SECTION TYPOGRAPHY */
 /* ============================= */
 
-.statement-section{
-  margin-top: -1000px;
-  margin-bottom: 200px;
-  padding-bottom: 50px;
-}
 /* EYEBROW */
 .statement-eyebrow {
   margin-bottom: 16px;

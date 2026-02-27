@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
 
+  <!-- Disable DevTools -->
+  <script src="{{ asset('js/disable-devtools.js') }}"></script>
+
 </head>
 
 <body class="main-bg-section" style="background-image: url('{{ asset('./assets/II_ENTERMETTACITY/ENTER_METTACITY.png') }}');">

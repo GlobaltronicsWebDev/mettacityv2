@@ -55,6 +55,9 @@
             content-visibility: auto;
         }
     </style>
+    
+    <!-- Disable DevTools -->
+    <script src="{{ asset('js/disable-devtools.js') }}"></script>
 </head>
 
 <body>
