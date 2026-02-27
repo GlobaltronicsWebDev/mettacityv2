@@ -9,7 +9,7 @@
         <div class="carousel-inner">
             @foreach($carousels as $index => $carousel)
             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                <img src="{{ asset('storage/' . $carousel->image) }}" class="d-block w-100" alt="{{ $carousel->title ?? 'Slide ' . ($index + 1) }}">
+                <img src="{{ asset('storage/' . $carousel->image) }}" class="d-block w-100 carousel-img" alt="{{ $carousel->title ?? 'Slide ' . ($index + 1) }}">
                 @if($carousel->title || $carousel->description)
                 <div class="carousel-caption d-none d-md-block">
                     @if($carousel->title)
