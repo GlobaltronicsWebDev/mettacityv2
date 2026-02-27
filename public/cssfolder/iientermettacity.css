@@ -555,8 +555,12 @@ html, body{
     height: auto;
     display: block;
   }
-  .bgm-exact-img {
-    display: none !important;
+  
+  /* Desktop: hide mobile image */
+  @media (min-width: 769px) {
+    .bgm-exact-img {
+      display: none !important;
+    }
   }
 
   /* ✅ overlay sits inside image area */
