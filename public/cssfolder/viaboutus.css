@@ -747,7 +747,7 @@ body {
   }
   
   .grid-title img {
-    max-width: 200%;
+    max-width: 100%;
     margin-top: -300px;
   }
 }
