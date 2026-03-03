@@ -731,3 +731,23 @@ body {
     font-size: 18px;
   }
 }
+
+
+/* ================================================= */
+/* TABLET MODE (768px and below) */
+/* ================================================= */
+@media (max-width: 768px) {
+  .plan-bg {
+    height: 50vh;
+  }
+  
+  .reel-image {
+    max-width: 100%;
+    margin-top: -235px;
+  }
+  
+  .grid-title img {
+    max-width: 200%;
+    margin-top: -300px;
+  }
+}
