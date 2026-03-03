@@ -92,21 +92,6 @@
 }
 /* ============================= */
 /* RESPONSIVE (MOBILE)
-/* TABLET - KEEP LIKE DESKTOP */
-/* ============================= */
-
-@media (max-width: 768px) and (min-width: 426px) {
-  
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-
-  .footer-character {
-    margin-top: 30%;
-  }
-}
-
 /* MOBILE - SIMPLIFIED FOOTER */
 /* ============================= */
 
