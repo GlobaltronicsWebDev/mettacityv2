@@ -750,4 +750,20 @@ body {
     max-width: 150%;
     margin-top: -400px;
   }
+  
+  .statement-inner {
+    margin-bottom: 16px;
+    text-align: center;
+    font-size: 25px;
+  }
+  
+  .statement-heading {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    transform: translateX(-1px);
+  }
 }
