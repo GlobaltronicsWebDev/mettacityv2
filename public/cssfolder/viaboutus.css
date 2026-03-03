@@ -312,7 +312,7 @@ body {
   /* Collapse the huge top gap */
   .about-mettacity-section {
     padding-top: 0;
-    margin-top: -850px; /* pulls section up */
+    margin-top: -858px; /* pulls section up */
   }
 
   /* Kill desktop overlap completely */
@@ -753,6 +753,6 @@ body {
   
   .about-mettacity-section {
     padding-top: 0;
-    margin-top: -845px;
+    margin-top: -858px;
   }
 }
