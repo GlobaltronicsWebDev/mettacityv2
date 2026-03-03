@@ -76,7 +76,9 @@ Route::post('/bookings', [BookingController::class, 'store'])
 Route::prefix('admin')->group(function () {
     Route::middleware(\App\Http\Middleware\RestrictAdminIP::class)->group(function () {
         Route::get('/login', [AuthController::class, 'showLogin'])->name('admin.login');
-        Route::post('/login', [AuthController::class, 'login'])->name('admin.login.post');
+        Route::post('/login', [AuthController::class, 'login'])
+            ->middleware('throttle:5,1') // 5 attempts per minute
+            ->name('admin.login.post');
         Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
         Route::middleware(['auth', \App\Http\Middleware\IsAdmin::class])->group(function () {
