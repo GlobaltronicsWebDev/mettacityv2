@@ -14,7 +14,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('cssfolder/viaboutus.css?v=' . time()) }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
-  <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssfolder/footer.css?v=' . time()) }}">
 
 </head>
 

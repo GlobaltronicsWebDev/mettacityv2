@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="{{ asset('cssfolder/preloader.css') }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/iientermettacity.css?v=' . time()) }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
-  <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssfolder/footer.css?v=' . time()) }}">
 
   <!-- Disable DevTools -->
   <script src="{{ asset('js/disable-devtools.js?v=' . time()) }}"></script>

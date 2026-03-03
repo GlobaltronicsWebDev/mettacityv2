@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{{ asset('cssfolder/secondsection.css?v=' . time()) }}"> 
     <link rel="stylesheet" href="{{ asset('cssfolder/thirdsection.css?v=' . time()) }}"> 
     <link rel="stylesheet" href="{{ asset('cssfolder/fourthsection.css?v=' . time()) }}">
-    <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('cssfolder/footer.css?v=' . time()) }}">
 
     <style>
         * {
