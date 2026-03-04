@@ -247,6 +247,12 @@ html, body{
 .title-bg{
   margin-top: -300px;
 }
+.grid-title img {
+  max-width: 150%;
+  width: 160%;
+  height: auto;
+  margin-top: -300px;
+}
 .page-content{
 margin-top: -50px;
 }
