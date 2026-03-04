@@ -108,7 +108,7 @@
  
    <section class="marquee-strip">
      <div class="marquee-center">
-    <a href="" class="buy-ticket-link" target="_blank">
+    <a href="https://premier.ticketworld.com.ph/shows/show.aspx?sh=METTACIT26" class="buy-ticket-link" target="_blank">
       <img src="{{ asset('./assets/III_TICKETING/BUTTON.png') }}" alt="Buy Your Tickets" class="buy-ticket-button" >
     </a>
   </div>
