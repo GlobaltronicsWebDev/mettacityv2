@@ -19,13 +19,12 @@ html, body{
 /* TIER LINK STYLES */
 .tier-link {
   display: block;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
 .tier-link:hover {
-  transform: translateY(-8px);
-  filter: brightness(1.1);
+  transform: scale(1.1);
 }
 
 .tier-link img {
