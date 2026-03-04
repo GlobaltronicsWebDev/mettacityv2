@@ -177,9 +177,9 @@
                          aria-labelledby="heading{{ $accordion->id }}" 
                          data-bs-parent="#newsAccordion">
                         <div class="accordion-body">
-                            <div class="row">
+                            <div class="row justify-content-end">
                                 @if($accordion->embed_code)
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <div class="video-container">
                                         {!! $accordion->embed_code !!}
                                     </div>
