@@ -64,6 +64,10 @@
             color: #333;
         }
 
+        .accordion-body .row {
+            align-items: center;
+        }
+
         .video-container {
             position: relative;
             width: 100%;
@@ -91,6 +95,14 @@
             .accordion-body {
                 padding: 1rem;
                 font-size: 0.95rem;
+            }
+
+            .accordion-body .row {
+                flex-direction: column;
+            }
+
+            .accordion-body .col-md-6 {
+                margin-top: 1rem;
             }
         }
     </style>>
@@ -137,12 +149,18 @@
                          aria-labelledby="heading{{ $accordion->id }}" 
                          data-bs-parent="#newsAccordion">
                         <div class="accordion-body">
-                            <p>{{ $accordion->description }}</p>
-                            @if($accordion->embed_code)
-                                <div class="video-container mt-3">
-                                    {!! $accordion->embed_code !!}
+                            <div class="row">
+                                <div class="col-md-{{ $accordion->embed_code ? '6' : '12' }}">
+                                    <p>{{ $accordion->description }}</p>
                                 </div>
-                            @endif
+                                @if($accordion->embed_code)
+                                <div class="col-md-6">
+                                    <div class="video-container">
+                                        {!! $accordion->embed_code !!}
+                                    </div>
+                                </div>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
