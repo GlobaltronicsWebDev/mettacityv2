@@ -768,20 +768,20 @@ body {
   }
   
   .footer-bg-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    position: relative;
-    z-index: 1;
-    bottom: -60px;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 1 !important;
+    bottom: -60px !important;
   }
   
   .footer-logo {
-    width: 400px;
-    max-width: 32vw;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    margin-top: 125px;
+    width: 400px !important;
+    max-width: 32vw !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    margin-top: 125px !important;
   }
 }
