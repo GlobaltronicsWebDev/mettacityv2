@@ -664,6 +664,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.ticket-tiers.index') }}" class="{{ request()->routeIs('admin.ticket-tiers.*') ? 'active' : '' }}">
+                    <i class="fas fa-ticket-alt"></i> <span>Ticket Tiers</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                     <i class="fas fa-users"></i> <span>User Management</span>
                 </a>

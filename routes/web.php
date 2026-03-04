@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Admin\CareerController as AdminCareerController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
+use App\Http\Controllers\Admin\TicketTierController;
 use App\Http\Controllers\BookingController;
 
 // Public Routes with Visit Tracking
@@ -27,7 +28,10 @@ Route::middleware(\App\Http\Middleware\TrackVisit::class)->group(function () {
 
     Route::get('/ticketing', function () {
         $totalVisits = \App\Models\Visit::count();
-        return view('iiiticketing', compact('totalVisits'));
+        $tiers = \App\Models\TicketTier::where('is_active', true)
+            ->orderBy('order')
+            ->get();
+        return view('iiiticketing', compact('totalVisits', 'tiers'));
     })->name('ticketing');
 
     Route::get('/plan-your-visit', function () {
@@ -99,6 +103,7 @@ Route::prefix('admin')->group(function () {
                 Route::resource('news', AdminNewsController::class)->names('admin.news');
                 Route::resource('users', AdminUserController::class)->names('admin.users');
                 Route::resource('carousel', \App\Http\Controllers\Admin\CarouselController::class)->names('admin.carousel');
+                Route::resource('ticket-tiers', TicketTierController::class)->names('admin.ticket-tiers');
                 
                 // Careers - Create, Edit, Delete (Super Admin only)
                 Route::get('careers/create', [AdminCareerController::class, 'create'])->name('admin.careers.create');

@@ -53,51 +53,58 @@
     <!-- IMAGE GRID -->
     <div class="row g-4 justify-content-center">
 
-      <!-- ROWS 1–3 -->
-      <div class="col-6 col-md-4">
-        <img src="{{ asset('./assets/III_TICKETING/TIER 1.png') }}" class="img-fluid grid-img" alt="Tier 1">
-      </div>
+      @if($tiers->count() > 0)
+        @foreach($tiers as $tier)
+          <div class="col-6 col-md-4">
+            <img src="{{ asset('storage/' . $tier->image) }}" class="img-fluid grid-img" alt="{{ $tier->name }}">
+          </div>
+        @endforeach
+      @else
+        <!-- FALLBACK: Default images if no tiers in database -->
+        <div class="col-6 col-md-4">
+          <img src="{{ asset('./assets/III_TICKETING/TIER 1.png') }}" class="img-fluid grid-img" alt="Tier 1">
+        </div>
 
-      <div class="col-6 col-md-4">
-        <img src="{{ asset('./assets/III_TICKETING/TIER 2.png') }}" class="img-fluid grid-img" alt="Tier 2">
-      </div>
+        <div class="col-6 col-md-4">
+          <img src="{{ asset('./assets/III_TICKETING/TIER 2.png') }}" class="img-fluid grid-img" alt="Tier 2">
+        </div>
 
-      <div class="col-6 col-md-4">
-        <img src="{{ asset('./assets/III_TICKETING/TIER 3.png') }}" class="img-fluid grid-img" alt="Tier 3">
-      </div>
+        <div class="col-6 col-md-4">
+          <img src="{{ asset('./assets/III_TICKETING/TIER 3.png') }}" class="img-fluid grid-img" alt="Tier 3">
+        </div>
 
-      <div class="col-6 col-md-4">
-        <img src="{{ asset('./assets/III_TICKETING/TIER 4.png') }}" class="img-fluid grid-img" alt="Tier 4">
-      </div>
+        <div class="col-6 col-md-4">
+          <img src="{{ asset('./assets/III_TICKETING/TIER 4.png') }}" class="img-fluid grid-img" alt="Tier 4">
+        </div>
 
-      <div class="col-6 col-md-4">
-        <img src="{{ asset('./assets/III_TICKETING/TIER 5.png') }}" class="img-fluid grid-img" alt="Tier 5">
-      </div>
+        <div class="col-6 col-md-4">
+          <img src="{{ asset('./assets/III_TICKETING/TIER 5.png') }}" class="img-fluid grid-img" alt="Tier 5">
+        </div>
 
-      <div class="col-6 col-md-4">
-        <img src="{{ asset('./assets/III_TICKETING/TIER 6.png') }}" class="img-fluid grid-img" alt="Tier 6">
-      </div>
+        <div class="col-6 col-md-4">
+          <img src="{{ asset('./assets/III_TICKETING/TIER 6.png') }}" class="img-fluid grid-img" alt="Tier 6">
+        </div>
 
-      <div class="col-6 col-md-4">
-        <img src="{{ asset('./assets/III_TICKETING/TIER 7.png') }}" class="img-fluid grid-img" alt="Tier 7">
-      </div>
+        <div class="col-6 col-md-4">
+          <img src="{{ asset('./assets/III_TICKETING/TIER 7.png') }}" class="img-fluid grid-img" alt="Tier 7">
+        </div>
 
-      <div class="col-6 col-md-4">
-        <img src="{{ asset('./assets/III_TICKETING/TIER 8.png') }}" class="img-fluid grid-img" alt="Tier 8">
-      </div>
+        <div class="col-6 col-md-4">
+          <img src="{{ asset('./assets/III_TICKETING/TIER 8.png') }}" class="img-fluid grid-img" alt="Tier 8">
+        </div>
 
-      <div class="col-6 col-md-4">
-        <img src="{{ asset('./assets/III_TICKETING/TIER 9.png') }}" class="img-fluid grid-img" alt="Tier 9">
-      </div>
+        <div class="col-6 col-md-4">
+          <img src="{{ asset('./assets/III_TICKETING/TIER 9.png') }}" class="img-fluid grid-img" alt="Tier 9">
+        </div>
 
-      <!-- LAST ROW (2 IMAGES CENTERED ON DESKTOP) -->
-      <div class="col-6 col-md-4 offset-md-2">
-        <img src="{{ asset('./assets/III_TICKETING/TIER 10.png') }}" class="img-fluid grid-img" alt="Tier 10">
-      </div>
+        <div class="col-6 col-md-4 offset-md-2">
+          <img src="{{ asset('./assets/III_TICKETING/TIER 10.png') }}" class="img-fluid grid-img" alt="Tier 10">
+        </div>
 
-      <div class="col-6 col-md-4">
-        <img src="{{ asset('./assets/III_TICKETING/TIER 11.png') }}" class="img-fluid grid-img" alt="Tier 11">
-      </div>
+        <div class="col-6 col-md-4">
+          <img src="{{ asset('./assets/III_TICKETING/TIER 11.png') }}" class="img-fluid grid-img" alt="Tier 11">
+        </div>
+      @endif
 
     </div>
 
