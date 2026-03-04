@@ -53,6 +53,7 @@
             font-size: 1.1rem;
             padding: 1.25rem 1.5rem;
             border: none;
+            text-align: left;
         }
 
         .accordion-button:not(.collapsed) {
@@ -78,7 +79,11 @@
         }
 
         .accordion-body .row {
-            align-items: center;
+            align-items: flex-start;
+        }
+
+        .accordion-body p {
+            margin: 0;
         }
 
         .video-container {
@@ -120,6 +125,10 @@
             }
 
             .accordion-body .col-md-6 {
+                width: 100%;
+            }
+
+            .accordion-body p {
                 margin-top: 1rem;
             }
         }
@@ -169,14 +178,16 @@
                          data-bs-parent="#newsAccordion">
                         <div class="accordion-body">
                             <div class="row">
-                                <div class="col-md-{{ $accordion->embed_code ? '6' : '12' }}">
-                                    <p>{{ $accordion->description }}</p>
-                                </div>
                                 @if($accordion->embed_code)
                                 <div class="col-md-6">
                                     <div class="video-container">
                                         {!! $accordion->embed_code !!}
                                     </div>
+                                    <p class="mt-3">{{ $accordion->description }}</p>
+                                </div>
+                                @else
+                                <div class="col-md-12">
+                                    <p>{{ $accordion->description }}</p>
                                 </div>
                                 @endif
                             </div>
