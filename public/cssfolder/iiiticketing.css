@@ -19,40 +19,40 @@ html, body{
 /* TIER LINK STYLES */
 .tier-link {
   display: block;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.3s ease;
   cursor: pointer;
   position: relative;
   z-index: 1;
 }
 
 .tier-link:hover {
-  transform: scale(1.15);
+  transform: scale(1.05);
   z-index: 10;
 }
 
 .tier-link img {
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
 }
 
 .grid-img {
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s ease;
   background: transparent !important;
   mix-blend-mode: multiply;
   cursor: pointer;
 }
 
 .grid-img:hover {
-  transform: scale(1.15);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-  filter: brightness(1.1);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.05);
   z-index: 10;
 }
 
 .tier-link:hover .grid-img {
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-  filter: brightness(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.05);
 }
 
 /* Add smooth animation */
