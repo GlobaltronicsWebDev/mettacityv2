@@ -58,7 +58,7 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             padding: 1.25rem 1.5rem;
             border: none;
             text-align: left;
@@ -121,7 +121,7 @@
             }
 
             .accordion-button {
-                font-size: 1rem;
+                font-size: 0.85rem;
                 padding: 1rem;
             }
 
@@ -384,6 +384,17 @@
         if (statementSection) {
             observer.observe(statementSection);
         }
+
+        // Stop video when accordion closes
+        document.querySelectorAll('.accordion-collapse').forEach(function(accordion) {
+            accordion.addEventListener('hidden.bs.collapse', function() {
+                const iframes = this.querySelectorAll('iframe');
+                iframes.forEach(function(iframe) {
+                    const src = iframe.src;
+                    iframe.src = src; // Reload iframe to stop video
+                });
+            });
+        });
     </script>
 </body>
 </html>
