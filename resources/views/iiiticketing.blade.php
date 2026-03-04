@@ -13,7 +13,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('cssfolder/preloader.css') }}">
-  <link rel="stylesheet" href="{{ asset('cssfolder/iiiticketing.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssfolder/iiiticketing.css?v=' . time()) }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
 
