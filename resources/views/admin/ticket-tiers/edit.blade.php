@@ -30,6 +30,20 @@
                         </div>
 
                         <div class="mb-3">
+                            <label for="url" class="form-label">Click URL (Optional)</label>
+                            <input type="url" 
+                                   class="form-control @error('url') is-invalid @enderror" 
+                                   id="url" 
+                                   name="url" 
+                                   value="{{ old('url', $ticketTier->url) }}"
+                                   placeholder="https://example.com/ticket-details">
+                            <small class="text-muted">Leave empty if tier should not be clickable</small>
+                            @error('url')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
                             <label for="image" class="form-label">Tier Image</label>
                             <div class="mb-2">
                                 <img src="{{ asset('storage/' . $ticketTier->image) }}" 

@@ -16,6 +16,32 @@ html, body{
   display: block;
 }
 
+/* TIER LINK STYLES */
+.tier-link {
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.tier-link:hover {
+  transform: translateY(-8px);
+  filter: brightness(1.1);
+}
+
+.tier-link img {
+  transition: all 0.3s ease;
+}
+
+.grid-img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.grid-img:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
 /* TITLE OVERLAY */
 .grid-title {
   position: absolute;

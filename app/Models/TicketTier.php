@@ -9,6 +9,7 @@ class TicketTier extends Model
     protected $fillable = [
         'name',
         'image',
+        'url',
         'order',
         'is_active'
     ];

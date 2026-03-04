@@ -37,6 +37,7 @@ class TicketTierController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'url' => 'nullable|url|max:500',
             'order' => 'required|integer|min:0',
         ]);
 
@@ -45,6 +46,7 @@ class TicketTierController extends Controller
         TicketTier::create([
             'name' => $request->name,
             'image' => $imagePath,
+            'url' => $request->url,
             'order' => $request->order,
             'is_active' => $request->has('is_active'),
         ]);
@@ -71,11 +73,13 @@ class TicketTierController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'url' => 'nullable|url|max:500',
             'order' => 'required|integer|min:0',
         ]);
 
         $data = [
             'name' => $request->name,
+            'url' => $request->url,
             'order' => $request->order,
             'is_active' => $request->has('is_active'),
         ];

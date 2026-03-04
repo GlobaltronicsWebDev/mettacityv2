@@ -29,6 +29,7 @@
                             <th width="80">Order</th>
                             <th width="150">Image</th>
                             <th>Name</th>
+                            <th>URL</th>
                             <th width="100">Status</th>
                             <th width="200">Actions</th>
                         </tr>
@@ -44,6 +45,15 @@
                                      style="max-height: 80px;">
                             </td>
                             <td>{{ $tier->name }}</td>
+                            <td>
+                                @if($tier->url)
+                                    <a href="{{ $tier->url }}" target="_blank" class="text-primary">
+                                        <i class="fas fa-external-link-alt"></i> Link
+                                    </a>
+                                @else
+                                    <span class="text-muted">No link</span>
+                                @endif
+                            </td>
                             <td>
                                 @if($tier->is_active)
                                     <span class="badge bg-success">Active</span>
@@ -70,7 +80,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="5" class="text-center py-4">
+                            <td colspan="6" class="text-center py-4">
                                 <p class="text-muted mb-0">No ticket tiers found. Add your first tier!</p>
                             </td>
                         </tr>

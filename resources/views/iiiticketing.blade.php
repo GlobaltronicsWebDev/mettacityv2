@@ -56,7 +56,13 @@
       @if(isset($tiers) && $tiers->count() > 0)
         @foreach($tiers as $tier)
           <div class="col-6 col-md-4">
-            <img src="{{ asset('storage/' . $tier->image) }}" class="img-fluid grid-img" alt="{{ $tier->name }}">
+            @if($tier->url)
+              <a href="{{ $tier->url }}" target="_blank" class="tier-link">
+                <img src="{{ asset('storage/' . $tier->image) }}" class="img-fluid grid-img" alt="{{ $tier->name }}">
+              </a>
+            @else
+              <img src="{{ asset('storage/' . $tier->image) }}" class="img-fluid grid-img" alt="{{ $tier->name }}">
+            @endif
           </div>
         @endforeach
       @else
