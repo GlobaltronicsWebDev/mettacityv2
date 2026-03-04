@@ -25,6 +25,19 @@
             padding: 0 20px;
         }
 
+        .accordion-section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
         .accordion-item {
             background: #fff;
             border: 1px solid rgba(0, 0, 0, 0.1);
@@ -87,6 +100,11 @@
         }
 
         @media (max-width: 768px) {
+            .accordion-section-title {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
             .accordion-button {
                 font-size: 1rem;
                 padding: 1rem;
@@ -131,6 +149,7 @@
         <!-- Accordion Section -->
         @if(isset($accordions) && $accordions->count() > 0)
         <div class="accordion-section mb-5">
+            <h2 class="accordion-section-title">Check out our events</h2>
             <div class="accordion" id="newsAccordion">
                 @foreach($accordions as $index => $accordion)
                 <div class="accordion-item">
