@@ -26,13 +26,16 @@ html, body{
   z-index: 10;
 }
 .ticket-bg{
-  max-width: 100%;
+  max-width: 150%;
+  width: 120%;
+  height: auto;
 }
 /* TITLE IMAGE SIZE */
 .grid-title img {
   max-width: 150%;
+  width: 160%;
   height: auto;
-
+  margin-top: 100px;
 }
 
 /* FADE DOWN ANIMATION */
