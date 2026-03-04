@@ -766,4 +766,22 @@ body {
     font-weight: bold;
     transform: translateX(-1px);
   }
+  
+  .footer-bg-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
+    bottom: -60px;
+  }
+  
+  .footer-logo {
+    width: 400px;
+    max-width: 32vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 125px;
+  }
 }
