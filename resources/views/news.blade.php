@@ -64,6 +64,9 @@
             text-align: left;
             border-radius: 0;
             min-height: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .accordion-button:not(.collapsed) {
@@ -123,6 +126,7 @@
             .accordion-button {
                 font-size: 0.85rem;
                 padding: 1rem;
+                white-space: normal;
             }
 
             .accordion-body {
