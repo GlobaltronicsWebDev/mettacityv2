@@ -46,6 +46,14 @@
             overflow: hidden;
         }
 
+        .accordion-item .row {
+            margin: 0;
+        }
+
+        .accordion-header {
+            margin: 0;
+        }
+
         .accordion-button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -54,6 +62,8 @@
             padding: 1.25rem 1.5rem;
             border: none;
             text-align: left;
+            border-radius: 0;
+            min-height: 100%;
         }
 
         .accordion-button:not(.collapsed) {
@@ -76,10 +86,6 @@
             font-size: 1rem;
             line-height: 1.6;
             color: #333;
-        }
-
-        .accordion-body .row {
-            align-items: flex-start;
         }
 
         .accordion-body p {
@@ -110,6 +116,10 @@
                 margin-bottom: 1.5rem;
             }
 
+            .accordion-item .row {
+                flex-direction: column;
+            }
+
             .accordion-button {
                 font-size: 1rem;
                 padding: 1rem;
@@ -118,14 +128,6 @@
             .accordion-body {
                 padding: 1rem;
                 font-size: 0.95rem;
-            }
-
-            .accordion-body .row {
-                flex-direction: column;
-            }
-
-            .accordion-body .col-md-6 {
-                width: 100%;
             }
 
             .accordion-body p {
@@ -162,34 +164,34 @@
             <div class="accordion" id="newsAccordion">
                 @foreach($accordions as $index => $accordion)
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading{{ $accordion->id }}">
-                        <button class="accordion-button {{ $index > 0 ? 'collapsed' : '' }}" 
-                                type="button" 
-                                data-bs-toggle="collapse" 
-                                data-bs-target="#collapse{{ $accordion->id }}" 
-                                aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" 
-                                aria-controls="collapse{{ $accordion->id }}">
-                            {{ $accordion->title }}
-                        </button>
-                    </h2>
-                    <div id="collapse{{ $accordion->id }}" 
-                         class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" 
-                         aria-labelledby="heading{{ $accordion->id }}" 
-                         data-bs-parent="#newsAccordion">
-                        <div class="accordion-body">
-                            <div class="row justify-content-end">
-                                @if($accordion->embed_code)
-                                <div class="col-md-8">
-                                    <div class="video-container">
-                                        {!! $accordion->embed_code !!}
-                                    </div>
-                                    <p class="mt-3">{{ $accordion->description }}</p>
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <h2 class="accordion-header" id="heading{{ $accordion->id }}">
+                                <button class="accordion-button {{ $index > 0 ? 'collapsed' : '' }}" 
+                                        type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#collapse{{ $accordion->id }}" 
+                                        aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" 
+                                        aria-controls="collapse{{ $accordion->id }}">
+                                    {{ $accordion->title }}
+                                </button>
+                            </h2>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="collapse{{ $accordion->id }}" 
+                                 class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" 
+                                 aria-labelledby="heading{{ $accordion->id }}" 
+                                 data-bs-parent="#newsAccordion">
+                                <div class="accordion-body">
+                                    @if($accordion->embed_code)
+                                        <div class="video-container">
+                                            {!! $accordion->embed_code !!}
+                                        </div>
+                                        <p class="mt-3">{{ $accordion->description }}</p>
+                                    @else
+                                        <p>{{ $accordion->description }}</p>
+                                    @endif
                                 </div>
-                                @else
-                                <div class="col-md-12">
-                                    <p>{{ $accordion->description }}</p>
-                                </div>
-                                @endif
                             </div>
                         </div>
                     </div>
