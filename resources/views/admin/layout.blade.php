@@ -669,6 +669,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.accordions.index') }}" class="{{ request()->routeIs('admin.accordions.*') ? 'active' : '' }}">
+                    <i class="fas fa-bars"></i> <span>Accordions</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                     <i class="fas fa-users"></i> <span>User Management</span>
                 </a>

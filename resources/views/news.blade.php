@@ -15,7 +15,85 @@
     <link rel="stylesheet" href="{{ asset('cssfolder/preloader.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
-     <link rel="stylesheet" href="{{ asset('cssfolder/news.css') }}">
+    <link rel="stylesheet" href="{{ asset('cssfolder/news.css') }}">
+    
+    <style>
+        /* Accordion Styles */
+        .accordion-section {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 20px;
+        }
+
+        .accordion-item {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.25rem 1.5rem;
+            border: none;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: white;
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        .accordion-button::after {
+            filter: brightness(0) invert(1);
+        }
+
+        .accordion-body {
+            padding: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .accordion-button {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+
+            .accordion-body {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>>
    
 </head>
 <body>
@@ -37,6 +115,41 @@
         <div class="news-header">
             <h1>LATEST NEWS</h1>
         </div>
+
+        <!-- Accordion Section -->
+        @if(isset($accordions) && $accordions->count() > 0)
+        <div class="accordion-section mb-5">
+            <div class="accordion" id="newsAccordion">
+                @foreach($accordions as $index => $accordion)
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading{{ $accordion->id }}">
+                        <button class="accordion-button {{ $index > 0 ? 'collapsed' : '' }}" 
+                                type="button" 
+                                data-bs-toggle="collapse" 
+                                data-bs-target="#collapse{{ $accordion->id }}" 
+                                aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" 
+                                aria-controls="collapse{{ $accordion->id }}">
+                            {{ $accordion->title }}
+                        </button>
+                    </h2>
+                    <div id="collapse{{ $accordion->id }}" 
+                         class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" 
+                         aria-labelledby="heading{{ $accordion->id }}" 
+                         data-bs-parent="#newsAccordion">
+                        <div class="accordion-body">
+                            <p>{{ $accordion->description }}</p>
+                            @if($accordion->embed_code)
+                                <div class="video-container mt-3">
+                                    {!! $accordion->embed_code !!}
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        @endif
 
         <div class="news-grid">
             @forelse($news as $item)

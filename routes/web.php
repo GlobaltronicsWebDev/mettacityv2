@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CareerController as AdminCareerController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\TicketTierController;
+use App\Http\Controllers\Admin\AccordionController;
 use App\Http\Controllers\BookingController;
 
 // Public Routes with Visit Tracking
@@ -54,12 +55,16 @@ Route::middleware(\App\Http\Middleware\TrackVisit::class)->group(function () {
             $news = \App\Models\News::where('is_active', true)
                 ->orderBy('published_date', 'desc')
                 ->get();
+            $accordions = \App\Models\Accordion::where('is_active', true)
+                ->orderBy('order')
+                ->get();
             $totalVisits = \App\Models\Visit::count();
         } catch (\Exception $e) {
             $news = collect();
+            $accordions = collect();
             $totalVisits = 0;
         }
-        return view('news', compact('news', 'totalVisits'));
+        return view('news', compact('news', 'accordions', 'totalVisits'));
     })->name('news');
 
     Route::get('/careers', function () {
@@ -104,6 +109,7 @@ Route::prefix('admin')->group(function () {
                 Route::resource('users', AdminUserController::class)->names('admin.users');
                 Route::resource('carousel', \App\Http\Controllers\Admin\CarouselController::class)->names('admin.carousel');
                 Route::resource('ticket-tiers', TicketTierController::class)->names('admin.ticket-tiers');
+                Route::resource('accordions', AccordionController::class)->names('admin.accordions');
                 
                 // Careers - Create, Edit, Delete (Super Admin only)
                 Route::get('careers/create', [AdminCareerController::class, 'create'])->name('admin.careers.create');
