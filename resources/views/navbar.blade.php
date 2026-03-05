@@ -103,11 +103,6 @@
         ========================================================== -->
         <div class="col-4 d-none d-md-flex align-items-center justify-content-end gap-3 pe-4">
 
-          <!-- Admin Icon -->
-          <a href="{{ route('admin.login') }}" class="social-icon" aria-label="Admin Panel" title="Admin Panel" target="_blank" rel="noopener noreferrer">
-            <i class="fas fa-user-shield"></i>
-          </a>
-
           <!-- CTA LINK -->
           <a class="nav-link active" href="{{ route('visit') }}">
             <img src="{{ asset('./assets/PLAN YOUR VISIT.png') }}"
@@ -185,14 +180,6 @@
       </a>
 
       <div class="mobile-offcanvas-socials">
-
-        <a href="{{ route('admin.login') }}"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="mobile-offcanvas-social"
-           aria-label="Admin Panel">
-          <i class="fas fa-user-shield"></i>
-        </a>
 
         <a href="https://www.facebook.com/MettaCityPH"
            target="_blank"
