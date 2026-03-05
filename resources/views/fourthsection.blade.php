@@ -4,15 +4,30 @@
     <img src="{{ asset('assets/STEP INSIDE BG.png') }}" alt="Step Inside BG" class="stepinsidebgmobile">
 
     <div class="row-fourth">
-      <div class="col">
-        <img src="{{ asset('assets/TECHNOLOGY.png') }}" alt="TECHNOLOGY" class="technology">
-      </div>
-      <div class="col">
-        <img src="{{ asset('assets/PLAY.png') }}" alt="PLAY" class="play"> 
-      </div>
-      <div class="col">
-        <img src="{{ asset('assets/CULTURE.png') }}" alt="CULTURE" class="culture">
-      </div>
+      @if(isset($categories) && $categories->count() >= 3)
+        @foreach($categories->take(3) as $category)
+        <div class="col">
+          @if($category->url)
+            <a href="{{ $category->url }}" target="_blank">
+              <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="{{ strtolower($category->slug) }}">
+            </a>
+          @else
+            <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="{{ strtolower($category->slug) }}">
+          @endif
+        </div>
+        @endforeach
+      @else
+        <!-- Fallback to default images -->
+        <div class="col">
+          <img src="{{ asset('assets/TECHNOLOGY.png') }}" alt="TECHNOLOGY" class="technology">
+        </div>
+        <div class="col">
+          <img src="{{ asset('assets/PLAY.png') }}" alt="PLAY" class="play"> 
+        </div>
+        <div class="col">
+          <img src="{{ asset('assets/CULTURE.png') }}" alt="CULTURE" class="culture">
+        </div>
+      @endif
       <div class="col">
         <a href="{{ route('enter.metta.city') }}"><img src="{{ asset('assets/ENTER METTACITY.png') }}" alt="ENTER METTACITY" class="entermettacity" style="height: 500px; width: auto; padding-top: 200px"></a>
       </div>

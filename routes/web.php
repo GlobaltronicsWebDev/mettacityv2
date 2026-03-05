@@ -20,7 +20,10 @@ Route::middleware(\App\Http\Middleware\TrackVisit::class)->group(function () {
         $carousels = \App\Models\Carousel::where('is_active', true)
             ->orderBy('order')
             ->get();
-        return view('mainpage', compact('totalVisits', 'carousels'));
+        $categories = \App\Models\Category::where('is_active', true)
+            ->orderBy('order')
+            ->get();
+        return view('mainpage', compact('totalVisits', 'carousels', 'categories'));
     })->name('home');
 
     Route::get('/enter-metta-city', function () {
