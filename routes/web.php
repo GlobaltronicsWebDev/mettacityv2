@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\TicketTierController;
 use App\Http\Controllers\Admin\AccordionController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\BookingController;
 
 // Public Routes with Visit Tracking
@@ -110,6 +111,7 @@ Route::prefix('admin')->group(function () {
                 Route::resource('carousel', \App\Http\Controllers\Admin\CarouselController::class)->names('admin.carousel');
                 Route::resource('ticket-tiers', TicketTierController::class)->names('admin.ticket-tiers');
                 Route::resource('accordions', AccordionController::class)->names('admin.accordions');
+                Route::resource('categories', CategoryController::class)->names('admin.categories');
                 
                 // Careers - Create, Edit, Delete (Super Admin only)
                 Route::get('careers/create', [AdminCareerController::class, 'create'])->name('admin.careers.create');

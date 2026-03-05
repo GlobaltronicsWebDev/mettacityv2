@@ -1,0 +1,100 @@
+@extends('admin.layout')
+
+@section('content')
+<div class="container-fluid px-4">
+    <h1 class="mt-4 mb-4">Add New Category</h1>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-th-large me-1"></i>
+                    Category Information
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('admin.categories.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Category Name *</label>
+                            <input type="text" 
+                                   class="form-control @error('name') is-invalid @enderror" 
+                                   id="name" 
+                                   name="name" 
+                                   value="{{ old('name') }}"
+                                   placeholder="e.g., Technology, Play, Culture"
+                                   required>
+                            @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Category Image *</label>
+                            <input type="file" 
+                                   class="form-control @error('image') is-invalid @enderror" 
+                                   id="image" 
+                                   name="image"
+                                   accept="image/*"
+                                   required>
+                            <small class="text-muted">Recommended: PNG or JPG, max 5MB</small>
+                            @error('image')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="url" class="form-label">Click URL (Optional)</label>
+                            <input type="url" 
+                                   class="form-control @error('url') is-invalid @enderror" 
+                                   id="url" 
+                                   name="url" 
+                                   value="{{ old('url') }}"
+                                   placeholder="https://example.com">
+                            <small class="text-muted">Leave empty if category should not be clickable</small>
+                            @error('url')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="order" class="form-label">Display Order *</label>
+                            <input type="number" 
+                                   class="form-control @error('order') is-invalid @enderror" 
+                                   id="order" 
+                                   name="order" 
+                                   value="{{ old('order', 0) }}"
+                                   min="0"
+                                   required>
+                            <small class="text-muted">Lower numbers appear first (0=Technology, 1=Play, 2=Culture)</small>
+                            @error('order')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" 
+                                   class="form-check-input" 
+                                   id="is_active" 
+                                   name="is_active"
+                                   {{ old('is_active', true) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="is_active">
+                                Active (Display on website)
+                            </label>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Create Category
+                            </button>
+                            <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
