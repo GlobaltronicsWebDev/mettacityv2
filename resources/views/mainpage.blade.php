@@ -343,12 +343,11 @@
     <script>
         // Video Popup - Show on first visit
         window.addEventListener('load', function() {
-            @if(isset($popupVideo) && $popupVideo && $popupVideo->is_active)
+            @if(isset($popupVideo) && $popupVideo && $popupVideo->is_active && $popupVideo->video_file)
             const videoPopup = document.getElementById('videoPopup');
             const videoWrapper = document.getElementById('videoPopupWrapper');
             const closeBtn = document.getElementById('closeVideoPopup');
-            const VIDEO_TYPE = '{{ $popupVideo->video_type }}';
-            const VIDEO_SOURCE = '{{ $popupVideo->video_source }}';
+            const VIDEO_SOURCE = '{{ asset('storage/' . $popupVideo->video_file) }}';
             const DELAY_MS = {{ $popupVideo->delay_seconds * 1000 }};
             let videoElement = null;
             
@@ -357,31 +356,18 @@
             
             if (!hasSeenPopup && VIDEO_SOURCE) {
                 setTimeout(function() {
-                    // Create video element based on type
-                    if (VIDEO_TYPE === 'local') {
-                        // Create HTML5 video element for local files
-                        videoElement = document.createElement('video');
-                        videoElement.controls = true;
-                        videoElement.autoplay = true;
-                        videoElement.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;';
-                        
-                        const source = document.createElement('source');
-                        source.src = VIDEO_SOURCE;
-                        source.type = 'video/mp4';
-                        
-                        videoElement.appendChild(source);
-                        videoWrapper.appendChild(videoElement);
-                    } else {
-                        // Create iframe for YouTube, Vimeo, Facebook
-                        videoElement = document.createElement('iframe');
-                        videoElement.src = VIDEO_SOURCE;
-                        videoElement.frameBorder = '0';
-                        videoElement.allow = 'autoplay; fullscreen; picture-in-picture';
-                        videoElement.allowFullscreen = true;
-                        videoElement.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;';
-                        
-                        videoWrapper.appendChild(videoElement);
-                    }
+                    // Create HTML5 video element for local files
+                    videoElement = document.createElement('video');
+                    videoElement.controls = true;
+                    videoElement.autoplay = true;
+                    videoElement.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;';
+                    
+                    const source = document.createElement('source');
+                    source.src = VIDEO_SOURCE;
+                    source.type = 'video/mp4';
+                    
+                    videoElement.appendChild(source);
+                    videoWrapper.appendChild(videoElement);
                     
                     videoPopup.classList.add('active');
                     document.body.style.overflow = 'hidden'; // Prevent scrolling
@@ -410,14 +396,10 @@
             function closeVideoPopup() {
                 videoPopup.classList.remove('active');
                 
-                // Stop video based on type
+                // Stop video
                 if (videoElement) {
-                    if (VIDEO_TYPE === 'local') {
-                        videoElement.pause();
-                        videoElement.currentTime = 0;
-                    } else {
-                        videoElement.src = ''; // Stop iframe video
-                    }
+                    videoElement.pause();
+                    videoElement.currentTime = 0;
                     // Remove video element from DOM
                     videoWrapper.innerHTML = '';
                     videoElement = null;
