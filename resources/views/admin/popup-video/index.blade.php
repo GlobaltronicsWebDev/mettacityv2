@@ -19,7 +19,7 @@
                     Configure Popup Video
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.popup-video.update') }}" method="POST">
+                    <form action="{{ route('admin.popup-video.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -29,7 +29,8 @@
                                     id="video_type" 
                                     name="video_type"
                                     required>
-                                <option value="youtube" {{ old('video_type', $video->video_type ?? 'youtube') == 'youtube' ? 'selected' : '' }}>YouTube</option>
+                                <option value="local" {{ old('video_type', $video->video_type ?? 'local') == 'local' ? 'selected' : '' }}>Upload Video File</option>
+                                <option value="youtube" {{ old('video_type', $video->video_type ?? '') == 'youtube' ? 'selected' : '' }}>YouTube</option>
                                 <option value="vimeo" {{ old('video_type', $video->video_type ?? '') == 'vimeo' ? 'selected' : '' }}>Vimeo</option>
                                 <option value="facebook" {{ old('video_type', $video->video_type ?? '') == 'facebook' ? 'selected' : '' }}>Facebook</option>
                             </select>
@@ -38,15 +39,36 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label for="video_url" class="form-label">Video URL *</label>
+                        <div class="mb-3" id="video_file_field">
+                            <label for="video_file" class="form-label">Upload Video File</label>
+                            @if($video && $video->video_type === 'local' && $video->video_file)
+                                <div class="mb-2">
+                                    <video width="100%" height="300" controls>
+                                        <source src="{{ asset('storage/' . $video->video_file) }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <small class="text-muted d-block mt-1">Current video</small>
+                                </div>
+                            @endif
+                            <input type="file" 
+                                   class="form-control @error('video_file') is-invalid @enderror" 
+                                   id="video_file" 
+                                   name="video_file"
+                                   accept="video/*">
+                            <small class="text-muted">Supported: MP4, WebM, MOV, AVI. Max 100MB</small>
+                            @error('video_file')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3" id="video_url_field">
+                            <label for="video_url" class="form-label">Video URL</label>
                             <input type="url" 
                                    class="form-control @error('video_url') is-invalid @enderror" 
                                    id="video_url" 
                                    name="video_url" 
                                    value="{{ old('video_url', $video->video_url ?? '') }}"
-                                   placeholder="https://..."
-                                   required>
+                                   placeholder="https://...">
                             <small class="text-muted">
                                 YouTube: https://www.youtube.com/watch?v=...<br>
                                 Vimeo: https://vimeo.com/...<br>
@@ -84,7 +106,15 @@
                             </label>
                         </div>
 
-                        @if($video && $video->embed_url)
+                        @if($video && $video->video_type === 'local' && $video->video_file)
+                        <div class="mb-3">
+                            <label class="form-label">Preview</label>
+                            <video width="100%" height="300" controls>
+                                <source src="{{ asset('storage/' . $video->video_file) }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        @elseif($video && $video->embed_url)
                         <div class="mb-3">
                             <label class="form-label">Preview</label>
                             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">

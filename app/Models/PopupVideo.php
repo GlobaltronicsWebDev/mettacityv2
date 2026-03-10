@@ -9,6 +9,7 @@ class PopupVideo extends Model
     protected $table = 'popup_video';
     
     protected $fillable = [
+        'video_file',
         'video_url',
         'video_type',
         'is_active',
@@ -18,6 +19,15 @@ class PopupVideo extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    public function getVideoSourceAttribute()
+    {
+        if ($this->video_type === 'local' && $this->video_file) {
+            return asset('storage/' . $this->video_file);
+        }
+
+        return $this->getEmbedUrlAttribute();
+    }
 
     public function getEmbedUrlAttribute()
     {

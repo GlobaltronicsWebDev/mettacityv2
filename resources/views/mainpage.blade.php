@@ -88,7 +88,8 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
-        .video-popup-wrapper iframe {
+        .video-popup-wrapper iframe,
+        .video-popup-wrapper video {
             position: absolute;
             top: 0;
             left: 0;
@@ -170,12 +171,22 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="video-popup-wrapper">
-                <iframe id="popupVideo" 
-                        src="" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
+                @if(isset($popupVideo) && $popupVideo && $popupVideo->video_type === 'local')
+                    <video id="popupVideo" 
+                           controls 
+                           autoplay 
+                           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;">
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                @else
+                    <iframe id="popupVideo" 
+                            src="" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                @endif
             </div>
         </div>
     </div>
@@ -351,16 +362,28 @@
             const videoPopup = document.getElementById('videoPopup');
             const popupVideo = document.getElementById('popupVideo');
             const closeBtn = document.getElementById('closeVideoPopup');
-            const VIDEO_URL = '{{ $popupVideo->embed_url }}';
+            const VIDEO_TYPE = '{{ $popupVideo->video_type }}';
+            const VIDEO_SOURCE = '{{ $popupVideo->video_source }}';
             const DELAY_MS = {{ $popupVideo->delay_seconds * 1000 }};
             
             // Check if user has seen the video popup before
             const hasSeenPopup = sessionStorage.getItem('videoPopupSeen');
             
-            if (!hasSeenPopup && VIDEO_URL) {
+            if (!hasSeenPopup && VIDEO_SOURCE) {
                 setTimeout(function() {
-                    // Set video source and show popup
-                    popupVideo.src = VIDEO_URL;
+                    // Set video source based on type
+                    if (VIDEO_TYPE === 'local') {
+                        // For local video files, set the source attribute
+                        const source = popupVideo.querySelector('source');
+                        if (source) {
+                            source.src = VIDEO_SOURCE;
+                            popupVideo.load();
+                        }
+                    } else {
+                        // For embed URLs (YouTube, Vimeo, Facebook)
+                        popupVideo.src = VIDEO_SOURCE;
+                    }
+                    
                     videoPopup.classList.add('active');
                     document.body.style.overflow = 'hidden'; // Prevent scrolling
                 }, DELAY_MS);
@@ -387,7 +410,15 @@
             
             function closeVideoPopup() {
                 videoPopup.classList.remove('active');
-                popupVideo.src = ''; // Stop video
+                
+                // Stop video based on type
+                if (VIDEO_TYPE === 'local') {
+                    popupVideo.pause();
+                    popupVideo.currentTime = 0;
+                } else {
+                    popupVideo.src = ''; // Stop iframe video
+                }
+                
                 document.body.style.overflow = ''; // Restore scrolling
                 sessionStorage.setItem('videoPopupSeen', 'true'); // Mark as seen for this session
             }

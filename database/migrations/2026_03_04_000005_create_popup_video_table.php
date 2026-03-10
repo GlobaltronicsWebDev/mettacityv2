@@ -10,8 +10,9 @@ return new class extends Migration
     {
         Schema::create('popup_video', function (Blueprint $table) {
             $table->id();
-            $table->string('video_url');
-            $table->enum('video_type', ['youtube', 'vimeo', 'facebook'])->default('youtube');
+            $table->string('video_file')->nullable();
+            $table->string('video_url')->nullable();
+            $table->enum('video_type', ['local', 'youtube', 'vimeo', 'facebook'])->default('local');
             $table->boolean('is_active')->default(true);
             $table->integer('delay_seconds')->default(1);
             $table->timestamps();
