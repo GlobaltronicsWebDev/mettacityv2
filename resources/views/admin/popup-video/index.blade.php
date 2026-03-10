@@ -157,4 +157,31 @@
         </div>
     </div>
 </div>
+
+<script>
+document.getElementById('video_type').addEventListener('change', function() {
+    const videoFileField = document.getElementById('video_file_field');
+    const videoUrlField = document.getElementById('video_url_field');
+    
+    if (this.value === 'local') {
+        videoFileField.style.display = 'block';
+        videoUrlField.style.display = 'none';
+        document.getElementById('video_url').removeAttribute('required');
+    } else {
+        videoFileField.style.display = 'none';
+        videoUrlField.style.display = 'block';
+        document.getElementById('video_url').setAttribute('required', 'required');
+    }
+});
+
+// Initial state
+if (document.getElementById('video_type').value === 'local') {
+    document.getElementById('video_file_field').style.display = 'block';
+    document.getElementById('video_url_field').style.display = 'none';
+    document.getElementById('video_url').removeAttribute('required');
+} else {
+    document.getElementById('video_file_field').style.display = 'none';
+    document.getElementById('video_url_field').style.display = 'block';
+}
+</script>
 @endsection
