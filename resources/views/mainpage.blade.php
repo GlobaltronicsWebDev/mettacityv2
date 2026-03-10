@@ -31,6 +31,107 @@
     <link rel="stylesheet" href="{{ asset('cssfolder/footer.css?v=' . time()) }}">
 
     <style>
+        /* Video Popup Styles */
+        .video-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .video-popup-overlay.active {
+            display: flex;
+        }
+
+        .video-popup-content {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            animation: slideDown 0.4s ease;
+        }
+
+        .video-popup-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #333;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+
+        .video-popup-close:hover {
+            background: #ff4444;
+            color: #fff;
+            transform: rotate(90deg);
+        }
+
+        .video-popup-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-popup-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-popup-content {
+                width: 95%;
+            }
+
+            .video-popup-close {
+                top: -35px;
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -61,6 +162,23 @@
 </head>
 
 <body>
+
+    <!-- Video Popup Modal -->
+    <div id="videoPopup" class="video-popup-overlay">
+        <div class="video-popup-content">
+            <button class="video-popup-close" id="closeVideoPopup">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-popup-wrapper">
+                <iframe id="popupVideo" 
+                        src="" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
 
     <!-- Preloader -->
     <div id="preloader">
@@ -227,6 +345,54 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
+        // Video Popup Configuration
+        const VIDEO_URL = 'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1'; // Change this to your video URL
+        
+        // Video Popup - Show on first visit
+        window.addEventListener('load', function() {
+            const videoPopup = document.getElementById('videoPopup');
+            const popupVideo = document.getElementById('popupVideo');
+            const closeBtn = document.getElementById('closeVideoPopup');
+            
+            // Check if user has seen the video popup before
+            const hasSeenPopup = sessionStorage.getItem('videoPopupSeen');
+            
+            if (!hasSeenPopup) {
+                setTimeout(function() {
+                    // Set video source and show popup
+                    popupVideo.src = VIDEO_URL;
+                    videoPopup.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                }, 1000); // Show after 1 second
+            }
+            
+            // Close button click
+            closeBtn.addEventListener('click', function() {
+                closeVideoPopup();
+            });
+            
+            // Close on overlay click
+            videoPopup.addEventListener('click', function(e) {
+                if (e.target === videoPopup) {
+                    closeVideoPopup();
+                }
+            });
+            
+            // Close on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && videoPopup.classList.contains('active')) {
+                    closeVideoPopup();
+                }
+            });
+            
+            function closeVideoPopup() {
+                videoPopup.classList.remove('active');
+                popupVideo.src = ''; // Stop video
+                document.body.style.overflow = ''; // Restore scrolling
+                sessionStorage.setItem('videoPopupSeen', 'true'); // Mark as seen for this session
+            }
+        });
+
         // Preloader - Hide when page is fully loaded
         window.addEventListener('load', function() {
             const preloader = document.getElementById('preloader');
