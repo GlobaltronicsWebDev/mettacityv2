@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\TicketTierController;
 use App\Http\Controllers\Admin\AccordionController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PopupVideoController;
 use App\Http\Controllers\BookingController;
 
 // Public Routes with Visit Tracking
@@ -23,7 +24,8 @@ Route::middleware(\App\Http\Middleware\TrackVisit::class)->group(function () {
         $categories = \App\Models\Category::where('is_active', true)
             ->orderBy('order')
             ->get();
-        return view('mainpage', compact('totalVisits', 'carousels', 'categories'));
+        $popupVideo = \App\Models\PopupVideo::where('is_active', true)->first();
+        return view('mainpage', compact('totalVisits', 'carousels', 'categories', 'popupVideo'));
     })->name('home');
 
     Route::get('/enter-metta-city', function () {
@@ -115,6 +117,10 @@ Route::prefix('admin')->group(function () {
                 Route::resource('ticket-tiers', TicketTierController::class)->names('admin.ticket-tiers');
                 Route::resource('accordions', AccordionController::class)->names('admin.accordions');
                 Route::resource('categories', CategoryController::class)->names('admin.categories');
+                
+                // Popup Video
+                Route::get('popup-video', [PopupVideoController::class, 'index'])->name('admin.popup-video.index');
+                Route::put('popup-video', [PopupVideoController::class, 'update'])->name('admin.popup-video.update');
                 
                 // Careers - Create, Edit, Delete (Super Admin only)
                 Route::get('careers/create', [AdminCareerController::class, 'create'])->name('admin.careers.create');

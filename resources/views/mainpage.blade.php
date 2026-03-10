@@ -345,25 +345,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Video Popup Configuration
-        const VIDEO_URL = 'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1'; // Change this to your video URL
-        
         // Video Popup - Show on first visit
         window.addEventListener('load', function() {
+            @if(isset($popupVideo) && $popupVideo)
             const videoPopup = document.getElementById('videoPopup');
             const popupVideo = document.getElementById('popupVideo');
             const closeBtn = document.getElementById('closeVideoPopup');
+            const VIDEO_URL = '{{ $popupVideo->embed_url }}';
+            const DELAY_MS = {{ $popupVideo->delay_seconds * 1000 }};
             
             // Check if user has seen the video popup before
             const hasSeenPopup = sessionStorage.getItem('videoPopupSeen');
             
-            if (!hasSeenPopup) {
+            if (!hasSeenPopup && VIDEO_URL) {
                 setTimeout(function() {
                     // Set video source and show popup
                     popupVideo.src = VIDEO_URL;
                     videoPopup.classList.add('active');
                     document.body.style.overflow = 'hidden'; // Prevent scrolling
-                }, 1000); // Show after 1 second
+                }, DELAY_MS);
             }
             
             // Close button click
@@ -391,6 +391,7 @@
                 document.body.style.overflow = ''; // Restore scrolling
                 sessionStorage.setItem('videoPopupSeen', 'true'); // Mark as seen for this session
             }
+            @endif
         });
 
         // Preloader - Hide when page is fully loaded

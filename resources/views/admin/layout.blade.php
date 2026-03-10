@@ -679,6 +679,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.popup-video.index') }}" class="{{ request()->routeIs('admin.popup-video.*') ? 'active' : '' }}">
+                    <i class="fas fa-video"></i> <span>Popup Video</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                     <i class="fas fa-users"></i> <span>User Management</span>
                 </a>
