@@ -29,10 +29,10 @@
                                     id="video_type" 
                                     name="video_type"
                                     required>
-                                <option value="local" {{ old('video_type', $video->video_type ?? 'local') == 'local' ? 'selected' : '' }}>Upload Video File</option>
-                                <option value="youtube" {{ old('video_type', $video->video_type ?? '') == 'youtube' ? 'selected' : '' }}>YouTube</option>
-                                <option value="vimeo" {{ old('video_type', $video->video_type ?? '') == 'vimeo' ? 'selected' : '' }}>Vimeo</option>
-                                <option value="facebook" {{ old('video_type', $video->video_type ?? '') == 'facebook' ? 'selected' : '' }}>Facebook</option>
+                                <option value="local" {{ old('video_type', optional($video)->video_type ?? 'local') == 'local' ? 'selected' : '' }}>Upload Video File</option>
+                                <option value="youtube" {{ old('video_type', optional($video)->video_type) == 'youtube' ? 'selected' : '' }}>YouTube</option>
+                                <option value="vimeo" {{ old('video_type', optional($video)->video_type) == 'vimeo' ? 'selected' : '' }}>Vimeo</option>
+                                <option value="facebook" {{ old('video_type', optional($video)->video_type) == 'facebook' ? 'selected' : '' }}>Facebook</option>
                             </select>
                             @error('video_type')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -67,7 +67,7 @@
                                    class="form-control @error('video_url') is-invalid @enderror" 
                                    id="video_url" 
                                    name="video_url" 
-                                   value="{{ old('video_url', $video->video_url ?? '') }}"
+                                   value="{{ old('video_url', optional($video)->video_url) }}"
                                    placeholder="https://...">
                             <small class="text-muted">
                                 YouTube: https://www.youtube.com/watch?v=...<br>
@@ -85,7 +85,7 @@
                                    class="form-control @error('delay_seconds') is-invalid @enderror" 
                                    id="delay_seconds" 
                                    name="delay_seconds" 
-                                   value="{{ old('delay_seconds', $video->delay_seconds ?? 1) }}"
+                                   value="{{ old('delay_seconds', optional($video)->delay_seconds ?? 1) }}"
                                    min="0"
                                    max="10"
                                    required>
@@ -100,7 +100,7 @@
                                    class="form-check-input" 
                                    id="is_active" 
                                    name="is_active"
-                                   {{ old('is_active', $video->is_active ?? true) ? 'checked' : '' }}>
+                                   {{ old('is_active', optional($video)->is_active ?? true) ? 'checked' : '' }}>
                             <label class="form-check-label" for="is_active">
                                 Active (Show popup on website)
                             </label>
