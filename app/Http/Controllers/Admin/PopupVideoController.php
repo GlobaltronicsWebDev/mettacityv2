@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\PopupVideo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Schema;
 
 class PopupVideoController extends Controller
 {
@@ -36,12 +37,17 @@ class PopupVideoController extends Controller
             'video_type' => 'local',
             'delay_seconds' => $request->delay_seconds,
             'is_active' => $request->has('is_active'),
-            'video_url' => null,
         ];
 
-        if ($request->hasFile('video_file')) {
+        // Only add video_url if column exists
+        if (Schema::hasColumn('popup_video', 'video_url')) {
+            $data['video_url'] = null;
+        }
+
+        // Only handle video_file if column exists
+        if (Schema::hasColumn('popup_video', 'video_file') && $request->hasFile('video_file')) {
             // Delete old video file if exists
-            if ($video && $video->video_file) {
+            if ($video && isset($video->video_file) && $video->video_file) {
                 Storage::disk('public')->delete($video->video_file);
             }
             $data['video_file'] = $request->file('video_file')->store('popup-videos', 'public');
