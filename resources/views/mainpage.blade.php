@@ -348,6 +348,9 @@
                 $videoFile = $popupVideo->video_file ?? (isset($popupVideo->video_url) && str_starts_with($popupVideo->video_url, 'popup-videos/') ? $popupVideo->video_url : null);
             @endphp
             @if($videoFile)
+            console.log('Popup video enabled');
+            console.log('Video file:', '{{ $videoFile }}');
+            
             const videoPopup = document.getElementById('videoPopup');
             const videoWrapper = document.getElementById('videoPopupWrapper');
             const closeBtn = document.getElementById('closeVideoPopup');
@@ -355,11 +358,17 @@
             const DELAY_MS = {{ $popupVideo->delay_seconds * 1000 }};
             let videoElement = null;
             
+            console.log('Video source:', VIDEO_SOURCE);
+            console.log('Delay:', DELAY_MS, 'ms');
+            
             // Check if user has seen the video popup before
             const hasSeenPopup = sessionStorage.getItem('videoPopupSeen');
+            console.log('Has seen popup:', hasSeenPopup);
             
             if (!hasSeenPopup && VIDEO_SOURCE) {
+                console.log('Will show popup in', DELAY_MS, 'ms');
                 setTimeout(function() {
+                    console.log('Showing popup now');
                     // Create HTML5 video element for local files
                     videoElement = document.createElement('video');
                     videoElement.controls = true;
@@ -398,6 +407,7 @@
             });
             
             function closeVideoPopup() {
+                console.log('Closing popup');
                 videoPopup.classList.remove('active');
                 
                 // Stop video
@@ -412,7 +422,11 @@
                 document.body.style.overflow = ''; // Restore scrolling
                 sessionStorage.setItem('videoPopupSeen', 'true'); // Mark as seen for this session
             }
+            @else
+            console.log('No video file found');
             @endif
+            @else
+            console.log('Popup video not active or not set');
             @endif
         });
 
