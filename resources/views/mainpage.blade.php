@@ -160,6 +160,120 @@
         img {
             content-visibility: auto;
         }
+
+        /* Cookie Consent Banner */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            color: #fff;
+            padding: 20px;
+            z-index: 9999;
+            display: none;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+        }
+
+        .cookie-consent.show {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cookie-consent-text {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .cookie-consent-text a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cookie-consent-text a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-consent-buttons {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .cookie-consent-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .cookie-consent-btn-accept {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #fff;
+        }
+
+        .cookie-consent-btn-accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .cookie-consent-btn-decline {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #666;
+        }
+
+        .cookie-consent-btn-decline:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cookie-consent {
+                padding: 15px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cookie-consent.show {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cookie-consent-text {
+                font-size: 13px;
+            }
+
+            .cookie-consent-buttons {
+                width: 100%;
+                gap: 10px;
+            }
+
+            .cookie-consent-btn {
+                flex: 1;
+                padding: 12px 15px;
+            }
+        }
     </style>
     
     <!-- Disable DevTools -->
@@ -167,6 +281,18 @@
 </head>
 
 <body>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-consent-text">
+            We use cookies to enhance your experience and analyze site traffic. By continuing to use this site, you agree to our use of cookies.
+            <a href="#" onclick="event.preventDefault(); alert('Cookie Policy: We use essential cookies for site functionality and analytics cookies to understand how you use our site.');">Learn more</a>
+        </div>
+        <div class="cookie-consent-buttons">
+            <button class="cookie-consent-btn cookie-consent-btn-decline" id="cookieDecline">Decline</button>
+            <button class="cookie-consent-btn cookie-consent-btn-accept" id="cookieAccept">Accept</button>
+        </div>
+    </div>
 
     <!-- Video Popup Modal -->
     <div id="videoPopup" class="video-popup-overlay">
@@ -267,7 +393,57 @@
     </style>
 
     <script>
-        // Scroll to Top Button
+        // Cookie Consent Banner
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieConsent = document.getElementById('cookieConsent');
+            const cookieAccept = document.getElementById('cookieAccept');
+            const cookieDecline = document.getElementById('cookieDecline');
+            const COOKIE_NAME = 'mettacity_cookie_consent';
+            const COOKIE_EXPIRY = 365; // days
+
+            // Check if user has already made a choice
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    let cookie = cookies[i].trim();
+                    if (cookie.indexOf(nameEQ) === 0) {
+                        return cookie.substring(nameEQ.length);
+                    }
+                }
+                return null;
+            }
+
+            function setCookie(name, value, days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                const expires = "expires=" + date.toUTCString();
+                document.cookie = name + "=" + value + ";" + expires + ";path=/";
+            }
+
+            // Show banner if no cookie exists
+            if (!getCookie(COOKIE_NAME)) {
+                cookieConsent.classList.add('show');
+            }
+
+            // Accept cookies
+            cookieAccept.addEventListener('click', function() {
+                setCookie(COOKIE_NAME, 'accepted', COOKIE_EXPIRY);
+                cookieConsent.classList.remove('show');
+                // Load analytics or tracking scripts here if needed
+                console.log('Cookies accepted');
+            });
+
+            // Decline cookies
+            cookieDecline.addEventListener('click', function() {
+                setCookie(COOKIE_NAME, 'declined', COOKIE_EXPIRY);
+                cookieConsent.classList.remove('show');
+                console.log('Cookies declined');
+            });
+        });
+    </script>
+
+    <script>
         const scrollToTopBtn = document.getElementById('scrollToTop');
 
         // Show button when user scrolls down 300px
