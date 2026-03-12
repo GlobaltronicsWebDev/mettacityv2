@@ -36,6 +36,7 @@ class PopupVideoController extends Controller
         $data = [
             'delay_seconds' => $request->delay_seconds,
             'is_active' => $request->has('is_active'),
+            'video_url' => '', // Always provide a value
         ];
 
         // Only add video_type if it's a valid ENUM value
@@ -54,13 +55,17 @@ class PopupVideoController extends Controller
                     Storage::disk('public')->delete($video->video_file);
                 }
                 $data['video_file'] = $filePath;
-            } elseif (Schema::hasColumn('popup_video', 'video_url')) {
+                $data['video_url'] = '';
+            } else {
                 // Use video_url as fallback to store file path
                 if ($video && isset($video->video_url) && str_starts_with($video->video_url, 'popup-videos/')) {
                     Storage::disk('public')->delete($video->video_url);
                 }
                 $data['video_url'] = $filePath;
             }
+        } elseif ($video && isset($video->video_url)) {
+            // Keep existing video_url if not uploading new file
+            $data['video_url'] = $video->video_url;
         }
 
         if ($video) {
