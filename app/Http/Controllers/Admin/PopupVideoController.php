@@ -74,4 +74,28 @@ class PopupVideoController extends Controller
         return redirect()->route('admin.popup-video.index')
             ->with('success', 'Popup video uploaded successfully! Clear your browser cache to see it on the website.');
     }
+
+    public function delete()
+    {
+        if (!auth()->user()->is_super_admin) {
+            abort(403);
+        }
+
+        $video = PopupVideo::first();
+
+        if ($video) {
+            // Delete video file from storage
+            if (isset($video->video_file) && $video->video_file) {
+                Storage::disk('public')->delete($video->video_file);
+            } elseif (isset($video->video_url) && str_starts_with($video->video_url, 'popup-videos/')) {
+                Storage::disk('public')->delete($video->video_url);
+            }
+
+            // Delete the record
+            $video->delete();
+        }
+
+        return redirect()->route('admin.popup-video.index')
+            ->with('success', 'Popup video deleted successfully.');
+    }
 }

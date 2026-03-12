@@ -121,6 +121,7 @@ Route::prefix('admin')->group(function () {
                 // Popup Video
                 Route::get('popup-video', [PopupVideoController::class, 'index'])->name('admin.popup-video.index');
                 Route::put('popup-video', [PopupVideoController::class, 'update'])->name('admin.popup-video.update');
+                Route::delete('popup-video', [PopupVideoController::class, 'delete'])->name('admin.popup-video.delete');
                 
                 // Careers - Create, Edit, Delete (Super Admin only)
                 Route::get('careers/create', [AdminCareerController::class, 'create'])->name('admin.careers.create');

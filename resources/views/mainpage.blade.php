@@ -367,9 +367,8 @@
                     // Create HTML5 video element for local files
                     videoElement = document.createElement('video');
                     videoElement.controls = true;
-                    videoElement.autoplay = true;
-                    videoElement.muted = true; // Mute initially to allow autoplay (browser requirement)
-                    videoElement.playsInline = true; // For iOS
+                    videoElement.playsInline = true;
+                    videoElement.setAttribute('playsinline', '');
                     videoElement.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 16px;';
                     
                     const source = document.createElement('source');
@@ -379,15 +378,20 @@
                     videoElement.appendChild(source);
                     videoWrapper.appendChild(videoElement);
                     
-                    // Unmute after a short delay (allows autoplay to work)
-                    videoElement.addEventListener('playing', function() {
-                        setTimeout(function() {
-                            videoElement.muted = false;
-                        }, 100);
-                    });
-                    
                     videoPopup.classList.add('active');
-                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Try to play with sound first
+                    videoElement.play().then(function() {
+                        console.log('Video playing with sound');
+                    }).catch(function(error) {
+                        console.log('Autoplay with sound blocked, trying muted');
+                        // If blocked, mute and try again
+                        videoElement.muted = true;
+                        videoElement.play().catch(function(err) {
+                            console.log('Autoplay failed completely:', err);
+                        });
+                    });
                 }, DELAY_MS);
             }
             
