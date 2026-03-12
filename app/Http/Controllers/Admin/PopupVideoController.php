@@ -34,10 +34,14 @@ class PopupVideoController extends Controller
         $video = PopupVideo::first();
 
         $data = [
-            'video_type' => 'local',
             'delay_seconds' => $request->delay_seconds,
             'is_active' => $request->has('is_active'),
         ];
+
+        // Only add video_type if it's a valid ENUM value
+        if (Schema::hasColumn('popup_video', 'video_type')) {
+            $data['video_type'] = 'local';
+        }
 
         // Only add video_url if column exists
         if (Schema::hasColumn('popup_video', 'video_url')) {
@@ -60,6 +64,6 @@ class PopupVideoController extends Controller
         }
 
         return redirect()->route('admin.popup-video.index')
-            ->with('success', 'Popup video updated successfully.');
+            ->with('success', 'Popup video uploaded successfully! Clear your browser cache to see it on the website.');
     }
 }
