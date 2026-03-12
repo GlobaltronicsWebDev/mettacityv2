@@ -39,10 +39,7 @@ class PopupVideoController extends Controller
             'video_url' => '', // Always provide a value
         ];
 
-        // Only add video_type if it's a valid ENUM value
-        if (Schema::hasColumn('popup_video', 'video_type')) {
-            $data['video_type'] = 'local';
-        }
+        // Don't set video_type to avoid ENUM truncation warning
 
         // Handle video file upload
         if ($request->hasFile('video_file')) {
