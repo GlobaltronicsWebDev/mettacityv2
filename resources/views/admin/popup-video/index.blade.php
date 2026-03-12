@@ -25,15 +25,6 @@
 
                         <div class="mb-3">
                             <label for="video_file" class="form-label">Upload Video File *</label>
-                            @if($video && (($video->video_file ?? null) || (isset($video->video_url) && str_starts_with($video->video_url, 'popup-videos/'))))
-                                <div class="mb-2">
-                                    <video width="100%" height="300" controls>
-                                        <source src="{{ asset('storage/' . ($video->video_file ?? $video->video_url)) }}" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <small class="text-muted d-block mt-1">Current video</small>
-                                </div>
-                            @endif
                             <input type="file" 
                                    class="form-control @error('video_file') is-invalid @enderror" 
                                    id="video_file" 
