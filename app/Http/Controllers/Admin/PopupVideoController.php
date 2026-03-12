@@ -43,18 +43,24 @@ class PopupVideoController extends Controller
             $data['video_type'] = 'local';
         }
 
-        // Only add video_url if column exists
-        if (Schema::hasColumn('popup_video', 'video_url')) {
-            $data['video_url'] = null;
-        }
-
-        // Only handle video_file if column exists
-        if (Schema::hasColumn('popup_video', 'video_file') && $request->hasFile('video_file')) {
-            // Delete old video file if exists
-            if ($video && isset($video->video_file) && $video->video_file) {
-                Storage::disk('public')->delete($video->video_file);
+        // Handle video file upload
+        if ($request->hasFile('video_file')) {
+            $filePath = $request->file('video_file')->store('popup-videos', 'public');
+            
+            // Try to use video_file column first, fallback to video_url
+            if (Schema::hasColumn('popup_video', 'video_file')) {
+                // Delete old video file if exists
+                if ($video && isset($video->video_file) && $video->video_file) {
+                    Storage::disk('public')->delete($video->video_file);
+                }
+                $data['video_file'] = $filePath;
+            } elseif (Schema::hasColumn('popup_video', 'video_url')) {
+                // Use video_url as fallback to store file path
+                if ($video && isset($video->video_url) && str_starts_with($video->video_url, 'popup-videos/')) {
+                    Storage::disk('public')->delete($video->video_url);
+                }
+                $data['video_url'] = $filePath;
             }
-            $data['video_file'] = $request->file('video_file')->store('popup-videos', 'public');
         }
 
         if ($video) {

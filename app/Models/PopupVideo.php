@@ -22,8 +22,14 @@ class PopupVideo extends Model
 
     public function getVideoSourceAttribute()
     {
-        if ($this->video_type === 'local' && $this->video_file) {
+        // Check video_file column first
+        if (isset($this->video_file) && $this->video_file) {
             return asset('storage/' . $this->video_file);
+        }
+        
+        // Fallback: check if video_url contains a file path (not a URL)
+        if (isset($this->video_url) && $this->video_url && str_starts_with($this->video_url, 'popup-videos/')) {
+            return asset('storage/' . $this->video_url);
         }
 
         return $this->getEmbedUrlAttribute();

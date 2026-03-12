@@ -343,11 +343,15 @@
     <script>
         // Video Popup - Show on first visit
         window.addEventListener('load', function() {
-            @if(isset($popupVideo) && $popupVideo && $popupVideo->is_active && $popupVideo->video_file)
+            @if(isset($popupVideo) && $popupVideo && $popupVideo->is_active)
+            @php
+                $videoFile = $popupVideo->video_file ?? (isset($popupVideo->video_url) && str_starts_with($popupVideo->video_url, 'popup-videos/') ? $popupVideo->video_url : null);
+            @endphp
+            @if($videoFile)
             const videoPopup = document.getElementById('videoPopup');
             const videoWrapper = document.getElementById('videoPopupWrapper');
             const closeBtn = document.getElementById('closeVideoPopup');
-            const VIDEO_SOURCE = '{{ asset('storage/' . $popupVideo->video_file) }}';
+            const VIDEO_SOURCE = '{{ asset('storage/' . $videoFile) }}';
             const DELAY_MS = {{ $popupVideo->delay_seconds * 1000 }};
             let videoElement = null;
             
@@ -408,6 +412,7 @@
                 document.body.style.overflow = ''; // Restore scrolling
                 sessionStorage.setItem('videoPopupSeen', 'true'); // Mark as seen for this session
             }
+            @endif
             @endif
         });
 

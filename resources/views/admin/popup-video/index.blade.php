@@ -25,10 +25,10 @@
 
                         <div class="mb-3">
                             <label for="video_file" class="form-label">Upload Video File *</label>
-                            @if($video && $video->video_file)
+                            @if($video && (($video->video_file ?? null) || (isset($video->video_url) && str_starts_with($video->video_url, 'popup-videos/'))))
                                 <div class="mb-2">
                                     <video width="100%" height="300" controls>
-                                        <source src="{{ asset('storage/' . $video->video_file) }}" type="video/mp4">
+                                        <source src="{{ asset('storage/' . ($video->video_file ?? $video->video_url)) }}" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                     <small class="text-muted d-block mt-1">Current video</small>
@@ -73,11 +73,11 @@
                             </label>
                         </div>
 
-                        @if($video && $video->video_file)
+                        @if($video && (($video->video_file ?? null) || (isset($video->video_url) && str_starts_with($video->video_url, 'popup-videos/'))))
                         <div class="mb-3">
                             <label class="form-label">Preview</label>
                             <video width="100%" height="300" controls>
-                                <source src="{{ asset('storage/' . $video->video_file) }}" type="video/mp4">
+                                <source src="{{ asset('storage/' . ($video->video_file ?? $video->video_url)) }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
