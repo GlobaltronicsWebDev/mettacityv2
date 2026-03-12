@@ -39,7 +39,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 10000;
             justify-content: center;
             align-items: center;
@@ -52,22 +52,22 @@
 
         .video-popup-content {
             position: relative;
-            width: 90%;
-            max-width: 900px;
+            width: 95%;
+            max-width: 1400px;
             animation: slideDown 0.4s ease;
         }
 
         .video-popup-close {
             position: absolute;
-            top: -40px;
+            top: -50px;
             right: 0;
             background: #fff;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: #333;
             transition: all 0.3s ease;
             z-index: 10001;
@@ -76,7 +76,7 @@
         .video-popup-close:hover {
             background: #ff4444;
             color: #fff;
-            transform: rotate(90deg);
+            transform: rotate(90deg) scale(1.1);
         }
 
         .video-popup-wrapper {
@@ -84,8 +84,8 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
         }
 
         .video-popup-wrapper iframe,
@@ -95,7 +95,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 12px;
+            border-radius: 16px;
         }
 
         @keyframes fadeIn {
@@ -120,14 +120,18 @@
 
         @media (max-width: 768px) {
             .video-popup-content {
-                width: 95%;
+                width: 98%;
             }
 
             .video-popup-close {
-                top: -35px;
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
+                top: -45px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .video-popup-wrapper {
+                border-radius: 12px;
             }
         }
     </style>
@@ -364,7 +368,9 @@
                     videoElement = document.createElement('video');
                     videoElement.controls = true;
                     videoElement.autoplay = true;
-                    videoElement.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;';
+                    videoElement.muted = true; // Mute initially to allow autoplay (browser requirement)
+                    videoElement.playsInline = true; // For iOS
+                    videoElement.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 16px;';
                     
                     const source = document.createElement('source');
                     source.src = VIDEO_SOURCE;
@@ -372,6 +378,13 @@
                     
                     videoElement.appendChild(source);
                     videoWrapper.appendChild(videoElement);
+                    
+                    // Unmute after a short delay (allows autoplay to work)
+                    videoElement.addEventListener('playing', function() {
+                        setTimeout(function() {
+                            videoElement.muted = false;
+                        }, 100);
+                    });
                     
                     videoPopup.classList.add('active');
                     document.body.style.overflow = 'hidden'; // Prevent scrolling
