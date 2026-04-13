@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\TicketTierController;
 use App\Http\Controllers\Admin\AccordionController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PopupVideoController;
+use App\Http\Controllers\Admin\AboutVideoController;
 use App\Http\Controllers\BookingController;
 
 // Public Routes with Visit Tracking
@@ -53,7 +54,8 @@ Route::middleware(\App\Http\Middleware\TrackVisit::class)->group(function () {
 
     Route::get('/about-us', function () {
         $totalVisits = \App\Models\Visit::count();
-        return view('viaboutus', compact('totalVisits'));
+        $aboutVideo = \App\Models\AboutVideo::where('is_active', true)->first();
+        return view('viaboutus', compact('totalVisits', 'aboutVideo'));
     })->name('aboutus');
 
     Route::get('/news', function () {
@@ -122,6 +124,9 @@ Route::prefix('admin')->group(function () {
                 Route::get('popup-video', [PopupVideoController::class, 'index'])->name('admin.popup-video.index');
                 Route::put('popup-video', [PopupVideoController::class, 'update'])->name('admin.popup-video.update');
                 Route::delete('popup-video', [PopupVideoController::class, 'delete'])->name('admin.popup-video.delete');
+                
+                // About Video
+                Route::resource('about-video', AboutVideoController::class)->names('admin.about-video');
                 
                 // Careers - Create, Edit, Delete (Super Admin only)
                 Route::get('careers/create', [AdminCareerController::class, 'create'])->name('admin.careers.create');
