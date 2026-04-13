@@ -69,7 +69,7 @@
      ========================= -->
 <div class="secondbanner">
   <h2>The future of amusement-</h2>
-  <h1>Where Culture, Play, and Technology Meet</h1>
+  <h1>Where <br> Culture, Play, and Technology Meet</h1>
 
   <!-- Laravel route link -->
   <a href="{{ route('enter.metta.city') }}">
