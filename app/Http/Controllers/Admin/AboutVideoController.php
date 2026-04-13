@@ -35,7 +35,7 @@ class AboutVideoController extends Controller
         }
 
         $request->validate([
-            'video_file' => 'required|file|mimetypes:video/mp4,video/mpeg,video/quicktime,video/x-msvideo,video/webm|max:512000', // 500MB max
+            'video_file' => 'required|file|mimetypes:video/mp4,video/mpeg,video/quicktime,video/x-msvideo,video/webm|max:102400', // 100MB max
             'is_active' => 'nullable|boolean',
         ]);
 
@@ -66,7 +66,7 @@ class AboutVideoController extends Controller
         }
 
         $request->validate([
-            'video_file' => 'nullable|file|mimetypes:video/mp4,video/mpeg,video/quicktime,video/x-msvideo,video/webm|max:512000',
+            'video_file' => 'nullable|file|mimetypes:video/mp4,video/mpeg,video/quicktime,video/x-msvideo,video/webm|max:102400', // 100MB max
             'is_active' => 'nullable|boolean',
         ]);
 

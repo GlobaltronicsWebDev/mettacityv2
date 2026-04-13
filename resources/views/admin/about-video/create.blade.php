@@ -24,7 +24,7 @@
                     <input type="file" class="form-control @error('video_file') is-invalid @enderror" 
                            id="video_file" name="video_file" accept="video/*" required>
                     <small class="form-text text-muted">
-                        Supported formats: MP4, MPEG, MOV, AVI, WebM (Max 500MB)
+                        Supported formats: MP4, MPEG, MOV, AVI, WebM (Max 100MB)
                     </small>
                     @error('video_file')
                         <div class="invalid-feedback">{{ $message }}</div>
