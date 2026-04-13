@@ -684,6 +684,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.about-video.index') }}" class="{{ request()->routeIs('admin.about-video.*') ? 'active' : '' }}">
+                    <i class="fas fa-film"></i> <span>About Video</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                     <i class="fas fa-users"></i> <span>User Management</span>
                 </a>
