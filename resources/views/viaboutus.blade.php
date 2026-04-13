@@ -50,7 +50,22 @@
   </div>
 </section>
 
-
+<!-- VIDEO SECTION -->
+<section class="video-section">
+  <div class="video-container">
+    <div class="video-wrapper">
+      <iframe 
+        width="100%" 
+        height="600" 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        title="Mettacity Experience Video" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT METTACITY SECTION -->
 <section class="about-mettacity-section"> 
