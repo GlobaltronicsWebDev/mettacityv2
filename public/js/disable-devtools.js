@@ -1,12 +1,12 @@
 // Disable right-click
-document.addEventListener('contextmenu', e => e.preventDefault());
+// document.addEventListener('contextmenu', e => e.preventDefault());
 
 // Disable text selection
-document.onselectstart = function() {
-  return false;
-};
+// document.onselectstart = function() {
+//   return false;
+// };
 
 // Disable copy
-document.oncopy = function() {
-  return false;
-};
+// document.oncopy = function() {
+//   return false;
+// };
