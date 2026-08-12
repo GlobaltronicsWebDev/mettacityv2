@@ -191,6 +191,8 @@ body {
   height: 600px !important;
   display: block;
   border-radius: 0;
+  position: relative;
+  top: -320px;
 }
 
 /* ==================== FAQ SIDEBAR ==================== */
