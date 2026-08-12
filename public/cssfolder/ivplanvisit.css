@@ -156,6 +156,7 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
+  min-height: 750px;
 }
 
 .content-grid {
@@ -169,7 +170,7 @@ body {
 .event-card {
   position: absolute;
   left: 120px;
-  top: -225%;
+  top: 50%;
   transform: translateY(-50%);
   z-index: 400;
   background: transparent;
@@ -324,7 +325,7 @@ body {
 .booking-card {
   position: absolute;
   left: 50%;
-  top: 150%;
+  top: 50%;
   transform: translateY(-50%);
   background: #5fd3c6;
   border-radius: 40px;
