@@ -45,7 +45,7 @@ body {
 /* ================= TITLE OVERLAY ================= */
 .grid-title {
   position: absolute;
-  top: 43%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -58,6 +58,7 @@ body {
 
 .grid-title img {
   display: block;
+  margin: 0 auto;
   max-width: 65%;
   height: auto;
 }
@@ -88,16 +89,19 @@ body {
   }
 
   .grid-title  {
-    margin-top: 25px;              /* 🔥 move title UP */
+    top: 50%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0;
   }
 
   .grid-title img {
+    display: block;
+    margin: 0 auto;
     max-width: 85%;
     width: auto;
     height: auto;
@@ -108,10 +112,12 @@ body {
 }
 @media (max-width: 480px) {
   .grid-title {
-    top: 35%;              /* ⬆ even higher */
+    top: 50%;
   }
 
   .grid-title img {
+    display: block;
+    margin: 0 auto;
     max-width: 90%;
     width: auto;
     height: auto;
