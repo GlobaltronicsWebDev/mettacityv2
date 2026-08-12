@@ -191,19 +191,15 @@ body {
 /* ================= TITLE OVERLAY ================= */
 .grid-title {
   position: absolute;
-  left: 50%;
-  top: 40%;
+  left: 30%;
+  top:40%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  display: flex;
-  justify-content: center;
   pointer-events: none;
   z-index: 10;
 }
 
 .grid-title img {
-  max-width: 1200px;
-  width: 80%;
+  max-width: 170%;
   height: auto;
 }
 
@@ -236,7 +232,7 @@ body {
     top: 100%;              /* 🔥 move title UP */
     left: 50%;
     width: 100%;
-    transform: translate(-50%, -50%);
+    transform: translate(-55%, -50%);
     text-align: center;
   }
 
