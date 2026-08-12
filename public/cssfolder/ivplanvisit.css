@@ -845,11 +845,8 @@ body {
   }
   
   .event-character img {
-    position: relative;
-    top: 85px;
-    left: 50px;
     width: auto !important;
-    height: 245px !important;
+    height: 300px !important;
   }
   
   /* Booking Card Mobile */
