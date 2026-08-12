@@ -191,7 +191,7 @@ body {
 /* ================= TITLE OVERLAY ================= */
 .grid-title {
   position: absolute;
-  left: 30%;
+  left: 50%;
   top:40%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -232,7 +232,7 @@ body {
     top: 100%;              /* 🔥 move title UP */
     left: 50%;
     width: 100%;
-    transform: translate(-55%, -50%);
+    transform: translate(-50%, -50%);
     text-align: center;
   }
 
