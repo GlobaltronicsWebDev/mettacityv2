@@ -782,11 +782,12 @@ body {
   
   .faq-shape-img {
     position: absolute;
-    width: 20px;
-    top: 17.5%;
-    left: -16%;
+    top: 2.5%;
+    left:-16%;
     width: 80%;
-    height: 40%;
+    height: 52%;
+    object-fit: cover;
+    display: block;
     border-radius: 0 50px 50px 0;
   }
   
