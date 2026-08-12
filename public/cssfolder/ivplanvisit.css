@@ -48,15 +48,17 @@ body {
   top: 43%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   pointer-events: none; /* title is decorative */
   z-index: 10;
 }
 
 .grid-title img {
   display: block;
-  margin: 0 auto;
-  max-width: 100%;
+  max-width: 65%;
   height: auto;
 }
 
