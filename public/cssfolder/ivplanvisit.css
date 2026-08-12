@@ -53,6 +53,8 @@ body {
 }
 
 .grid-title img {
+  position: relative;
+  left: 100px;
   max-width: 350%;
   height: auto;
 }
