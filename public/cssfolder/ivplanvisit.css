@@ -191,8 +191,7 @@ body {
   height: 600px !important;
   display: block;
   border-radius: 0;
-  position: relative;
-  top: -320px;
+
 }
 
 /* ==================== FAQ SIDEBAR ==================== */
@@ -321,6 +320,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  position: relative;
+  top: -275px;
 }
 
 /* ==================== BOOKING CARD ==================== */
