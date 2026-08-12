@@ -30,8 +30,8 @@ body {
 .sticky-grid {
   position: relative;
   width: 100%;
+  height: auto;
   overflow: hidden;
-  height: min(90vh, 900px);
   pointer-events: none;
 }
 
@@ -59,7 +59,8 @@ body {
 .grid-title img {
   display: block;
   margin: 0 auto;
-  max-width: 60%;
+  width: 80%;
+  max-width: 1200px;
   height: auto;
 }
 
@@ -85,7 +86,7 @@ body {
 
 @media (max-width: 768px) {
   .sticky-grid {
-    height: 50vh; /* reduce empty space */
+    height: auto;
   }
 
   .grid-title  {
@@ -102,14 +103,17 @@ body {
   .grid-title img {
     display: block;
     margin: 0 auto;
-    max-width: 85%;
-    width: auto;
+    width: 88%;
+    max-width: 100%;
     height: auto;
   }
-  .plan-bg{
-    height: 35vh;
+
+  .plan-bg {
+    width: 100%;
+    height: auto;
   }
 }
+
 @media (max-width: 480px) {
   .grid-title {
     top: 50%;
@@ -118,8 +122,8 @@ body {
   .grid-title img {
     display: block;
     margin: 0 auto;
-    max-width: 90%;
-    width: auto;
+    width: 92%;
+    max-width: 100%;
     height: auto;
   }
 }
