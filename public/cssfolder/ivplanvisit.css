@@ -46,16 +46,17 @@ body {
 .grid-title {
   position: absolute;
   top: 43%;
-  left: 30%;
+  left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
   pointer-events: none; /* title is decorative */
   z-index: 10;
 }
 
 .grid-title img {
-  position: relative;
-  left: 50%;
-  max-width: 350%;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
   height: auto;
 }
 
