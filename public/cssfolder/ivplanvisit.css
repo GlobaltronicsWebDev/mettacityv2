@@ -320,8 +320,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  position: relative;
-  top: -275px;
 }
 
 /* ==================== BOOKING CARD ==================== */
@@ -847,6 +845,8 @@ body {
   .event-character img {
     width: auto !important;
     height: 300px !important;
+    position: relative;
+    top: -275px;
   }
   
   /* Booking Card Mobile */
