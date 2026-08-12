@@ -28,8 +28,8 @@ php_value max_input_time 300
 
 # Security Headers
 <IfModule mod_headers.c>
-    # Prevent clickjacking (Disabled to allow responsive testing tools)
-    # Header always set X-Frame-Options "SAMEORIGIN"
+    # Prevent clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
     
     # Prevent MIME type sniffing
     Header always set X-Content-Type-Options "nosniff"
