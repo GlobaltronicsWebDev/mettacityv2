@@ -12,9 +12,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="{{ asset('cssfolder/viaboutus.css?v=' . time()) }}">
+  <link rel="stylesheet" href="{{ asset('cssfolder/viaboutus.css?v=1' . time()) }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
-  <link rel="stylesheet" href="{{ asset('cssfolder/footer.css?v=' . time()) }}">
+  <link rel="stylesheet" href="{{ asset('cssfolder/footer.css?v=1' . time()) }}">
 
 </head>
 
