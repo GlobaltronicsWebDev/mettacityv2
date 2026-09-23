@@ -53,10 +53,11 @@ Route::middleware(\App\Http\Middleware\TrackVisit::class)->group(function () {
     })->name('faqs');
 
     Route::get('/about-us', function () {
-        $totalVisits = \App\Models\Visit::count();
         try {
+            $totalVisits = \App\Models\Visit::count();
             $aboutVideo = \App\Models\AboutVideo::where('is_active', true)->first();
         } catch (\Exception $e) {
+            $totalVisits = 0;
             $aboutVideo = null;
         }
         return view('viaboutus', compact('totalVisits', 'aboutVideo'));

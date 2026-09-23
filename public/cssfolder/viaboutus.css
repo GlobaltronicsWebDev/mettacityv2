@@ -191,15 +191,22 @@ body {
 /* ================= TITLE OVERLAY ================= */
 .grid-title {
   position: absolute;
-  left: 20%;  
-  top: 65%;
+  left: 50%;  
+  top: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   pointer-events: none;
   z-index: 10;
 }
 
 .grid-title img {
-  max-width: 170%;
+  display: block;
+  margin: 0 auto;
+  width: 85%;
+  max-width: 1300px;
   height: auto;
 }
 
@@ -211,7 +218,7 @@ body {
 @keyframes fadeDown {
   0% {
     opacity: 0;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, -65%);
   }
   100% {
     opacity: 1;
@@ -229,15 +236,20 @@ body {
   }
 
   .grid-title {
-    top: 100%;              /* 🔥 move title UP */
+    top: 50%;
     left: 50%;
     width: 100%;
-    transform: translate(-55%, -50%);
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
 
   .grid-title img {
-    max-width: 150%;
+    width: 90%;
+    max-width: 100%;
+    margin-top: 0;
   }
   .plan-bg{
     height: 25vh;
@@ -245,12 +257,13 @@ body {
 }
 @media (max-width: 480px) {
   .grid-title {
-    top: 35%;              /* ⬆ even higher */
+    top: 50%;
   }
 
   .grid-title img {
+    width: 92%;
     max-width: 100%;
-    transform: translateY(-20%);
+    transform: none;
   }
 }
 @media (max-width: 768px) {
@@ -688,17 +701,23 @@ body {
   }
 
   .grid-title {
-    top: 100%;
+    top: 50%;
     left: 50%;
-    transform: translate(-55%, -50%);
+    width: 100%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .grid-title img {
-    max-width: 145%;
+    width: 92%;
+    max-width: 100%;
+    margin-top: 0;
   }
 
   .title-bg {
-    margin-top: 50px;
+    margin-top: 0;
   }
 
   .reel-section {
@@ -815,8 +834,9 @@ body {
   }
   
   .grid-title img {
-    max-width: 150%;
-    margin-top: -400px;
+    width: 90%;
+    max-width: 100%;
+    margin-top: 0;
   }
   
   .statement-inner {
