@@ -304,7 +304,7 @@ canvas {
    These override desktop styles for phones.
 ========================= */
 
-@media (min-width: 375px) and (max-width: 425px) {
+@media (max-width: 768px) {
 
   /* Hide desktop background */
   .carousel-background {
@@ -317,9 +317,11 @@ canvas {
     top: -300px;
     left: 0;
     width: 100%;
+    height: auto;
     display: block;
     object-fit: cover;
     z-index: 2;
+    pointer-events: none;
   }
 
   /* Move banners up for mobile layout */
