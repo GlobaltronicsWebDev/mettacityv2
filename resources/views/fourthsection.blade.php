@@ -109,7 +109,7 @@
 
   <div class="fifth-banner">
     <img src="{{ asset('./assets/COREMESSAGE.png') }}" alt="Core Message" class="core-message">
-    <img src="{{ asset('./assets/CORE MESSAGE.png') }}" alt="Core Message" class="core-messagem">
+    <img src="{{ asset('./assets/CORE MESSAGE.png') }}" alt="Core Message" class="core-messagem core-message-mobile">
 
 
 
