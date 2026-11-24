@@ -856,13 +856,13 @@ body {
   /* Booking Card Mobile */
   .booking-card {
     position: relative;
-    left: -9%;
+    left: -1%;
     top: -38%;
     width: 170%;
     max-width: 450px;
     height: auto;
     transform: none;
-    margin: 450px auto 2rem;
+    margin: 290px auto 5rem;
     border-radius: 25px;
     clip-path: polygon(66.1% 100%, 100% 100%, 100% 29.29%, 100% 0.5%, 0% 0%, 0% 29.29%, 0% 91.49%, 58.29% 91.64%);
   }
