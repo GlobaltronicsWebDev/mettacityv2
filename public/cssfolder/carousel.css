@@ -96,7 +96,7 @@
 /* ========================================= */
 /* MOBILE (375px to 425px) */
 /* ========================================= */
-@media (min-width: 375px) and (max-width: 425px) {
+@media (min-width: 375px) and (max-width: 768px) {
 
     .carouselslide {
         top: calc(var(--headerBgH) - 60px);
