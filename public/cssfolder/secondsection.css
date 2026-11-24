@@ -396,7 +396,7 @@ canvas {
   /* Mobile positioning for the main text block */
   .secondbanner {
     text-align: center;
-    margin: 530px auto;
+    margin: 100px auto;
     z-index: 999;
   }
 
@@ -446,7 +446,7 @@ canvas {
   .secondbanner {
     top: -50px;
     text-align: center;
-    margin: 530px auto;
+    margin: 100px auto;
     z-index: 999;
   }
 }
