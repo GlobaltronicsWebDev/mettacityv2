@@ -543,4 +543,9 @@
   .fourthbody {
     z-index: 100 !important;
   }
+
+  .row-fourth-mobile {
+    position: relative !important;
+    z-index: 200 !important;
+  }
 }
