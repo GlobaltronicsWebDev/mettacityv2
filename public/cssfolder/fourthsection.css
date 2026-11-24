@@ -519,6 +519,14 @@
 }
 
 @media (max-width: 1024px) {
+  .fourth-section {
+    position: relative;
+  }
+
+  .stepinsidebgmobile {
+    z-index: 1 !important;
+  }
+
   .fourthtitle {
     display: block !important;
     position: relative !important;
@@ -530,5 +538,9 @@
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 50 !important;
+  }
+
+  .fourthbody {
+    z-index: 100 !important;
   }
 }
