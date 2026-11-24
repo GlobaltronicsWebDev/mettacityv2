@@ -306,10 +306,10 @@
   function applyMobileSizing() {
     if (window.innerWidth <= 768) {
       /* Scale down cylinder */
-      firstmaincarouselMesh.scale.set(0.45, 0.45, 0.45);
+      firstmaincarouselMesh.scale.set(0.35, 0.35, 0.35);
 
       /* Move camera further back so it still fits */
-      firstmaincarouselCamera.position.z = 5;
+      firstmaincarouselCamera.position.z = 5.8;
 
       /* Move cylinder down a bit */
       firstmaincarouselMesh.position.y = 0.2;
