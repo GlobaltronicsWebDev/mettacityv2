@@ -426,7 +426,7 @@
 .core-messagem {
   display: block;
   position: absolute;
-  top: 312%;
+  top: 250%;
   left: 0;
   width: 100%;
   height: auto;
@@ -591,6 +591,10 @@
     left: -149px !important;
     position: relative !important;
     z-index: 250 !important;
+  }
+
+  .core-messagem {
+    top: 250% !important;
   }
 
 }
