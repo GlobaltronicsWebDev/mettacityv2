@@ -304,12 +304,12 @@
      This keeps it from looking huge on phones.
      ========================= */
   function applyMobileSizing() {
-    if (window.innerWidth <= 425) {
+    if (window.innerWidth <= 768) {
       /* Scale down cylinder */
-      firstmaincarouselMesh.scale.set(0.65, 0.65, 0.65);
+      firstmaincarouselMesh.scale.set(0.45, 0.45, 0.45);
 
       /* Move camera further back so it still fits */
-      firstmaincarouselCamera.position.z = 4.2;
+      firstmaincarouselCamera.position.z = 5;
 
       /* Move cylinder down a bit */
       firstmaincarouselMesh.position.y = 0.2;
