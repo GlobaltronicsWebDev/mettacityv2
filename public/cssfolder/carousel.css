@@ -99,11 +99,12 @@
 @media (min-width: 375px) and (max-width: 768px) {
 
     .carouselslide {
-        top: calc(var(--headerBgH) - 100px);
+        top: calc(var(--headerBgH) - 60px);
+        z-index: 5;
     }
 
     .carousel-inner {
-        top: -33px;
+        top: -13px;
     }
 
     /* Square carousel images for mobile */
@@ -184,7 +185,8 @@
 /* ========================================= */
 @media (max-width: 374px) {
     .carouselslide {
-        top: calc(var(--headerBgH) - 100px);
+        top: calc(var(--headerBgH) - 60px);
+        z-index: 5;
     }
 
     /* Square carousel images for small mobile */
