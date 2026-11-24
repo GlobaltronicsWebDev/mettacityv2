@@ -609,16 +609,15 @@
             @endif
         });
 
-        // Preloader - Hide when page is fully loaded
-        window.addEventListener('load', function() {
+        // Hide the preloader as soon as the page structure is ready.
+        document.addEventListener('DOMContentLoaded', function() {
             const preloader = document.getElementById('preloader');
+            if (!preloader) return;
+
+            preloader.classList.add('hidden');
             setTimeout(function() {
-                preloader.classList.add('hidden');
-                // Remove from DOM after animation
-                setTimeout(function() {
-                    preloader.style.display = 'none';
-                }, 500);
-            }, 500); // Show for at least 500ms
+                preloader.style.display = 'none';
+            }, 500);
         });
 
         // Simple dropdown toggle for News and Merch menus
