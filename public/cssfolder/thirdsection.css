@@ -409,11 +409,13 @@
 
   .thirdtitle h2 {
     font-size: 20px;
+    position: relative;
     top: -473px !important;
   }
 
   .thirdtitle h1 {
     font-size: 20px;
+    position: relative;
     top: -473px !important;
   }
 }
