@@ -593,7 +593,7 @@
     z-index: 250 !important;
   }
 
-  .core-message-mobile {
+  .core-message {
     display: block !important;
     position: absolute !important;
     top: 250% !important;
