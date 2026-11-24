@@ -544,4 +544,36 @@
     z-index: 100 !important;
   }
 
+  .row-fourth {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    gap: 12px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 20px 16px 40px !important;
+    position: relative !important;
+    top: -250px !important;
+    z-index: 200 !important;
+    box-sizing: border-box;
+  }
+
+  .row-fourth .col {
+    flex: 0 0 auto;
+  }
+
+  .row-fourth .col img {
+    width: auto !important;
+    height: 260px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .row-fourth-mobile {
+    display: none !important;
+  }
+
 }
