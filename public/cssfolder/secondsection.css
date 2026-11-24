@@ -513,7 +513,7 @@ canvas {
   }
 
   canvas {
-    top: 800px !important;
+    top: -500px !important;
     height: 100% !important;
   }
 }
