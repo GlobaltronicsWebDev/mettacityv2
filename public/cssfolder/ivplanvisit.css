@@ -1006,6 +1006,33 @@ body {
 
 @media (max-width: 425px) {
 
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .main-section {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .event-card {
+    left: 5%;
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .booking-card {
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1.5rem;
+  }
+
   .marquee-container {
     margin-top: -550px;
   }

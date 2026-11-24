@@ -526,6 +526,10 @@ input, textarea {
    EXTRA: SMALL MOBILE FIX
 ========================= */
 @media (max-width: 360px){
+  .mobile-offcanvas{
+    width: 100%;
+  }
+
   .mobile-offcanvas-top{
     flex-direction: column;
     align-items: center;
@@ -574,6 +578,10 @@ input, textarea {
 
   .mobile-offcanvas-body {
     padding-top: 45px !important;
+  }
+
+  .mobile-offcanvas {
+    width: 100%;
   }
 
   .mobile-offcanvas-top {
