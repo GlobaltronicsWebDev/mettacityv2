@@ -462,7 +462,7 @@ canvas {
 
   .scrolling-banner-wrapper {
     top: 385px;
-    z-index: 6;
+    z-index: 700;
   }
 
   .scrolling-banner {
