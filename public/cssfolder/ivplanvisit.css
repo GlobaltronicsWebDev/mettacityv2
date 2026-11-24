@@ -862,7 +862,7 @@ body {
     max-width: 450px;
     height: auto;
     transform: none;
-    margin: 550px auto 2rem;
+    margin: 500px auto 2rem;
     border-radius: 25px;
     clip-path: polygon(66.1% 100%, 100% 100%, 100% 29.29%, 100% 0.5%, 0% 0%, 0% 29.29%, 0% 91.49%, 58.29% 91.64%);
   }
