@@ -832,7 +832,7 @@ body {
   .event-card {
     left: 11%;
     top: -110px;
-    transform: none;
+    transform: translateY(-270px);
     width: auto;
     height: 600px;
   }
