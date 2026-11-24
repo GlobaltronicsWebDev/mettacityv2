@@ -351,17 +351,18 @@ input, textarea {
   border-right: 0;
   height: 100vh;
   max-height: 100vh;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-offcanvas-body{
   position: relative;
   overflow-x: hidden;
-  overflow-y: scroll !important;
-  -webkit-overflow-scrolling: touch;
+  overflow-y: visible !important;
   touch-action: pan-y;
-  min-height: 0;
-  height: calc(100vh - 64px);
-  max-height: calc(100vh - 64px);
+  min-height: auto;
+  height: auto;
+  max-height: none;
 
   background: linear-gradient(180deg,
     rgba(245, 210, 255, 0.95) 0%,
