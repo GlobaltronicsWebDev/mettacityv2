@@ -457,7 +457,7 @@ canvas {
    The mobile hero carousel is controlled separately in carousel.css. */
 @media (max-width: 768px) {
   .carousel-background-mobile {
-    top: 84%;
+    top: calc(84% - 100px);
   }
 
   .scrolling-banner-wrapper {
