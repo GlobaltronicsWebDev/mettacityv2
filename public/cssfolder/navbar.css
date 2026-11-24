@@ -349,14 +349,19 @@ input, textarea {
 .mobile-offcanvas{
   color: #111;
   border-right: 0;
+  height: 100vh;
+  max-height: 100vh;
 }
 
 .mobile-offcanvas-body{
   position: relative;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll !important;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
   min-height: 0;
+  height: calc(100vh - 64px);
+  max-height: calc(100vh - 64px);
 
   background: linear-gradient(180deg,
     rgba(245, 210, 255, 0.95) 0%,
