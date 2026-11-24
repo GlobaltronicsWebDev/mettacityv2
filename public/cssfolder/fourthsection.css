@@ -546,30 +546,38 @@
 
   .row-fourth {
     display: flex !important;
+    flex-direction: column !important;
     flex-wrap: nowrap !important;
     justify-content: flex-start !important;
-    align-items: flex-start !important;
-    gap: 12px;
+    align-items: center !important;
+    gap: 18px;
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: visible;
     padding: 20px 16px 40px !important;
     position: relative !important;
-    top: -250px !important;
+    top: -896px !important;
     z-index: 200 !important;
     box-sizing: border-box;
   }
 
   .row-fourth .col {
     flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .row-fourth .col img {
-    width: auto !important;
-    height: 260px !important;
-    max-width: none !important;
+    width: 85% !important;
+    height: auto !important;
+    max-width: 340px !important;
     margin: 0 !important;
     padding: 0 !important;
+  }
+
+  .row-fourth .entermettacity {
+    width: 150px !important;
+    max-width: 150px !important;
   }
 
   .row-fourth-mobile {
