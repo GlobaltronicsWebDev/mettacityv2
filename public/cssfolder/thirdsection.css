@@ -397,6 +397,10 @@
 }
 
 @media (max-width: 768px) {
+  .Circularbutton {
+    top: 10%;
+  }
+
   .thirdtitle h2 {
     font-size: 20px;
     top: 120px;
