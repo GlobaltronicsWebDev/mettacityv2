@@ -588,6 +588,8 @@
 
   .row-title {
     top: -900px !important;
+    position: relative !important;
+    z-index: 250 !important;
   }
 
 }
