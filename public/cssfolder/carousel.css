@@ -1,6 +1,6 @@
 .carouselslide {
     position: absolute;
-    top: calc(var(--headerBgH) - 20px);
+    top: calc(var(--headerBgH) - 40px);
     left: 0;
     width: 100%;
     z-index: 0; /* place behind the image wrapper */
@@ -99,7 +99,7 @@
 @media (min-width: 375px) and (max-width: 425px) {
 
     .carouselslide {
-        top: calc(var(--headerBgH) - 20px);
+        top: calc(var(--headerBgH) - 40px);
     }
 
     .carousel-inner {
