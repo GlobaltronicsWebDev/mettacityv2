@@ -47,7 +47,8 @@ if (dateToggle && dateInputGroup) {
 
 // Close calendar when clicking outside
 document.addEventListener('click', (e) => {
-  if (calendarDropdown && !calendarDropdown.contains(e.target) && !dateInputGroup.contains(e.target)) {
+  if (calendarDropdown && dateInputGroup &&
+      !calendarDropdown.contains(e.target) && !dateInputGroup.contains(e.target)) {
     calendarDropdown.classList.remove('open');
   }
 });
@@ -189,6 +190,8 @@ const header = document.querySelector('.main-header');
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
   
+  if (!header) return;
+
   if (currentScroll > 100) {
     header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
   } else {

@@ -158,7 +158,7 @@
   <!-- OFFCANVAS HEADER -->
   <div class="offcanvas-header mobile-offcanvas-header">
 
-    <img src="header-menu-carousel/METTACITY Logo.png"
+    <img src="{{ asset('./assets/METTACITY Logo.png') }}"
          alt="Mettacity"
          class="mobile-menu-logo">
 

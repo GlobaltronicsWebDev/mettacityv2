@@ -57,7 +57,6 @@
       </div>
     </a>
     <div class="faq-panel">
-      <img src="{{ asset('./assets/IV_PLANVISIT/FAQS-SECTION/TEXT.png') }}" alt="FAQ Content" class="faq-content-img">
     </div>
   </aside>
 
