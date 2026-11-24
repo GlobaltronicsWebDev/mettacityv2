@@ -461,8 +461,11 @@ canvas {
   }
 
   .scrolling-banner-wrapper {
-    top: 385px;
-    z-index: 700;
+    top: 385px !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1000 !important;
   }
 
   .scrolling-banner {
