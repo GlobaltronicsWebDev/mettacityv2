@@ -556,7 +556,7 @@
     overflow-y: hidden;
     padding: 20px 16px 40px !important;
     position: relative !important;
-    top: -250px !important;
+    top: -350px !important;
     z-index: 200 !important;
     box-sizing: border-box;
   }
