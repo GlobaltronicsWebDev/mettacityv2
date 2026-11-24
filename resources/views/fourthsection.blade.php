@@ -1,6 +1,6 @@
 <div class="fourth-section">
     <img src="{{ asset('assets/TITLE.png') }}" alt="Fourth Section Title" class="fourthtitle">
-    <img src="{{ asset('assets/STEP INSIDE.png') }}" alt="Fourth Section Body" class="fourthbody">
+    <img src="{{ asset('assets/STEP INSIDE.png') }}" alt="Fourth Section Body" class="fourthbody step-inside-mobile">
     <img src="{{ asset('assets/STEP INSIDE BG.png') }}" alt="Step Inside BG" class="stepinsidebgmobile">
 
     <div class="row-fourth">
