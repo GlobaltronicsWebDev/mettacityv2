@@ -598,7 +598,9 @@
     position: absolute !important;
     top: 250% !important;
     transform: translateY(-300px) !important;
-    z-index: 20 !important;
+    z-index: 60 !important;
+    object-fit: contain !important;
+    margin-top: -1225px !important;
   }
 
 }
