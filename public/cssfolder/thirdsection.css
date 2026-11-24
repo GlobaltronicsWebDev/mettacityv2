@@ -397,6 +397,11 @@
 }
 
 @media (max-width: 768px) {
+  .third-card img {
+    max-width: 180px;
+    max-height: 280px;
+  }
+
   .Circularbutton {
     top: -5%;
     width: 70px;
