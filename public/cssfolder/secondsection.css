@@ -314,7 +314,7 @@ canvas {
   /* Show mobile background */
   .carousel-background-mobile {
     position: absolute;
-    top: 47%;
+    top: 150px;
     left: 0;
     width: 100%;
     display: block;
