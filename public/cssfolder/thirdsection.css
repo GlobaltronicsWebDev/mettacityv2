@@ -396,7 +396,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .third-card img {
     max-width: 180px;
     max-height: 280px;
@@ -409,11 +409,11 @@
 
   .thirdtitle h2 {
     font-size: 20px;
-    top: -200px;
+    top: -200px !important;
   }
 
   .thirdtitle h1 {
     font-size: 20px;
-    top: -200px;
+    top: -200px !important;
   }
 }
