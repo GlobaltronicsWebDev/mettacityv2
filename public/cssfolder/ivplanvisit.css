@@ -171,7 +171,7 @@ body {
   position: absolute;
   left: 120px;
   top: 50%;
-  transform: translateY(calc(-50% - 272px));
+  transform: translateY(calc(-50% - 222px));
   z-index: 400;
   background: transparent;
   border-radius: 0;
