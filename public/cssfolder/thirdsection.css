@@ -211,7 +211,7 @@
   }
   .third-stack {
     position: relative;
-    top: -460px;
+    top: -480px;
     width: 100%;
     height: 100%;
   }
@@ -398,7 +398,7 @@
 
 @media (max-width: 1024px) {
   .third-stack {
-    top: -460px !important;
+    top: -480px !important;
   }
 
   .third-card img {
