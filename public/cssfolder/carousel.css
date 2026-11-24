@@ -1,6 +1,6 @@
 .carouselslide {
     position: absolute;
-    top: calc(var(--headerBgH) - 40px);
+    top: 12%;
     left: 0;
     width: 100%;
     z-index: 0; /* place behind the image wrapper */
