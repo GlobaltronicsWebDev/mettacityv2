@@ -357,7 +357,12 @@
     display: none;
   }
   .fourthbody {
-    display: none;
+    display: block;
+    position: relative;
+    top: -400px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
   }
 
 /* ================================
@@ -500,4 +505,15 @@
 .statement-inner{
   margin-top: 50px;
 }
+}
+
+@media (min-width: 426px) and (max-width: 1024px) {
+  .fourthbody {
+    display: block;
+    position: relative;
+    top: -400px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
 }
