@@ -99,7 +99,7 @@
 @media (min-width: 375px) and (max-width: 425px) {
 
     .carouselslide {
-        top: 8%;
+        top: 4%;
     }
 
     .carousel-inner {
@@ -185,7 +185,7 @@
 /* ========================================= */
 @media (max-width: 374px) {
     .carouselslide {
-        top: 8%;
+        top: 4%;
     }
 
     /* Square carousel images for small mobile */
