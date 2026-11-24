@@ -267,3 +267,23 @@
     font-size: 12px;
   }
 }
+
+@media (max-width: 768px) {
+  .footer-exact {
+    margin-top: 0;
+  }
+
+  .footer-bg-img,
+  .footer-character,
+  .footer-logo-center,
+  .footer-contact {
+    display: none;
+  }
+
+  .mobilefooter {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+  }
+}
