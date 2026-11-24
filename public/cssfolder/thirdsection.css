@@ -292,6 +292,10 @@
     margin: -80px auto 0;
   }
 
+  .shape {
+   top: -65%;
+  }
+
   .thirdtitle h2 {
    font-size: 13px;
    position: relative;
