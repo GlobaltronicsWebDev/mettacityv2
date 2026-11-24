@@ -579,7 +579,7 @@
   }
 
   .t1 {
-    font-size: 16px !important;
+    font-size: 19px !important;
   }
 
   .t2 {
@@ -587,7 +587,8 @@
   }
 
   .row-title {
-    top: -900px !important;
+    top: -988px !important;
+    left: -149px !important;
     position: relative !important;
     z-index: 250 !important;
   }
