@@ -458,7 +458,7 @@ canvas {
 @media (max-width: 768px) {
   .carousel-background-mobile {
     top: 300px;
-    height: 700px;
+    height: 600px;
     object-fit: cover;
   }
 
