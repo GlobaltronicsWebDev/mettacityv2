@@ -596,7 +596,7 @@
   .core-message {
     display: block !important;
     position: absolute !important;
-    top: -247% !important;
+    top: 250% !important;
     transform: translateY(-300px) !important;
     z-index: 60 !important;
     object-fit: contain !important;
