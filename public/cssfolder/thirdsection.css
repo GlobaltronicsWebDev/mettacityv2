@@ -243,15 +243,15 @@
   height: 5px;
 }
   .thirdtitle h2 {
-    font-size: 15px;
+    font-size: 13px;
     position: relative;
-    top: -60px;     /* Moves it up */
+    top: -80px;
     margin-top: 0; /* reset push-down */
   }
   .thirdtitle h1 {
-    font-size: 12px;
+    font-size: 10px;
     position: relative;
-    top: -70px;     /* 👈 moves it UP */
+    top: -100px;
     margin-top: 0; /* reset push-down */
   }
   .shape { 
@@ -293,16 +293,16 @@
   }
 
   .thirdtitle h2 {
-   font-size: 14px;
+   font-size: 13px;
    position: relative;
-   top: -55px;
+   top: -80px;
    margin-top: 0;
   }
 
   .thirdtitle h1 {
-    font-size: 11px;
+    font-size: 10px;
     position: relative;
-    top: -100px;
+    top: -120px;
  
   }
 
