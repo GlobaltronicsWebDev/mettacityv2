@@ -397,15 +397,6 @@
 }
 
 @media (max-width: 768px) {
-  .third-carousel {
-    height: 400px;
-  }
-
-  .third-card img {
-    max-width: 160px;
-    max-height: 240px;
-  }
-
   .Circularbutton {
     top: -5%;
     width: 70px;
