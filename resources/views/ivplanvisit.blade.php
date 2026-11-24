@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="{{ asset('cssfolder/preloader.css') }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/ivplanvisit.css') }}?v={{ time() }}">
   <link rel="stylesheet" href="{{ asset('cssfolder/navbar.css') }}">
-  <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssfolder/footer.css') }}?v={{ time() }}">
 
 </head>
 
