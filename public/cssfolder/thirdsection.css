@@ -396,12 +396,12 @@
 
 @media (max-width: 768px) {
   .thirdtitle h2 {
-    font-size: 13px;
+    font-size: 20px;
     top: -80px;
   }
 
   .thirdtitle h1 {
-    font-size: 13px;
-    top: -120px;
+    font-size: 20px;
+    top: -100px;
   }
 }
