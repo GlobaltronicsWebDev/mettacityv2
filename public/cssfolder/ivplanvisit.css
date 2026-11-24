@@ -972,6 +972,34 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .faq-sidebar {
+    display: none;
+  }
+
+  .event-card {
+    left: 5%;
+    top: auto;
+    bottom: 0;
+    transform: none;
+    width: 90%;
+    height: auto;
+  }
+
+  .event-character {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+
+  .event-character img {
+    width: 100% !important;
+    height: auto !important;
+    position: static;
+    object-fit: contain;
+  }
+}
+
 @media (max-width: 425px) {
 
   .marquee-container {
