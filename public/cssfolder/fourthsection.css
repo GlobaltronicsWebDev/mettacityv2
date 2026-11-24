@@ -513,7 +513,7 @@
     position: relative;
     top: -555px;
     left: 0;
-    width: 100%;
+    width: 120%;
     z-index: 10;
   }
 }
@@ -555,7 +555,7 @@
     overflow: visible;
     padding: 20px 16px 40px !important;
     position: relative !important;
-    top: -896px !important;
+    top: -250px !important;
     z-index: 200 !important;
     box-sizing: border-box;
   }
@@ -568,16 +568,11 @@
   }
 
   .row-fourth .col img {
-    width: 85% !important;
-    height: auto !important;
-    max-width: 340px !important;
+    width: auto !important;
+    height: 260px !important;
+    max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
-  }
-
-  .row-fourth .entermettacity {
-    width: 150px !important;
-    max-width: 150px !important;
   }
 
   .row-fourth-mobile {
