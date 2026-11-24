@@ -243,9 +243,9 @@
   height: 5px;
 }
   .thirdtitle h2 {
-    font-size: 15px;
+    font-size: 13px;
     position: relative;
-    top: -60px;     /* 👈 moves it UP */
+    top: -80px;
     margin-top: 0; /* reset push-down */
   }
   .thirdtitle h1 {
