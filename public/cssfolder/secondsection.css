@@ -452,3 +452,60 @@ canvas {
     z-index: 999;
   }
 }
+
+/* Keep the home second section in the desktop position on mobile.
+   The mobile hero carousel is controlled separately in carousel.css. */
+@media (max-width: 768px) {
+  .carousel-background-mobile {
+    top: 84%;
+  }
+
+  .scrolling-banner-wrapper {
+    top: 94%;
+  }
+
+  .scrolling-banner {
+    padding: 8px 16px;
+  }
+
+  .scrolling-banner.left {
+    width: 39%;
+    padding-right: 28px;
+    clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 100%, 0 100%);
+  }
+
+  .scrolling-banner.right {
+    width: 38.5%;
+    padding-left: 28px;
+    clip-path: polygon(36px 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .secondbanner {
+    top: -50px;
+    margin: 1000px auto;
+  }
+
+  .secondbanner h2 {
+    font-size: 48px;
+  }
+
+  .secondbanner h1 {
+    font-size: 42px;
+    margin-bottom: 40px;
+  }
+
+  .enter-button {
+    width: 250px !important;
+  }
+
+  .main-carousel {
+    top: 120%;
+    left: 0;
+    width: 100%;
+  }
+
+  canvas {
+    top: 1100px !important;
+    height: 100% !important;
+  }
+}
