@@ -332,7 +332,7 @@
 @media (max-width: 425px) {
   .fourthtitle {
     position: relative;
-    top: -450px;
+    top: -500px;
     display: block;
     width: 120%;
     z-index: 10;
@@ -522,7 +522,7 @@
   .fourthtitle {
     display: block !important;
     position: relative !important;
-    top: -450px !important;
+    top: -500px !important;
     left: 0 !important;
     width: 100% !important;
     height: auto !important;
