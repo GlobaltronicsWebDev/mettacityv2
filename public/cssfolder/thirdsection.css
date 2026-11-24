@@ -179,7 +179,7 @@
 
 .shape {
   position: absolute;
-  top: -56%;
+  top: -66%;
   left: 0;
   width: 100%;
   object-fit: cover;
@@ -292,9 +292,7 @@
     margin: -80px auto 0;
   }
 
-  .shape {
-   top: -65%;
-  }
+
 
   .thirdtitle h2 {
    font-size: 13px;
