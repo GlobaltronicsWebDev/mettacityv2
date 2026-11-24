@@ -546,13 +546,14 @@
 
   .row-fourth {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
     justify-content: flex-start !important;
-    align-items: center !important;
-    gap: 18px;
+    align-items: flex-start !important;
+    gap: 12px;
     width: 100%;
-    overflow: visible;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: 20px 16px 40px !important;
     position: relative !important;
     top: -250px !important;
@@ -562,9 +563,7 @@
 
   .row-fourth .col {
     flex: 0 0 auto;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    width: auto;
   }
 
   .row-fourth .col img {
