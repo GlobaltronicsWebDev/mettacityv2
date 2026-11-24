@@ -397,6 +397,10 @@
 }
 
 @media (max-width: 1024px) {
+  .third-stack {
+    top: -95px !important;
+  }
+
   .third-card img {
     max-width: 180px;
     max-height: 280px;
