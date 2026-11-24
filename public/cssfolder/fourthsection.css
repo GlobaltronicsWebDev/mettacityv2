@@ -578,4 +578,12 @@
     display: none !important;
   }
 
+  .t1 {
+    font-size: 16px !important;
+  }
+
+  .t2 {
+    font-size: 20px !important;
+  }
+
 }
