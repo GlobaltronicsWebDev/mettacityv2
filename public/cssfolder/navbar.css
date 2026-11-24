@@ -297,7 +297,7 @@ input, textarea {
 ========================= */
 @media (max-width: 768px){
   :root{
-    --headerBgH: 80px;
+    --headerBgH: 95px;
     --logoOffsetY: 3px;
   }
 
