@@ -409,6 +409,7 @@
 
   .shape {
     top: -50% !important;
+    transform: translateY(-200px);
   }
 
   .third-card img {
