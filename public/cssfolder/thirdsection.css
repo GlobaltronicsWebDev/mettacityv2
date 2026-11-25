@@ -427,3 +427,9 @@
     top: -200px !important;
   }
 }
+
+@media (max-width: 768px) {
+  .Circularbutton {
+    top: 15% !important;
+  }
+}
