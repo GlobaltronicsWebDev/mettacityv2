@@ -196,6 +196,13 @@
   z-index: 3;
 }
 
+@media (min-width: 1025px) {
+  .Circularbutton {
+    top: 94%;
+    width: 200px;
+  }
+}
+
 @keyframes rotateClockwise {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to   { transform: translate(-50%, -50%) rotate(360deg); }
