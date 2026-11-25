@@ -25,9 +25,7 @@ body {
 }
 
 /* Desktop hides the mobile background image */
-.carousel-background-mobile {
-  display: none;
-}
+
 
 /* =========================
    SCROLLING BANNER WRAPPER
