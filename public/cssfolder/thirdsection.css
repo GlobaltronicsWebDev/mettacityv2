@@ -429,6 +429,10 @@
 }
 
 @media (max-width: 768px) {
+  .third-nav {
+    display: none !important;
+  }
+
   .Circularbutton {
     top: -102% !important;
   }
