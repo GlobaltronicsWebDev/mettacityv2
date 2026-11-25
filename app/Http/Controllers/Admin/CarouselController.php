@@ -41,8 +41,10 @@ class CarouselController extends Controller
             $validated = $request->validate([
                 'title' => 'nullable|string|max:255',
                 'description' => 'nullable|string',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120|dimensions:min_width=100,min_height=100',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:10240|dimensions:min_width=100,min_height=100',
                 'order' => 'nullable|integer',
+            ], [
+                'image.max' => 'The carousel image must not be larger than 10 MB.',
             ]);
 
             $validated['is_active'] = $request->has('is_active') ? true : false;
@@ -94,8 +96,10 @@ class CarouselController extends Controller
             $validated = $request->validate([
                 'title' => 'nullable|string|max:255',
                 'description' => 'nullable|string',
-                'image' => 'nullable|image|max:5120',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:10240|dimensions:min_width=100,min_height=100',
                 'order' => 'nullable|integer',
+            ], [
+                'image.max' => 'The carousel image must not be larger than 10 MB.',
             ]);
 
             $validated['is_active'] = $request->has('is_active') ? true : false;
