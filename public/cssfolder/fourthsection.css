@@ -28,7 +28,7 @@
   width: 100%;
   display: block;
   object-fit: cover;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* =========================
@@ -65,7 +65,7 @@
   height: 525px;
   object-fit: contain;
   display: block;
-  margin-top: 260%;
+  margin-top: 0;
   padding: 10px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
