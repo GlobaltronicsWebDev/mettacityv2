@@ -41,7 +41,7 @@
             </div>
         @endif
         <input type="file" name="mobile_image" class="form-control @error('mobile_image') is-invalid @enderror" accept="image/jpeg,image/png,image/webp">
-        <small class="text-muted">Leave empty to keep the current mobile image. Required size: 440x427px (Max 10MB)</small>
+        <small class="text-muted">Leave empty to keep the current mobile image. Recommended size: 440x427px (Max 10MB)</small>
         @error('mobile_image')<div class="invalid-feedback">{{ $message }}</div>@enderror
     </div>
 
