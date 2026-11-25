@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Mettacity</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="<?php echo e(asset('cssfolder/preloader.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('cssfolder/iientermettacity.css?v=' . time())); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('cssfolder/navbar.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('cssfolder/footer.css?v=' . time())); ?>">
+
+  <!-- Disable DevTools -->
+  <script src="<?php echo e(asset('js/disable-devtools.js?v=' . time())); ?>"></script>
+
+</head>
+
+<body class="main-bg-section" style="background-image: url('<?php echo e(asset('./assets/II_ENTERMETTACITY/ENTER_METTACITY.png')); ?>');">
+
+<!-- Preloader -->
+<div id="preloader">
+    <div class="preloader-content">
+        <div class="preloader-logo">
+            <img src="<?php echo e(asset('./assets/MEEKO.png')); ?>" alt="Loading...">
+        </div>
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">Entering Mettacity...</div>
+    </div>
+</div>
+
+<?php echo $__env->make('navbar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+
+  <!-- HERO SECTION -->
+  <section class="hero-wrapper">
+
+    <!-- BACKGROUND VIDEO -->
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="<?php echo e(asset('./assets/II_ENTERMETTACITY/main-video/teaser3.mp4')); ?>" type="video/mp4">
+      <!-- fallback text -->
+    </video>
+
+    <!-- HERO CONTENT -->
+    <div class="hero-content">
+      <!-- <h1>Welcome to METTACITY</h1>
+      <p>An Immersive Universe</p> -->
+    </div>
+
+  </section>
+  
+<!-- MARQUEE STRIP -->
+<section class="marquee-strip">
+  <div class="marquee-viewport">
+    <div class="marquee-track" id="marqueeTrack">
+      <div class="marquee-set" id="marqueeSet">
+        <span class="dot">•</span><span class="play">PLAY</span>
+        <span class="dot">•</span><span class="culture">CULTURE</span>
+        <span class="dot">•</span><span class="tech">TECHNOLOGY</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN BACKGROUND SECTION -->
+<section>
+  <div class="zones-wrap">
+
+    <!-- MAIN TITLE -->
+    <div class="main-title-box">
+        <img src="<?php echo e(asset('./assets/II_ENTERMETTACITY/TITLE.png')); ?>"  alt="The Mettacity Zones" class="main-title-img">
+    </div>  
+
+    <!-- ZONES LIST (STACKED) -->
+    <div class="zones-list">
+     <!-- 1) XR INFINITE SPACE -->
+        <a href="javascript:void(0)" class="zone-card zone-purple has-overlay">
+          <img src="<?php echo e(asset('./assets/II_ENTERMETTACITY/XR Infinite Space.png')); ?>" alt="XR Infinite Space">
+
+          <div class="zone-full-overlay">
+            <h3 class="zone-title">XR INFINITE SPACE</h3>
+            <p class="zone-desc">Explore immersive worlds, cosmic visuals, and next-gen interactive experiences.</p>
+          </div>
+        </a>
+
+        <!-- 2) 9D THEATER: FLYING CINEMA -->
+        <a href="javascript:void(0)" class="zone-card zone-teal has-overlay">
+          <img src="<?php echo e(asset('./assets/II_ENTERMETTACITY/9D Theatre_ Flying Cinema.png')); ?>" alt="9D Theater - Flying Cinema">
+
+          <div class="zone-full-overlay">
+            <h3 class="zone-title">9D THEATER</h3>
+            <p class="zone-desc">Flying Cinema with motion, wind, and thrilling cinematic effects.</p>
+          </div>
+        </a>
+
+        <!-- 3) 9D THEATER: DOOMSDAY HURRICANE -->
+        <a href="javascript:void(0)" class="zone-card zone-yellow has-overlay">
+          <img src="<?php echo e(asset('./assets/II_ENTERMETTACITY/9D Theatre_ Doomsday Hurricane.png')); ?>" alt="9D Theater - Doomsday Hurricane">
+
+          <div class="zone-full-overlay">
+            <h3 class="zone-title">DOOMSDAY HURRICANE</h3>
+            <p class="zone-desc">An intense 9D cinematic ride with powerful effects and action scenes.</p>
+          </div>
+        </a>
+
+      <!-- 4) KIDS WORLD (placeholder image) -->
+      <a href="javascript:void(0)" class="zone-card zone-pink has-overlay">
+          <img src="<?php echo e(asset('./assets/II_ENTERMETTACITY/Kids World.png')); ?>" alt="9D Theater - Doomsday Hurricane">
+
+          <div class="zone-full-overlay">
+            <h3 class="zone-title">DOOMSDAY HURRICANE</h3>
+            <p class="zone-desc">An intense 9D cinematic ride with powerful effects and action scenes.</p>
+          </div>
+        </a>
+    </div>
+    </div>
+    
+
+            <!-- ✅ SECTION -->
+    <section class="feature-exact">
+      <div class="bg-wrapper stretch-bg">
+
+        <!-- Desktop: exact image (no crop) -->
+        <img src="<?php echo e(asset('./assets/II_ENTERMETTACITY/BG.png')); ?>" class="bg-exact-img" alt="BG" />
+
+        <!-- Mobile: exact image (no crop) -->
+        <img src="<?php echo e(asset('./assets/II_ENTERMETTACITY/FEATUREBG.png')); ?>" class="bgm-exact-img" alt="BG" />
+
+        <!-- Overlay content -->
+        <div class="feature-overlay container-fluid">
+          <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-12">
+
+              <!-- ROW 1 -->
+              <div class="row align-items-center feature-row">
+                <div class="col-lg-4 col-md-5">
+                  <div class="pill">
+                    <span class="pill-icon">
+                      <img src="<?php echo e(asset('./assets/II_ENTERMETTACITY/Arrow.png')); ?>" alt="Arrow" />
+                    </span>
+                    <span class="pill-text">Play without Limits</span>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-7">
+                  <p class="feature-text">
+                    Jump, move, collaborate, compete—every space reacts to you.
+                  </p>
+                </div>
+              </div>
+
+              <!-- ROW 2 -->
+              <div class="row align-items-center feature-row">
+                <div class="col-lg-4 col-md-5">
+                  <div class="pill">
+                    <span class="pill-icon">
+                        <img src="<?php echo e(asset('./assets/II_ENTERMETTACITY/Arrow.png')); ?>" alt="Arrow" />
+                    </span>
+                    <span class="pill-text">Explore Living Worlds</span>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-7">
+                  <p class="feature-text">
+                    Walls shift. Lights respond. Stories unfold as you explore.
+                  </p>
+                </div>
+              </div>
+
+              <!-- ROW 3 -->
+              <div class="row align-items-center feature-row">
+                <div class="col-lg-4 col-md-5">
+                  <div class="pill">
+                    <span class="pill-icon">
+                        <img src="<?php echo e(asset('./assets/II_ENTERMETTACITY/Arrow.png')); ?>" alt="Arrow" />
+                    </span>
+                    <span class="pill-text">Create &amp; Share</span>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-7">
+                  <p class="feature-text">
+                    Capture moments, unlock surprises, and share your journey—every corner is Instagrammable.
+                  </p>
+                </div>
+              </div>
+
+              <!-- ROW 4 -->
+              <div class="row align-items-center feature-row">
+                <div class="col-lg-4 col-md-9">
+                  <div class="pill">
+                    <span class="pill-icon">
+                        <img src="<?php echo e(asset('./assets/II_ENTERMETTACITY/Arrow.png')); ?>" alt="Arrow" />
+                    </span>
+                    <span class="pill-text">Experience Culture in Motion</span>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-7">
+                  <p class="feature-text">
+                    Art, music, fashion, and storytelling come alive through interactive environments.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>      
+    </section>
+
+
+ <section class="bottom-merge">
+
+        <!-- STATEMENT -->
+        <section class="statement-section">
+          <div class="container-fluid">
+            <div class="statement-inner">
+              <p class="statement-eyebrow">The future of amusement-</p>
+              <h2 class="statement-heading">
+                Where Culture, Play, and Technology Meet
+              </h2>
+            <a href="<?php echo e(route('visit')); ?>"><img src="<?php echo e(asset('./assets/PLAN YOUR VISIT.png')); ?>" alt="Enter Button" class="enter-button"></a>
+            </div>
+          </div>
+        </section>
+ </section>
+
+<?php echo $__env->make('footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo e(asset('jsfolder/iientermettacity.js')); ?>"></script>
+
+  <script>
+    // Preloader - Hide when page is fully loaded
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        setTimeout(function() {
+            preloader.classList.add('hidden');
+            // Remove from DOM after animation
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 500); // Show for at least 500ms
+    });
+  </script>
+
+</body>
+</html>
+<?php /**PATH C:\Users\marke\OneDrive\Desktop\METTACITY MAIN\mettacityv2\resources\views\iientermettacity.blade.php ENDPATH**/ ?>

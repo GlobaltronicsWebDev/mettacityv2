@@ -6,7 +6,16 @@
     z-index: 0; /* place behind the image wrapper */
     opacity: 1;
     transition: opacity 0.6s ease, transform 0.6s ease;
-    will-change: top, opacity, transform;
+    will-change: auto;
+}
+
+/* Keep desktop banners at their native aspect ratio for sharper rendering. */
+.carousel-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    image-rendering: auto;
 }
 
 /* Static image overlaying the carousel */
@@ -21,7 +30,7 @@
     pointer-events: none; /* allow clicks to pass through to controls */
     opacity: 1;
     transition: opacity 0.6s ease, transform 0.6s ease;
-    will-change: opacity, transform;
+    will-change: auto;
 }
 
 /* Style carousel indicators */
