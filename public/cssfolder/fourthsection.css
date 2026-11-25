@@ -518,6 +518,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .fourthtitle {
+    top: -700px !important;
+  }
+}
+
 @media (min-width: 426px) and (max-width: 1024px) {
   .fourth-section {
     position: relative;
@@ -530,7 +536,7 @@
   .fourthtitle {
     display: block !important;
     position: relative !important;
-    top: -650px !important;
+    top: -700px !important;
     left: 0 !important;
     width: 100% !important;
     height: auto !important;
