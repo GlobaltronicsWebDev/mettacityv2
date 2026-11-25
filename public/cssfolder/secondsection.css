@@ -463,7 +463,7 @@ canvas {
   }
 
   .scrolling-banner-wrapper {
-    top: 685px !important;
+    top: 450px !important;
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -492,18 +492,24 @@ canvas {
   }
 
   .secondbanner h2 {
-    font-size: 43px;
+    font-size: 35px;
     line-height: 1.1;
+    position: relative;
+    top: -251px;
   }
 
   .secondbanner h1 {
     font-size: 27px;
+    position: relative;
     line-height: 1.1;
-    margin-bottom: 40px;
+    margin-bottom: 91px;
+    top: -234px;
   }
 
   .enter-button {
-    width: 250px !important;
+    width: 220px !important;
+    position: relative;
+    top: -273px;
   }
 
   .main-carousel {
