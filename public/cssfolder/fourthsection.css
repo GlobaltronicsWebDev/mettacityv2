@@ -520,7 +520,7 @@
 
 @media (max-width: 768px) {
   .fourthtitle {
-    top: -900px !important;
+    top: -1000px !important;
   }
 }
 
@@ -536,7 +536,7 @@
   .fourthtitle {
     display: block !important;
     position: relative !important;
-    top: -750px !important;
+    top: -1000px !important;
     left: 0 !important;
     width: 100% !important;
     height: auto !important;
