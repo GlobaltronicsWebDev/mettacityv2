@@ -23,7 +23,7 @@
    ========================= */
 .fourthbody {
   position: absolute;
-  top: 300px;
+  top: 376%;
   left: 0;
   width: 100%;
   display: block;
@@ -42,9 +42,9 @@
   align-items: center;           /* vertical centering */
   flex-wrap: wrap;
   padding: 180px 130px 0 150px;
-  top: -500px;            /* pull section upward */
+  top: -1850px;            /* pull section upward */
   box-sizing: border-box;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* =========================
@@ -322,7 +322,7 @@
   transform: translateX(-1px);
 }
 .enter-button{
-  margin-top: 50px;
+  margin-top: 22px;
   width: 250px;
   height: auto;
   display: block;

@@ -218,6 +218,8 @@ body {
   font-size: 48px;
   margin-bottom: -5px;     /* Pulls h2 closer to h1 */
   color: #040017;
+  position: relative;
+  top: -2099px;
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -227,6 +229,8 @@ body {
   font-weight: bold;
   margin-bottom: 40px;
   color: #040017;
+  position: relative;
+  top: -2030px;
   font-family: 'Poppins', sans-serif;
 }
 
