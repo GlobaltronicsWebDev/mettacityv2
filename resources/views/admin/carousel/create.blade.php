@@ -28,6 +28,13 @@
     </div>
 
     <div class="mb-3">
+        <label class="form-label">Mobile Image *</label>
+        <input type="file" name="mobile_image" class="form-control @error('mobile_image') is-invalid @enderror" accept="image/jpeg,image/png,image/webp" required>
+        <small class="text-muted">Required size: 440x427px (Max 10MB)</small>
+        @error('mobile_image')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+
+    <div class="mb-3">
         <label class="form-label">Order</label>
         <input type="number" name="order" class="form-control @error('order') is-invalid @enderror" value="{{ old('order', 0) }}">
         <small class="text-muted">Lower numbers appear first</small>

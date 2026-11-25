@@ -42,9 +42,12 @@ class CarouselController extends Controller
                 'title' => 'nullable|string|max:255',
                 'description' => 'nullable|string',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:10240|dimensions:min_width=100,min_height=100',
+                'mobile_image' => 'required|image|mimes:jpeg,png,jpg,webp|max:10240|dimensions:width=440,height=427',
                 'order' => 'nullable|integer',
             ], [
                 'image.max' => 'The carousel image must not be larger than 10 MB.',
+                'mobile_image.max' => 'The mobile carousel image must not be larger than 10 MB.',
+                'mobile_image.dimensions' => 'The mobile carousel image must be exactly 440x427 pixels.',
             ]);
 
             $validated['is_active'] = $request->has('is_active') ? true : false;
@@ -59,6 +62,10 @@ class CarouselController extends Controller
                 }
                 
                 $validated['image'] = $file->store('carousel', 'public');
+            }
+
+            if ($request->hasFile('mobile_image')) {
+                $validated['mobile_image'] = $request->file('mobile_image')->store('carousel/mobile', 'public');
             }
 
             Carousel::create($validated);
@@ -97,9 +104,12 @@ class CarouselController extends Controller
                 'title' => 'nullable|string|max:255',
                 'description' => 'nullable|string',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:10240|dimensions:min_width=100,min_height=100',
+                'mobile_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:10240|dimensions:width=440,height=427',
                 'order' => 'nullable|integer',
             ], [
                 'image.max' => 'The carousel image must not be larger than 10 MB.',
+                'mobile_image.max' => 'The mobile carousel image must not be larger than 10 MB.',
+                'mobile_image.dimensions' => 'The mobile carousel image must be exactly 440x427 pixels.',
             ]);
 
             $validated['is_active'] = $request->has('is_active') ? true : false;
@@ -109,6 +119,13 @@ class CarouselController extends Controller
                     Storage::disk('public')->delete($carousel->image);
                 }
                 $validated['image'] = $request->file('image')->store('carousel', 'public');
+            }
+
+            if ($request->hasFile('mobile_image')) {
+                if ($carousel->mobile_image) {
+                    Storage::disk('public')->delete($carousel->mobile_image);
+                }
+                $validated['mobile_image'] = $request->file('mobile_image')->store('carousel/mobile', 'public');
             }
 
             $carousel->update($validated);
@@ -136,6 +153,9 @@ class CarouselController extends Controller
         try {
             if ($carousel->image) {
                 Storage::disk('public')->delete($carousel->image);
+            }
+            if ($carousel->mobile_image) {
+                Storage::disk('public')->delete($carousel->mobile_image);
             }
             
             $carousel->delete();

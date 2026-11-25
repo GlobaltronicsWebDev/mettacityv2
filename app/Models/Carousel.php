@@ -10,6 +10,7 @@ class Carousel extends Model
         'title',
         'description',
         'image',
+        'mobile_image',
         'order',
         'is_active',
     ];

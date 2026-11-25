@@ -34,6 +34,18 @@
     </div>
 
     <div class="mb-3">
+        <label class="form-label">Mobile Image</label>
+        @if($carousel->mobile_image)
+            <div class="mb-2">
+                <img src="{{ asset('storage/' . $carousel->mobile_image) }}" alt="{{ $carousel->title }} mobile" style="width: 110px; height: 107px; object-fit: cover; border-radius: 5px;">
+            </div>
+        @endif
+        <input type="file" name="mobile_image" class="form-control @error('mobile_image') is-invalid @enderror" accept="image/jpeg,image/png,image/webp">
+        <small class="text-muted">Leave empty to keep the current mobile image. Required size: 440x427px (Max 10MB)</small>
+        @error('mobile_image')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+
+    <div class="mb-3">
         <label class="form-label">Order</label>
         <input type="number" name="order" class="form-control @error('order') is-invalid @enderror" value="{{ old('order', $carousel->order) }}">
         <small class="text-muted">Lower numbers appear first</small>
