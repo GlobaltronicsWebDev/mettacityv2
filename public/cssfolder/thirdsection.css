@@ -397,8 +397,14 @@
 }
 
 @media (max-width: 1024px) {
+  .third-section {
+    position: relative;
+    z-index: 20;
+  }
+
   .third-stack {
     top: -250px !important;
+    z-index: 30;
   }
 
   .third-card img {
