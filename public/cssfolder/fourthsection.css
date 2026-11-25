@@ -79,7 +79,7 @@
    FOURTH SECTION TITLE ROW
    ========================= */
 .row-title {
-  top: -550px;
+  top: -1850px;
   position: relative;
   z-index: 2;
   padding: 20px 0 100px 160px;   /* left-aligned spacing */
@@ -198,7 +198,7 @@
   display: block;
   margin: -30px auto;
   z-index: -3;
-  margin-top: -590px;
+  margin-top: -1900px;
 }
 
 /* =========================

@@ -70,7 +70,7 @@
 
 .third-stack {
   position: relative;
-  top: -462px;
+  top: -2300px;
   width: 100%;
   height: 100%;
 }
@@ -141,8 +141,14 @@
   z-index: 20;
 }
 
-.third-prev { left: -500px; }
-.third-next { right: -500px; }
+.third-prev {
+  left: -500px;
+  top: -2100px;
+}
+.third-next {
+  right: -500px;
+  top: -2100px;
+}
 
 /* ===================== */
 /* CAPTION & DOTS */
@@ -192,7 +198,7 @@
 
 .Circularbutton {
   position: absolute;
-  top: -219px;
+  top: -2000px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: clamp(90px, 20vw, 250px);
