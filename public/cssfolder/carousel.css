@@ -33,6 +33,12 @@
     will-change: auto;
 }
 
+@media (min-width: 769px) {
+    .carouselslide {
+        z-index: 5;
+    }
+}
+
 /* Style carousel indicators */
 .carousel-indicators {
     display: flex;
